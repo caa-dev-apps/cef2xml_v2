@@ -1,0 +1,591 @@
+!---- CAA MERGED CEF FILE (2015-10-24T12:39:15Z) ----
+!
+! Cluster DWP UT PIOR include file
+!
+! These (FILE_NAME and FILE_FORMAT_VERSION) should go at the top of
+! the CEF file otherwise CEFpass complains
+!
+FILE_NAME            = "CM_CP_DWP_UT_PIOR__20080202_000000_20080203_000000_V100803.cef"
+FILE_FORMAT_VERSION  = "CEF-2.0"
+!
+! START_CEFMERGE_INCLUDE = "CM_CH_DWP_UT_PIOR_V2.ceh"
+!
+! $Id: Cx_CH_DWP_UT_PIOR_dataset.ceht 282 2008-04-30 14:22:21Z caa_dwp $
+!
+! DWP_UT_PIOR_dataset header template instance created for,
+!
+! - CM
+!
+
+! Include mission, observatory, experiment and instrument headers :
+! START_CEFMERGE_INCLUDE = "CL_CH_MISSION.ceh"
+!
+!  CL_CH_MISSION.ceh
+!  Global mission metadata provided by the CAA.
+!
+!  Save to your own hard drive so this file can be
+!  included as CL_CH_MISSION.ceh in other cef files. 
+! 
+
+START_META = MISSION 
+    ENTRY  = "Cluster" 
+END_META   = MISSION 
+
+START_META     = MISSION_TIME_SPAN 
+    VALUE_TYPE = ISO_TIME_RANGE 
+    ENTRY      = 2000-08-16T12:39:00Z/2030-12-31T23:59:59Z
+END_META       = MISSION_TIME_SPAN 
+
+START_META = MISSION_AGENCY 
+    ENTRY  = "ESA" 
+END_META   = MISSION_AGENCY 
+
+START_META = MISSION_DESCRIPTION 
+    ENTRY  = "The aim of the Cluster mission is to study small-scale structures of the magnetosphere " 
+    ENTRY  = "and its environment in three dimensions. To achieve this, Cluster is constituted of four " 
+    ENTRY  = "identical spacecraft that will flight in a tetrahedral configuration. The separation distances " 
+    ENTRY  = "between the spacecraft will be varied between ~40 km and 10 000 km, according to the " 
+    ENTRY  = "key scientific regions." 
+END_META   = MISSION_DESCRIPTION 
+
+START_META = MISSION_KEY_PERSONNEL 
+    ENTRY  = "Philippe Escoubet>Philippe.Escoubet@esa.int >Cluster Project Scientist" 
+END_META   = MISSION_KEY_PERSONNEL 
+
+START_META = MISSION_REFERENCES 
+    ENTRY  = "The Cluster and Phoenix Missions>Cluster project and instrument teams>Space Sci. Rev. 79, Nos. 1-2, 1997"
+END_META   =  MISSION_REFERENCES 
+
+START_META = MISSION_REGION 
+    ENTRY  = "Solar_Wind" 
+    ENTRY  = "Bow_Shock" 
+    ENTRY  = "Magnetosheath" 
+    ENTRY  = "Magnetopause" 
+    ENTRY  = "Magnetosphere" 
+    ENTRY  = "Magnetotail" 
+    ENTRY  = "Polar_Cap"
+    ENTRY  = "Auroral_Region" 
+    ENTRY  = "Cusp" 
+    ENTRY  = "Radiation_Belt" 
+    ENTRY  = "Plasmasphere" 
+END_META   = MISSION_REGION 
+
+START_META = MISSION_CAVEATS 
+ ENTRY = "*CL" 
+END_META = MISSION_CAVEATS
+
+! END_CEFMERGE_INCLUDE = "CL_CH_MISSION.ceh"
+! START_CEFMERGE_INCLUDE = "CM_CH_OBS.ceh"
+!
+START_META     =   OBSERVATORY
+   ENTRY       =   "MULTIPLE"
+   ENTRY       =   "Cluster-1"
+   ENTRY       =   "Cluster-2"
+   ENTRY       =   "Cluster-3"
+   ENTRY       =   "Cluster-4"
+END_META       =   OBSERVATORY
+!
+START_META     = OBSERVATORY_DESCRIPTION
+    ENTRY      = "All Cluster spacecraft"
+END_META       = OBSERVATORY_DESCRIPTION
+!
+START_META     = OBSERVATORY_TIME_SPAN
+    VALUE_TYPE = ISO_TIME_RANGE
+    ENTRY      = 2000-01-01T00:00:00Z/2030-12-31T23:59:59Z
+END_META       = OBSERVATORY_TIME_SPAN
+!
+START_META = OBSERVATORY_REGION
+    ENTRY  = "Solar_Wind"
+    ENTRY  = "Bow_Shock"
+    ENTRY  = "Magnetosheath"
+    ENTRY  = "Magnetopause"
+    ENTRY  = "Magnetosphere"
+    ENTRY  = "Magnetotail"
+    ENTRY  = "Polar_Cap"
+    ENTRY  = "Auroral_Region"
+    ENTRY  = "Cusp"
+    ENTRY  = "Radiation_Belt"
+    ENTRY  = "Plasmasphere"
+END_META   = OBSERVATORY_REGION
+!
+! END_CEFMERGE_INCLUDE = "CM_CH_OBS.ceh"
+! START_CEFMERGE_INCLUDE = "CL_CH_DWP_EXP.ceh"
+! CL_CH_DWP_EXP.ceh
+! EXPERIMENT metadata
+!
+START_META     =   EXPERIMENT
+   ENTRY       =   "DWP"
+END_META       =   EXPERIMENT
+!
+! Description of the experiment
+!
+START_META     =   EXPERIMENT_DESCRIPTION
+   ENTRY       =   "In addition to its role in the control and management of "
+   ENTRY       =   "the WEC instruments the DWP experiment runs an onboard "
+   ENTRY       =   "software application - known as the particle correlator. "
+   ENTRY       =   "Using data provided by the PEACE HEEA sensor via the Inter "
+   ENTRY       =   "Experiment Link this application calculates the "
+   ENTRY       =   "autocorrelation function of the electron count rate to "
+   ENTRY       =   "investigate possible particle flux bursts on short time "
+   ENTRY       =   "scales that may be indicative of regions of velocity space "
+   ENTRY       =   "in which wave-particle interactions are occurring. A full "
+   ENTRY       =   "description of the operation of the particle correlator "
+   ENTRY       =   "may be found in the DWP Users Guide available from CAA/CSA."
+END_META       =   EXPERIMENT_DESCRIPTION
+!
+! Name and coordinates of the PI, and possible earlier PIs
+!
+START_META     =   INVESTIGATOR_COORDINATES
+   ENTRY       =   "M. Balikhin>PI>m.balikhin@sheffield.ac.uk"
+   ENTRY       =   "H. St.C. K. Alleyne>Previous PI>retired"
+   ENTRY       =   "L. J. C. Woolliscroft>Previous PI>deceased"
+END_META       =   INVESTIGATOR_COORDINATES
+!
+! List of standard reference documents for the experiment
+!
+START_META     =   EXPERIMENT_REFERENCES
+   ENTRY       =   "*CL_CD_CAA_DWP_ICD_0001_V0_8.pdf"
+   ENTRY       =   "*CL_CD_DWP_USERMAN.pdf"
+   ENTRY       =   "*CL_CD_DWP_UM"
+   ENTRY       =   "Woolliscroft, L.J.C., H.St.C.K> Alleyne, C.M.Dunford,"
+   ENTRY       =   "A. Sumner, J.A. Thompson, S.N. Walker, K.H. Yearby, "
+   ENTRY       =   "A. Buckley, S. Chapman, M.P. Gough, and the DWP"
+   ENTRY       =   "Co-Investigators, The Digital Wave-Processing Experiment"
+   ENTRY       =   "on Cluster, Space Science Reviews 79, 209-231, 1997"
+END_META       =   EXPERIMENT_REFERENCES
+!
+! Name, role and coordinates of experiment key personnel
+!
+START_META     =   EXPERIMENT_KEY_PERSONNEL
+   ENTRY       =   "K Yearby>Instrument Manager>K.H.Yearby@sheffield.ac.uk"
+   ENTRY       =   "S Walker>Data Manager>Simon.Walker@sheffield.ac.uk"
+   ENTRY       =   "A Buckley>Correlator Scientist>A.M.Buckley@sussex.ac.uk"
+END_META       =   EXPERIMENT_KEY_PERSONNEL
+!
+! Miscellaneous information concerning the experiment
+!
+START_META     =   EXPERIMENT_CAVEATS
+   ENTRY       =   "*CL_CQ_DWP_EXP"
+END_META       =   EXPERIMENT_CAVEATS
+! END_CEFMERGE_INCLUDE = "CL_CH_DWP_EXP.ceh"
+! START_CEFMERGE_INCLUDE = "CM_CH_DWP_INST.ceh"
+!
+! $Id: CM_CH_DWP_INST.ceh 275 2008-04-28 13:51:55Z caa_dwp $
+!
+! Multiple Instrument level header (for DWP_UT_PIOR product).
+!
+START_META     =   INSTRUMENT_NAME
+   ENTRY       =   "MULTIPLE"
+   ENTRY       =   "DWP1"
+   ENTRY       =   "DWP2"
+   ENTRY       =   "DWP3"
+   ENTRY       =   "DWP4"
+END_META       =   INSTRUMENT_NAME
+!
+START_META     =   INSTRUMENT_DESCRIPTION
+   ENTRY       =   "DWP of all Cluster spacecraft"
+END_META       =   INSTRUMENT_DESCRIPTION
+!
+START_META     =   INSTRUMENT_TYPE
+   ENTRY       =   "Particle_Correlator"
+   ENTRY       =   "Data_Processing_Unit"
+END_META       =   INSTRUMENT_TYPE
+!
+START_META     =   MEASUREMENT_TYPE
+   ENTRY       =   "Status"
+END_META       =   MEASUREMENT_TYPE
+!
+START_META     =   INSTRUMENT_CAVEATS
+   ENTRY       =   "*CM_CQ_DWP_INST"
+END_META       =   INSTRUMENT_CAVEATS
+!
+! END_CEFMERGE_INCLUDE = "CM_CH_DWP_INST.ceh"
+
+START_META     =   DATASET_ID
+   ENTRY       =   "CM_CP_DWP_UT_PIOR"
+END_META       =   DATASET_ID
+!
+START_META     =   DATA_TYPE
+   ENTRY       =   "CP>CAA_Parameter"
+END_META       =   DATA_TYPE
+!
+START_META     =   DATASET_TITLE
+   ENTRY       =   "UT time-stamped PIOR"
+END_META       =   DATASET_TITLE
+!
+START_META     =   DATASET_DESCRIPTION
+   ENTRY       =   "The DWP UT_PIOR data set contains listings of the command "
+   ENTRY       =   "sequences and parameters sent to the Cluster satellites in "
+   ENTRY       =   "order to configure and operate the WEC instruments. These "
+   ENTRY       =   "data files are derived from the actual commanding request "
+   ENTRY       =   "sent to JSOC/ESOC. In addition, the spacecraft events such "
+   ENTRY       =   "as magnetopause/bow shock crossings, perigee/apogee, etc "
+   ENTRY       =   "used within the planning cycle."
+   ENTRY       =   "Each record consists of,"
+   ENTRY       =   " - time - Time tag for event/command"
+   ENTRY       =   " - tag - Type of entry"
+   ENTRY       =   "         EVT - event eg boundary crossing etc."
+   ENTRY       =   "         ORS - Start of acquisition interval"
+   ENTRY       =   "         ORE - End of acquisition interval"
+   ENTRY       =   "         REM - COmment added during revision"
+   ENTRY       =   "         SEQ - Operational command sequence used"
+   ENTRY       =   " - spacecraft mask - spacecraft number to which entry applies"
+   ENTRY       =   " - label - Acquisition interval tag "
+   ENTRY       =   " - content - Command macro/event/comment etc."
+   ENTRY       =   "For further details, the user is referred to the CAA DWP "
+   ENTRY       =   "User Manual which contains a complete description of these "
+   ENTRY       =   "parameters lists the general caveats that apply to this "
+   ENTRY       =   "data set."
+END_META       =   DATASET_DESCRIPTION
+!
+START_META     =   CONTACT_COORDINATES
+   ENTRY       =   "K Yearby>DWP Technical Manager>K.H.Yearby@sheffield.ac.uk"
+   ENTRY       =   "S Walker>DWP Data Manager>Simon.Walker@sheffield.ac.uk"
+END_META       =   CONTACT_COORDINATES
+!
+!! Characteristic time interval (seconds) between samples
+START_META     =   TIME_RESOLUTION
+   ENTRY       =   480
+END_META       =   TIME_RESOLUTION
+!
+!! Maximum time interval (seconds) between samples
+!! 30 hours
+START_META     =   MIN_TIME_RESOLUTION
+   ENTRY       =   108000
+END_META       =   MIN_TIME_RESOLUTION
+!
+!! Minimum time interval (seconds) between samples
+START_META     =   MAX_TIME_RESOLUTION
+   ENTRY       =   0
+END_META       =   MAX_TIME_RESOLUTION
+!
+START_META     =   PROCESSING_LEVEL
+   ENTRY       =   "Calibrated"
+END_META       =   PROCESSING_LEVEL
+!
+START_META     =   DATASET_CAVEATS
+   ENTRY       =   "*CM_CQ_DWP_UT_PIOR"
+END_META       =   DATASET_CAVEATS
+!
+START_META     =   ACKNOWLEDGEMENT
+   ENTRY       =   "Please acknowledge the instrument team and ESA Cluster Active Archive in any "
+   ENTRY       =   "publication based upon use of this data."
+END_META       =   ACKNOWLEDGEMENT
+!
+!
+! These following three META entries ('FILE_TYPE', 'METADATA_TYPE',
+! 'METADATA_VERSION') belong to 'file' level, according to the
+! Metadata Dictionary V2.0.  They are attached to the end of the
+! 'dataset' in the CH_DWP INCLUDE mechanism.  Ultimately I believe
+! that it is their presence in the .cef file, rather than their
+! position, that is more important.
+!
+START_META     =   FILE_TYPE
+   ENTRY       =   "cef"
+END_META       =   FILE_TYPE
+!
+START_META     =   METADATA_TYPE
+   ENTRY       =   "CAA"
+END_META       =   METADATA_TYPE
+!
+START_META     =   METADATA_VERSION
+   ENTRY       =   "2.0"
+END_META       =   METADATA_VERSION
+!
+!
+! $Id: Cx_CH_DWP_UT_PIOR_parameters.ceht 220 2008-02-12 11:18:50Z caa_dwp $
+!
+! DWP_UT_PIOR_parameters header template instance created for,
+!
+! - CM
+!
+!
+START_VARIABLE  =  Time__CM_CP_DWP_UT_PIOR
+    PARAMETER_TYPE      = "Support_Data"
+    CATDESC             = "Interval centred time tag"
+    UNITS               = "s"
+    SI_CONVERSION       = "1>s"
+    SIZES               = 1
+    VALUE_TYPE          = ISO_TIME
+    SIGNIFICANT_DIGITS  = 27
+    FILLVAL             = 9999-12-31T23:59:59Z
+    FIELDNAM            = "Universal Time"
+    LABLAXIS            = "UT"
+    DELTA_PLUS          = 0
+    DELTA_MINUS         = 0
+END_VARIABLE    =  Time__CM_CP_DWP_UT_PIOR
+!
+!
+START_VARIABLE  =  Tag__CM_CP_DWP_UT_PIOR
+    PARAMETER_TYPE      = "Data"
+    ENTITY              = "Instrument"
+    PROPERTY            = "Status"
+    CATDESC             = "Tag"
+    VALUE_TYPE          = CHAR
+    SIGNIFICANT_DIGITS  = 3
+    FILLVAL             = "***"
+    QUALITY             = 0
+    UNITS               = "unitless"
+    SI_CONVERSION       = "1>unitless"
+    FIELDNAM            = "Tag"
+    LABLAXIS            = "Tag"
+    DEPEND_0            = Time__CM_CP_DWP_UT_PIOR
+END_VARIABLE    =  Tag__CM_CP_DWP_UT_PIOR
+!
+!
+START_VARIABLE  =  Mask__CM_CP_DWP_UT_PIOR
+    PARAMETER_TYPE      = "Data"
+    ENTITY              = "Instrument"
+    PROPERTY            = "Status"
+    CATDESC             = "Spacecraft Mask"
+    VALUE_TYPE          = CHAR
+    SIGNIFICANT_DIGITS  = 4
+    FILLVAL             = "****"
+    QUALITY             = 0
+    UNITS               = "unitless"
+    SI_CONVERSION       = "1>unitless"
+    FIELDNAM            = "Spacecraft Mask"
+    LABLAXIS            = "Mask"
+    DEPEND_0            = Time__CM_CP_DWP_UT_PIOR
+END_VARIABLE    =  Mask__CM_CP_DWP_UT_PIOR
+!
+!
+START_VARIABLE  =  Label__CM_CP_DWP_UT_PIOR
+    PARAMETER_TYPE      = "Data"
+    ENTITY              = "Instrument"
+    PROPERTY            = "Status"
+    CATDESC             = "Label"
+    VALUE_TYPE          = CHAR
+    SIGNIFICANT_DIGITS  = 12
+    FILLVAL             = "****"
+    QUALITY             = 0
+    UNITS               = "unitless"
+    SI_CONVERSION       = "1>unitless"
+    FIELDNAM            = "Label"
+    LABLAXIS            = "Label"
+    DEPEND_0            = Time__CM_CP_DWP_UT_PIOR
+END_VARIABLE    =  Label__CM_CP_DWP_UT_PIOR
+!
+!
+START_VARIABLE  =  Content__CM_CP_DWP_UT_PIOR
+    PARAMETER_TYPE      = "Data"
+    ENTITY              = "Instrument"
+    PROPERTY            = "Status"
+    CATDESC             = "Content"
+    VALUE_TYPE          = CHAR
+    SIGNIFICANT_DIGITS  = 256
+    FILLVAL             = "****"
+    QUALITY             = 0
+    UNITS               = "unitless"
+    SI_CONVERSION       = "1>unitless"
+    FIELDNAM            = "Content"
+    LABLAXIS            = "Content"
+    DEPEND_0            = Time__CM_CP_DWP_UT_PIOR
+END_VARIABLE    =  Content__CM_CP_DWP_UT_PIOR
+! END_CEFMERGE_INCLUDE = "CM_CH_DWP_UT_PIOR_V2.ceh"
+!
+START_META     =   LOGICAL_FILE_ID
+  ENTRY      = "CM_CP_DWP_UT_PIOR__20080202_000000_20080203_000000_V100803"
+END_META       =   LOGICAL_FILE_ID
+!
+START_META     =   VERSION_NUMBER
+  ENTRY      = 100803
+END_META       =   VERSION_NUMBER
+!
+START_META   = DATASET_VERSION
+    ENTRY    = "Merged file, the dataset version for each segment follows:-"
+    ENTRY    = "2008-02-02T00:00:00Z/2008-02-03T00:00:00Z , CM_CP_DWP_UT_PIOR__20080127_V01"
+    ENTRY    = "  1"
+END_META     = DATASET_VERSION
+!
+START_META   = FILE_CAVEATS
+    ENTRY    = "CAA Merged File - $Id: cefmerge.c,v 1.27 2009/04/09 09:40:06 cperry Exp cperry $"
+    ENTRY    = "The file caveats for each segment follows:-"
+    ENTRY    = "2008-02-02T00:00:00Z/2008-02-03T00:00:00Z , CM_CP_DWP_UT_PIOR__20080127_V01"
+    ENTRY    = "  CEF written by PROCESS_PIOR V1.2 (based on PIORDEV V1.0 KHY, process_pior V1.1 IB)"
+    ENTRY    = "  Source file wec_402_02_05.txt"
+    ENTRY    = "  PET file: 402_05.pet"
+    ENTRY    = "  WEC PIOR: wec_402_02_05.pior"
+    ENTRY    = "  PEACE PIOR: pea_402_02_04.pior"
+END_META     = FILE_CAVEATS
+!
+START_META     =   FILE_TIME_SPAN
+   VALUE_TYPE  =   ISO_TIME_RANGE
+  ENTRY      = 2008-02-02T00:00:00.000Z/2008-02-03T00:00:00.000Z
+END_META       =   FILE_TIME_SPAN
+!
+START_META     =   GENERATION_DATE
+   VALUE_TYPE  =   ISO_TIME
+  ENTRY      = 2015-10-24T12:39:15Z
+END_META       =   GENERATION_DATE
+!
+!
+DATA_UNTIL = EOF
+2008-02-02T00:11:00Z, "SEQ", "  34", "04_NM109B000", "HS;"
+2008-02-02T00:16:00Z, "SEQ", "   2", "04_NM109B000", "HS;"
+2008-02-02T00:23:00Z, "ORE", " 234", "04_NM109B000", "U1_168_1  +08:40:00 NM1   18 ---"
+2008-02-02T00:23:00Z, "ORS", " 234", "04_WB110A000", "U1_168_1  +09:49:00 WB1   17"
+2008-02-02T00:23:00Z, "REM", "  24", "04_WB110A000", "PMRQ 01: Gain update 0.1 sec"
+2008-02-02T00:23:00Z, "SEQ", "  24", "04_WB110A000", "SWECJ022,X'00';"
+2008-02-02T00:23:02Z, "REM", "   2", "04_WB110A000", "PMRQ 01: WBD 9.5KHz bandwidth 8bits baseband Ey antenna"
+2008-02-02T00:23:02Z, "REM", "   4", "04_WB110A000", "PMRQ 01: WBD 9.5KHz bandwidth 8bits baseband Ez antenna"
+2008-02-02T00:23:02Z, "SEQ", "   2", "04_WB110A000", "SWECJ009,X'00',X'03';"
+2008-02-02T00:23:02Z, "SEQ", "   4", "04_WB110A000", "SWECJ009,X'00',X'00';"
+2008-02-02T00:25:40Z, "REM", "   3", "04_WB110A000", "IBMD used : wec_1234_wbd_power VAL file used : wec_wbd_power "
+2008-02-02T00:25:40Z, "SEQ", "   3", "04_WB110A000", "SWECJ012,X'00';"
+2008-02-02T00:26:00Z, "SEQ", "   3", "04_WB110A000", "SWECJ500;"
+2008-02-02T00:26:10Z, "SEQ", "   3", "04_WB110A000", "SWECJ006,X'44';"
+2008-02-02T00:26:20Z, "REM", "   3", "04_WB110A000", "PMRQ 01: Gain update 0.1 sec"
+2008-02-02T00:26:20Z, "SEQ", "   3", "04_WB110A000", "SWECJ022,X'00';"
+2008-02-02T00:26:22Z, "REM", "   3", "04_WB110A000", "PMRQ 01: WBD 9.5KHz bandwidth 8bits baseband Ey antenna"
+2008-02-02T00:26:22Z, "SEQ", "   3", "04_WB110A000", "SWECJ009,X'00',X'03';"
+2008-02-02T00:34:00Z, "ORE", "   1", "04_NM109A000", "U1_168_1  +08:40:00 NM1    9 ---"
+2008-02-02T00:34:00Z, "ORS", "   1", "04_WB111A000", "U1_168_1  +10:00:00 WB1    2"
+2008-02-02T00:34:00Z, "REM", "   1", "04_WB111A000", "PMRQ 01: Gain update 0.1 sec"
+2008-02-02T00:34:00Z, "SEQ", "   1", "04_WB111A000", "SWECJ022,X'00';"
+2008-02-02T00:34:02Z, "REM", "   1", "04_WB111A000", "PMRQ 01: WBD 9.5KHz bandwidth 8bits baseband Ey antenna"
+2008-02-02T00:34:02Z, "SEQ", "   1", "04_WB111A000", "SWECJ009,X'00',X'03';"
+2008-02-02T00:36:00Z, "SEQ", "   3", "04_WB110A000", "SWECJ006,X'04';"
+2008-02-02T00:36:10Z, "SEQ", "   3", "04_WB110A000", "SWECJ501;"
+2008-02-02T01:36:00Z, "REM", "   3", "04_WB110A000", "PMRQ 01: 2nd Power on"
+2008-02-02T01:36:00Z, "SEQ", "   3", "04_WB110A000", "SWECJ500;"
+2008-02-02T01:36:10Z, "SEQ", "   3", "04_WB110A000", "SWECJ006,X'44';"
+2008-02-02T01:36:20Z, "REM", "   3", "04_WB110A000", "PMRQ 01: Gain update 0.1 sec"
+2008-02-02T01:36:20Z, "SEQ", "   3", "04_WB110A000", "SWECJ022,X'00';"
+2008-02-02T01:36:22Z, "REM", "   3", "04_WB110A000", "PMRQ 01: WBD 9.5KHz bandwidth 8bits baseband Ey antenna"
+2008-02-02T01:36:22Z, "SEQ", "   3", "04_WB110A000", "SWECJ009,X'00',X'03';"
+2008-02-02T01:46:00Z, "REM", "   3", "04_WB110A000", "PMRQ 01: 2nd Power off"
+2008-02-02T01:46:00Z, "SEQ", "   1", "04_NM109A000", "HS;"
+2008-02-02T01:46:00Z, "SEQ", "   3", "04_WB110A000", "SWECJ006,X'04';"
+2008-02-02T01:46:10Z, "SEQ", "   3", "04_WB110A000", "SWECJ501;"
+2008-02-02T01:46:30Z, "REM", "   3", "04_WB110A000", "PMRQ 01: Enable checksum patch following WBD power commands"
+2008-02-02T01:46:30Z, "SEQ", "   3", "04_WB110A000", "SWECJ012,X'01';"
+2008-02-02T01:47:00Z, "ORE", "   1", "04_WB111A000", "U1_168_1  +10:00:00 WB1    2 ---"
+2008-02-02T01:47:00Z, "ORE", " 234", "04_WB110A000", "U1_168_1  +09:49:00 WB1   17 ---"
+2008-02-02T01:47:00Z, "ORS", "1234", "04_NM112A000", "U1_168_1  +11:13:00 NM1    0"
+2008-02-02T01:47:01Z, "SEQ", "   2", "04_NM109B000", "SETUP_1_LEEA,X'000f',X'0013',X'0000',X'1255',X'0000',X'0004';"
+2008-02-02T01:47:01Z, "SEQ", "   3", "04_NM109B000", "SETUP_1_LEEA,X'000f',X'0013',X'0000',X'1255',X'0000',X'0004';"
+2008-02-02T01:47:01Z, "SEQ", "   4", "04_NM109B000", "SETUP_1_LEEA,X'000f',X'0013',X'0000',X'1255',X'0000',X'0004';"
+2008-02-02T01:57:01Z, "SEQ", "   1", "04_NM109A000", "SETUP_1_LEEA,X'000f',X'0013',X'0000',X'1255',X'0000',X'0004';"
+2008-02-02T02:45:00Z, "EVT", "   0", "------------", "B3_168_O  Bow shock crossing"
+2008-02-02T04:01:00Z, "SEQ", " 234", "04_NM109B000", "HS;"
+2008-02-02T19:03:30Z, "REM", "   3", "04_BM313A000", "IBMD used : wec_1234_wil1_dwpc VAL file used : wec_3_wil1_dwpc "
+2008-02-02T19:03:30Z, "REM", " 124", "04_BM313A000", "IBMD used : wec_1234_wil1_dwpc VAL file used : wec_wil1_dwpc "
+2008-02-02T19:03:30Z, "SEQ", "   3", "04_BM313A000", "SWECJ134;"
+2008-02-02T19:03:30Z, "SEQ", " 124", "04_BM313A000", "SWECJ134;"
+2008-02-02T19:03:36Z, "SEQ", "   3", "04_BM313A000", "SWECJ340;"
+2008-02-02T19:03:36Z, "SEQ", " 124", "04_BM313A000", "SWECJ340;"
+2008-02-02T19:04:00Z, "SEQ", "   3", "04_BM313A000", "SWECJ131,X'02',X'38',X'40',X'42',X'41',X'43',X'45',X'04';"
+2008-02-02T19:04:00Z, "SEQ", " 124", "04_BM313A000", "SWECJ131,X'02',X'38',,,,,,;"
+2008-02-02T19:05:00Z, "SEQ", "   3", "04_BM313A000", "SWECJ135;"
+2008-02-02T19:05:00Z, "SEQ", " 124", "04_BM313A000", "SWECJ135;"
+2008-02-02T19:05:30Z, "SEQ", "   3", "04_BM313A000", "SWECJ012,X'01';"
+2008-02-02T19:05:30Z, "SEQ", " 124", "04_BM313A000", "SWECJ012,X'01';"
+2008-02-02T19:06:00Z, "ORE", "1234", "04_NM112A000", "U1_168_1  +11:13:00 NM1    0 ---"
+2008-02-02T19:06:00Z, "ORS", "1234", "04_BM313A000", "U1_168_1  +28:32:00 BM3   14"
+2008-02-02T19:06:00Z, "REM", "1234", "04_BM313A000", "IBMD used : wec_1234_dwpc_bm3e VAL file used : wec_dwpc_bm3e "
+2008-02-02T19:06:00Z, "SEQ", "1234", "04_BM313A000", "SWECJ990,X'9b';"
+2008-02-02T19:06:06Z, "SEQ", "1234", "04_BM313A000", "SWECJ203;"
+2008-02-02T19:06:12Z, "SEQ", "1234", "04_BM313A000", "SWECJ004,X'05';"
+2008-02-02T19:06:24Z, "SEQ", "1234", "04_BM313A000", "SWECJ346;"
+2008-02-02T19:12:00Z, "ORE", "1234", "04_BM313A000", "U1_168_1  +28:32:00 BM3   14 ---"
+2008-02-02T19:12:00Z, "ORS", "  14", "04_NM114B000", "U1_168_1  +28:38:00 NM1   40"
+2008-02-02T19:12:00Z, "ORS", "  23", "04_NM114A000", "U1_168_1  +28:38:00 NM1   48"
+2008-02-02T19:12:00Z, "REM", "   1", "04_NM114B000", "IBMD used : wec_1_bm3e_stby VAL file used : wec_1_bm3e_stby "
+2008-02-02T19:12:00Z, "REM", "   2", "04_NM114A000", "IBMD used : wec_2_bm3e_stby VAL file used : wec_2_bm3e_stby "
+2008-02-02T19:12:00Z, "REM", "   3", "04_NM114A000", "IBMD used : wec_3_bm3e_stby VAL file used : wec_3_bm3e_stby "
+2008-02-02T19:12:00Z, "REM", "   4", "04_NM114B000", "IBMD used : wec_4_bm3e_stby VAL file used : wec_4_bm3e_stby "
+2008-02-02T19:12:00Z, "SEQ", "   1", "04_NM114B000", "SWECJ134;"
+2008-02-02T19:12:00Z, "SEQ", "   2", "04_NM114A000", "SWECJ134;"
+2008-02-02T19:12:00Z, "SEQ", "   3", "04_NM114A000", "SWECJ134;"
+2008-02-02T19:12:00Z, "SEQ", "   4", "04_NM114B000", "SWECJ134;"
+2008-02-02T19:12:03Z, "SEQ", "   1", "04_NM114B000", "SWECJ990,X'96';"
+2008-02-02T19:12:03Z, "SEQ", "   2", "04_NM114A000", "SWECJ990,X'96';"
+2008-02-02T19:12:03Z, "SEQ", "   3", "04_NM114A000", "SWECJ990,X'96';"
+2008-02-02T19:12:03Z, "SEQ", "   4", "04_NM114B000", "SWECJ990,X'96';"
+2008-02-02T19:12:06Z, "SEQ", "   1", "04_NM114B000", "SWECJ353;"
+2008-02-02T19:12:06Z, "SEQ", "   2", "04_NM114A000", "SWECJ353;"
+2008-02-02T19:12:06Z, "SEQ", "   3", "04_NM114A000", "SWECJ353;"
+2008-02-02T19:12:06Z, "SEQ", "   4", "04_NM114B000", "SWECJ353;"
+2008-02-02T19:12:12Z, "SEQ", "   1", "04_NM114B000", "SWECJ222;"
+2008-02-02T19:12:12Z, "SEQ", "   2", "04_NM114A000", "SWECJ222;"
+2008-02-02T19:12:12Z, "SEQ", "   3", "04_NM114A000", "SWECJ222;"
+2008-02-02T19:12:12Z, "SEQ", "   4", "04_NM114B000", "SWECJ222;"
+2008-02-02T19:12:24Z, "SEQ", "   1", "04_NM114B000", "SWECJ358,$wec_efw_ibias3,$wec_efw_stub3,$wec_efw_guard3;"
+2008-02-02T19:12:24Z, "SEQ", "   2", "04_NM114A000", "SWECJ358,$wec_efw_ibias3,$wec_efw_stub3,$wec_efw_guard3;"
+2008-02-02T19:12:24Z, "SEQ", "   3", "04_NM114A000", "SWECJ358,$wec_efw_ibias3,$wec_efw_stub3,$wec_efw_guard3;"
+2008-02-02T19:12:24Z, "SEQ", "   4", "04_NM114B000", "SWECJ358,$wec_efw_ibias1,$wec_efw_stub1,$wec_efw_guard1;"
+2008-02-02T19:12:30Z, "SEQ", "   1", "04_NM114B000", "SWECJ312,$wec_efw_vbias1,$wec_efw_stub1,$wec_efw_guard1;"
+2008-02-02T19:12:30Z, "SEQ", "   2", "04_NM114A000", "SWECJ312,$wec_efw_vbias1,$wec_efw_stub1,$wec_efw_guard1;"
+2008-02-02T19:12:30Z, "SEQ", "   3", "04_NM114A000", "SWECJ312,$wec_efw_vbias1,$wec_efw_stub1,$wec_efw_guard1;"
+2008-02-02T19:12:36Z, "SEQ", "   1", "04_NM114B000", "SWECJ356;"
+2008-02-02T19:12:36Z, "SEQ", "   2", "04_NM114A000", "SWECJ361;"
+2008-02-02T19:12:36Z, "SEQ", "   3", "04_NM114A000", "SWECJ356;"
+2008-02-02T19:12:36Z, "SEQ", "   4", "04_NM114B000", "SWECJ354;"
+2008-02-02T19:13:54Z, "SEQ", "   1", "04_NM114B000", "SWECJ357,$wec_efw_fmt00,$wec_efw_fmt02,$wec_efw_fmt04;"
+2008-02-02T19:13:54Z, "SEQ", "   2", "04_NM114A000", "SWECJ357,$wec_efw_fmt00,$wec_efw_fmt02,$wec_efw_fmt04;"
+2008-02-02T19:13:54Z, "SEQ", "   3", "04_NM114A000", "SWECJ357,$wec_efw_fmt00,$wec_efw_fmt02,$wec_efw_fmt04;"
+2008-02-02T19:13:54Z, "SEQ", "   4", "04_NM114B000", "SWECJ357,$wec_efw_fmt00,$wec_efw_fmt02,$wec_efw_fmt04;"
+2008-02-02T19:14:00Z, "SEQ", "   1", "04_NM114B000", "SWECJ360,$wec_efw_fmt1c,$wec_efw_fmt1d,$wec_efw_fmt1e,$wec_efw_fmt1f;"
+2008-02-02T19:14:00Z, "SEQ", "   2", "04_NM114A000", "SWECJ360,$wec_efw_fmt1c,$wec_efw_fmt1d,$wec_efw_fmt1e,$wec_efw_fmt1f;"
+2008-02-02T19:14:00Z, "SEQ", "   3", "04_NM114A000", "SWECJ360,$wec_efw_fmt1c,$wec_efw_fmt1d,$wec_efw_fmt1e,$wec_efw_fmt1f;"
+2008-02-02T19:14:00Z, "SEQ", "   4", "04_NM114B000", "SWECJ360,$wec_efw_fmt1c,$wec_efw_fmt1d,$wec_efw_fmt1e,$wec_efw_fmt1f;"
+2008-02-02T19:14:12Z, "SEQ", "   1", "04_NM114B000", "SWECJ337,$wec_efw_angsw12,$wec_efw_istep,$wec_efw_ib0,$wec_efw_irate,$wec_efw_ilength,$wec_efw_vstep,$wec_efw_vb0,$wec_efw_vrate,$wec_efw_vlength;"
+2008-02-02T19:14:12Z, "SEQ", "   2", "04_NM114A000", "SWECJ337,$wec_efw_angsw12,$wec_efw_istep,$wec_efw_ib0,$wec_efw_irate,$wec_efw_ilength,$wec_efw_vstep,$wec_efw_vb0,$wec_efw_vrate,$wec_efw_vlength;"
+2008-02-02T19:14:12Z, "SEQ", "   3", "04_NM114A000", "SWECJ337,$wec_efw_angsw12,$wec_efw_istep,$wec_efw_ib0,$wec_efw_irate,$wec_efw_ilength,$wec_efw_vstep,$wec_efw_vb0,$wec_efw_vrate,$wec_efw_vlength;"
+2008-02-02T19:14:12Z, "SEQ", "   4", "04_NM114B000", "SWECJ337,$wec_efw_angsw12,$wec_efw_istep,$wec_efw_ib0,$wec_efw_irate,$wec_efw_ilength,$wec_efw_vstep,$wec_efw_vb0,$wec_efw_vrate,$wec_efw_vlength;"
+2008-02-02T19:14:30Z, "SEQ", "   1", "04_NM114B000", "SWECJ338,$wec_efw_angsw34,$wec_efw_istep,$wec_efw_ib0,$wec_efw_irate,$wec_efw_ilength,$wec_efw_vstep,$wec_efw_vb0,$wec_efw_vrate,$wec_efw_vlength;"
+2008-02-02T19:14:30Z, "SEQ", "   2", "04_NM114A000", "SWECJ338,$wec_efw_angsw34,$wec_efw_istep,$wec_efw_ib0,$wec_efw_irate,$wec_efw_ilength,$wec_efw_vstep,$wec_efw_vb0,$wec_efw_vrate,$wec_efw_vlength;"
+2008-02-02T19:14:30Z, "SEQ", "   3", "04_NM114A000", "SWECJ338,$wec_efw_angsw34,$wec_efw_istep,$wec_efw_ib0,$wec_efw_irate,$wec_efw_ilength,$wec_efw_vstep,$wec_efw_vb0,$wec_efw_vrate,$wec_efw_vlength;"
+2008-02-02T19:14:30Z, "SEQ", "   4", "04_NM114B000", "SWECJ338,$wec_efw_angsw34,$wec_efw_istep,$wec_efw_ib0,$wec_efw_irate,$wec_efw_ilength,$wec_efw_vstep,$wec_efw_vb0,$wec_efw_vrate,$wec_efw_vlength;"
+2008-02-02T19:14:48Z, "SEQ", "   1", "04_NM114B000", "SWECJ359,$wec_efw_intrval;"
+2008-02-02T19:14:48Z, "SEQ", "   2", "04_NM114A000", "SWECJ359,$wec_efw_intrval;"
+2008-02-02T19:14:48Z, "SEQ", "   3", "04_NM114A000", "SWECJ359,$wec_efw_intrval;"
+2008-02-02T19:14:48Z, "SEQ", "   4", "04_NM114B000", "SWECJ359,$wec_efw_intrval;"
+2008-02-02T19:15:00Z, "REM", "  14", "04_NM114B000", "IBMD used : wec_1234_stby_nmca VAL file used : wec_stby_nmca "
+2008-02-02T19:15:00Z, "REM", "  23", "04_NM114A000", "IBMD used : wec_1234_stby_nmca VAL file used : wec_stby_nmca "
+2008-02-02T19:15:00Z, "SEQ", "  14", "04_NM114B000", "SWECJ990,X'96';"
+2008-02-02T19:15:00Z, "SEQ", "  23", "04_NM114A000", "SWECJ990,X'96';"
+2008-02-02T19:15:02Z, "SEQ", "  14", "04_NM114B000", "SWECJ004,X'1E';"
+2008-02-02T19:15:02Z, "SEQ", "  23", "04_NM114A000", "SWECJ004,X'1E';"
+2008-02-02T19:15:05Z, "SEQ", "  14", "04_NM114B000", "SWECJ104;"
+2008-02-02T19:15:05Z, "SEQ", "  23", "04_NM114A000", "SWECJ104;"
+2008-02-02T19:26:00Z, "REM", "   1", "04_NM114B000", "IBMD used : wec_1234_wil1_nm52 VAL file used : wec_wil1_nm52_ey "
+2008-02-02T19:26:00Z, "REM", "   4", "04_NM114B000", "IBMD used : wec_1234_wil1_nmwh VAL file used : wec_wil1_nmwh "
+2008-02-02T19:26:00Z, "REM", "  23", "04_NM114A000", "IBMD used : wec_1234_wil1_nm52 VAL file used : wec_wil1_nm52_ey "
+2008-02-02T19:26:00Z, "SEQ", "   1", "04_NM114B000", "SWECJ134;"
+2008-02-02T19:26:00Z, "SEQ", "   4", "04_NM114B000", "SWECJ134;"
+2008-02-02T19:26:00Z, "SEQ", "  23", "04_NM114A000", "SWECJ134;"
+2008-02-02T19:26:03Z, "SEQ", "   1", "04_NM114B000", "SWECJ990,X'96';"
+2008-02-02T19:26:03Z, "SEQ", "   4", "04_NM114B000", "SWECJ990,X'96';"
+2008-02-02T19:26:03Z, "SEQ", "  23", "04_NM114A000", "SWECJ990,X'96';"
+2008-02-02T19:26:06Z, "REM", "   1", "04_NM114B000", "PMRQ 01: WHI NM52 special, 42/AD13581D and 4E/CF0058"
+2008-02-02T19:26:06Z, "REM", "  23", "04_NM114A000", "PMRQ 01: WHI NM52 special, 42/AD13581D and 4E/CF0058"
+2008-02-02T19:26:06Z, "SEQ", "   1", "04_NM114B000", "SWECJ275,X'42',X'AD',X'13',X'58',X'1D',X'4E',X'CF',X'00',X'58',X'100';"
+2008-02-02T19:26:06Z, "SEQ", "   4", "04_NM114B000", "SWECJ284,X'00',X'AC',X'0b',X'50',X'0B',X'0D',X'CA',X'00',X'50';"
+2008-02-02T19:26:06Z, "SEQ", "  23", "04_NM114A000", "SWECJ275,X'42',X'AD',X'13',X'58',X'1D',X'4E',X'CF',X'00',X'58',X'100';"
+2008-02-02T19:26:15Z, "SEQ", "   1", "04_NM114B000", "SWECJ019,X'02';"
+2008-02-02T19:26:15Z, "SEQ", "   4", "04_NM114B000", "SWECJ019,X'02';"
+2008-02-02T19:26:15Z, "SEQ", "  23", "04_NM114A000", "SWECJ019,X'02';"
+2008-02-02T19:26:18Z, "SEQ", "   1", "04_NM114B000", "SWECJ110,X'80',$wec_peace_lsb;"
+2008-02-02T19:26:18Z, "SEQ", "   4", "04_NM114B000", "SWECJ110,X'80',$wec_peace_lsb;"
+2008-02-02T19:26:18Z, "SEQ", "  23", "04_NM114A000", "SWECJ110,X'80',$wec_peace_lsb;"
+2008-02-02T19:26:24Z, "SEQ", "   1", "04_NM114B000", "SWECJ013,$wec_correl_nm;"
+2008-02-02T19:26:24Z, "SEQ", "   4", "04_NM114B000", "SWECJ013,$wec_correl_nm;"
+2008-02-02T19:26:24Z, "SEQ", "  23", "04_NM114A000", "SWECJ013,$wec_correl_nm;"
+2008-02-02T19:26:25Z, "SEQ", "   1", "04_NM114B000", "SWECJ004,X'17';"
+2008-02-02T19:26:25Z, "SEQ", "   4", "04_NM114B000", "SWECJ004,X'17';"
+2008-02-02T19:26:25Z, "SEQ", "  23", "04_NM114A000", "SWECJ004,X'17';"
+2008-02-02T19:31:59Z, "EVT", "   0", "------------", "A3_168__  Apogee"
+2008-02-02T21:06:00Z, "ORE", "  14", "04_NM114B000", "U1_168_1  +28:38:00 NM1   40 ---"
+2008-02-02T21:06:00Z, "ORS", "  14", "04_WG115A000", "U1_168_1  +30:32:00 WG1    4"
+2008-02-02T21:06:00Z, "REM", "   1", "04_WG115A000", "IBMD used : wec_1234_wbd_mode VAL file used : wec_wbd_090_ey "
+2008-02-02T21:06:00Z, "REM", "   4", "04_WG115A000", "IBMD used : wec_1234_wbd_mode VAL file used : wec_wbd_090_ez "
+2008-02-02T21:06:00Z, "SEQ", "   1", "04_WG115A000", "SWECJ022,X'00';"
+2008-02-02T21:06:00Z, "SEQ", "   4", "04_WG115A000", "SWECJ022,X'00';"
+2008-02-02T21:06:02Z, "REM", "   1", "04_WG115A000", "PMRQ 01: WBD 77kHz bandwidth"
+2008-02-02T21:06:02Z, "SEQ", "   1", "04_WG115A000", "SWECJ009,X'00',X'13';"
+2008-02-02T21:06:02Z, "SEQ", "   4", "04_WG115A000", "SWECJ009,X'00',X'10';"
+2008-02-02T23:30:00Z, "ORE", "  14", "04_WG115A000", "U1_168_1  +30:32:00 WG1    4 ---"
+2008-02-02T23:30:00Z, "ORS", "  14", "04_NM116A000", "U1_168_1  +32:56:00 NM1   14"
+!RECORDS= 167

@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated from:
+CM_CP_DWP_UT_PIOR__20080202_000000_20080203_000000_V100803.cef
+by CEF2XML            CAAtools: 1.3.5-Multi support
+Cluster Metadata Dictionary(s): 2.0 2.2-pre 2.3  -->
+<CAA_METADATA>
+    <MISSION_METADATA>
+        <MISSION>Cluster</MISSION>
+        <MISSION_TIME_SPAN>2000-08-16T12:39:00.0Z/2030-12-31T23:59:59.0Z</MISSION_TIME_SPAN>
+        <MISSION_AGENCY>ESA</MISSION_AGENCY>
+        <MISSION_DESCRIPTION>
+        The aim of the Cluster mission is to study small-scale structures of the magnetosphere 
+        and its environment in three dimensions. To achieve this, Cluster is constituted of four 
+        identical spacecraft that will flight in a tetrahedral configuration. The separation distances 
+        between the spacecraft will be varied between ~40 km and 10 000 km, according to the 
+        key scientific regions.
+        </MISSION_DESCRIPTION>
+        <MISSION_KEY_PERSONNEL>Philippe Escoubet>Philippe.Escoubet@esa.int >Cluster Project Scientist</MISSION_KEY_PERSONNEL>
+        <MISSION_REFERENCES>The Cluster and Phoenix Missions>Cluster project and instrument teams>Space Sci. Rev. 79, Nos. 1-2, 1997</MISSION_REFERENCES>
+        <MISSION_REGION>Solar_Wind</MISSION_REGION>
+        <MISSION_REGION>Bow_Shock</MISSION_REGION>
+        <MISSION_REGION>Magnetosheath</MISSION_REGION>
+        <MISSION_REGION>Magnetopause</MISSION_REGION>
+        <MISSION_REGION>Magnetosphere</MISSION_REGION>
+        <MISSION_REGION>Magnetotail</MISSION_REGION>
+        <MISSION_REGION>Polar_Cap</MISSION_REGION>
+        <MISSION_REGION>Auroral_Region</MISSION_REGION>
+        <MISSION_REGION>Cusp</MISSION_REGION>
+        <MISSION_REGION>Radiation_Belt</MISSION_REGION>
+        <MISSION_REGION>Plasmasphere</MISSION_REGION>
+        <MISSION_CAVEATS>*CL</MISSION_CAVEATS>
+        <OBSERVATORIES>
+            <OBSERVATORY_METADATA>
+                <OBSERVATORY>MULTIPLE</OBSERVATORY>
+                <OBSERVATORY>Cluster-1</OBSERVATORY>
+                <OBSERVATORY>Cluster-2</OBSERVATORY>
+                <OBSERVATORY>Cluster-3</OBSERVATORY>
+                <OBSERVATORY>Cluster-4</OBSERVATORY>
+                <OBSERVATORY_DESCRIPTION>All Cluster spacecraft</OBSERVATORY_DESCRIPTION>
+                <OBSERVATORY_TIME_SPAN>2000-01-01T00:00:00.0Z/2030-12-31T23:59:59.0Z</OBSERVATORY_TIME_SPAN>
+                <OBSERVATORY_REGION>Solar_Wind</OBSERVATORY_REGION>
+                <OBSERVATORY_REGION>Bow_Shock</OBSERVATORY_REGION>
+                <OBSERVATORY_REGION>Magnetosheath</OBSERVATORY_REGION>
+                <OBSERVATORY_REGION>Magnetopause</OBSERVATORY_REGION>
+                <OBSERVATORY_REGION>Magnetosphere</OBSERVATORY_REGION>
+                <OBSERVATORY_REGION>Magnetotail</OBSERVATORY_REGION>
+                <OBSERVATORY_REGION>Polar_Cap</OBSERVATORY_REGION>
+                <OBSERVATORY_REGION>Auroral_Region</OBSERVATORY_REGION>
+                <OBSERVATORY_REGION>Cusp</OBSERVATORY_REGION>
+                <OBSERVATORY_REGION>Radiation_Belt</OBSERVATORY_REGION>
+                <OBSERVATORY_REGION>Plasmasphere</OBSERVATORY_REGION>
+            </OBSERVATORY_METADATA>
+        </OBSERVATORIES>
+        <EXPERIMENTS>
+            <EXPERIMENT_METADATA>
+                <EXPERIMENT>DWP</EXPERIMENT>
+                <EXPERIMENT_DESCRIPTION>
+                In addition to its role in the control and management of 
+                the WEC instruments the DWP experiment runs an onboard 
+                software application - known as the particle correlator. 
+                Using data provided by the PEACE HEEA sensor via the Inter 
+                Experiment Link this application calculates the 
+                autocorrelation function of the electron count rate to 
+                investigate possible particle flux bursts on short time 
+                scales that may be indicative of regions of velocity space 
+                in which wave-particle interactions are occurring. A full 
+                description of the operation of the particle correlator 
+                may be found in the DWP Users Guide available from CAA/CSA.
+                </EXPERIMENT_DESCRIPTION>
+                <INVESTIGATOR_COORDINATES>M. Balikhin>PI>m.balikhin@sheffield.ac.uk</INVESTIGATOR_COORDINATES>
+                <INVESTIGATOR_COORDINATES>H. St.C. K. Alleyne>Previous PI>retired</INVESTIGATOR_COORDINATES>
+                <INVESTIGATOR_COORDINATES>L. J. C. Woolliscroft>Previous PI>deceased</INVESTIGATOR_COORDINATES>
+                <EXPERIMENT_REFERENCES>*CL_CD_CAA_DWP_ICD_0001_V0_8.pdf</EXPERIMENT_REFERENCES>
+                <EXPERIMENT_REFERENCES>*CL_CD_DWP_USERMAN.pdf</EXPERIMENT_REFERENCES>
+                <EXPERIMENT_REFERENCES>*CL_CD_DWP_UM</EXPERIMENT_REFERENCES>
+                <EXPERIMENT_REFERENCES>Woolliscroft, L.J.C., H.St.C.K> Alleyne, C.M.Dunford,</EXPERIMENT_REFERENCES>
+                <EXPERIMENT_REFERENCES>A. Sumner, J.A. Thompson, S.N. Walker, K.H. Yearby, </EXPERIMENT_REFERENCES>
+                <EXPERIMENT_REFERENCES>A. Buckley, S. Chapman, M.P. Gough, and the DWP</EXPERIMENT_REFERENCES>
+                <EXPERIMENT_REFERENCES>Co-Investigators, The Digital Wave-Processing Experiment</EXPERIMENT_REFERENCES>
+                <EXPERIMENT_REFERENCES>on Cluster, Space Science Reviews 79, 209-231, 1997</EXPERIMENT_REFERENCES>
+                <EXPERIMENT_KEY_PERSONNEL>K Yearby>Instrument Manager>K.H.Yearby@sheffield.ac.uk</EXPERIMENT_KEY_PERSONNEL>
+                <EXPERIMENT_KEY_PERSONNEL>S Walker>Data Manager>Simon.Walker@sheffield.ac.uk</EXPERIMENT_KEY_PERSONNEL>
+                <EXPERIMENT_KEY_PERSONNEL>A Buckley>Correlator Scientist>A.M.Buckley@sussex.ac.uk</EXPERIMENT_KEY_PERSONNEL>
+                <EXPERIMENT_CAVEATS>*CL_CQ_DWP_EXP</EXPERIMENT_CAVEATS>
+                <INSTRUMENTS>
+                    <INSTRUMENT_METADATA>
+                        <INSTRUMENT_NAME>MULTIPLE</INSTRUMENT_NAME>
+                        <INSTRUMENT_NAME>DWP1</INSTRUMENT_NAME>
+                        <INSTRUMENT_NAME>DWP2</INSTRUMENT_NAME>
+                        <INSTRUMENT_NAME>DWP3</INSTRUMENT_NAME>
+                        <INSTRUMENT_NAME>DWP4</INSTRUMENT_NAME>
+                        <INSTRUMENT_DESCRIPTION>DWP of all Cluster spacecraft</INSTRUMENT_DESCRIPTION>
+                        <INSTRUMENT_TYPE>Particle_Correlator</INSTRUMENT_TYPE>
+                        <INSTRUMENT_TYPE>Data_Processing_Unit</INSTRUMENT_TYPE>
+                        <MEASUREMENT_TYPE>Status</MEASUREMENT_TYPE>
+                        <INSTRUMENT_CAVEATS>*CM_CQ_DWP_INST</INSTRUMENT_CAVEATS>
+                    </INSTRUMENT_METADATA>
+                </INSTRUMENTS>
+            </EXPERIMENT_METADATA>
+        </EXPERIMENTS>
+        <DATASETS>
+            <DATASET_METADATA>
+                <DATASET_ID>CM_CP_DWP_UT_PIOR</DATASET_ID>
+                <DATA_TYPE>CP>CAA_Parameter</DATA_TYPE>
+                <DATASET_TITLE>UT time-stamped PIOR</DATASET_TITLE>
+                <DATASET_DESCRIPTION>
+                The DWP UT_PIOR data set contains listings of the command 
+                sequences and parameters sent to the Cluster satellites in 
+                order to configure and operate the WEC instruments. These 
+                data files are derived from the actual commanding request 
+                sent to JSOC/ESOC. In addition, the spacecraft events such 
+                as magnetopause/bow shock crossings, perigee/apogee, etc 
+                used within the planning cycle.
+                Each record consists of,
+                 - time - Time tag for event/command
+                 - tag - Type of entry
+                         EVT - event eg boundary crossing etc.
+                         ORS - Start of acquisition interval
+                         ORE - End of acquisition interval
+                         REM - COmment added during revision
+                         SEQ - Operational command sequence used
+                 - spacecraft mask - spacecraft number to which entry applies
+                 - label - Acquisition interval tag 
+                 - content - Command macro/event/comment etc.
+                For further details, the user is referred to the CAA DWP 
+                User Manual which contains a complete description of these 
+                parameters lists the general caveats that apply to this 
+                data set.
+                </DATASET_DESCRIPTION>
+                <CONTACT_COORDINATES>K Yearby>DWP Technical Manager>K.H.Yearby@sheffield.ac.uk</CONTACT_COORDINATES>
+                <CONTACT_COORDINATES>S Walker>DWP Data Manager>Simon.Walker@sheffield.ac.uk</CONTACT_COORDINATES>
+                <TIME_RESOLUTION>480.000000</TIME_RESOLUTION>
+                <MIN_TIME_RESOLUTION>108000.000000</MIN_TIME_RESOLUTION>
+                <MAX_TIME_RESOLUTION>0.000000</MAX_TIME_RESOLUTION>
+                <PROCESSING_LEVEL>Calibrated</PROCESSING_LEVEL>
+                <DATASET_CAVEATS>*CM_CQ_DWP_UT_PIOR</DATASET_CAVEATS>
+                <ACKNOWLEDGEMENT>
+                Please acknowledge the instrument team and ESA Cluster Active Archive in any 
+                publication based upon use of this data.
+                </ACKNOWLEDGEMENT>
+                <PARAMETERS>
+                    <PARAMETER>
+                        <PARAMETER_ID>Time__CM_CP_DWP_UT_PIOR</PARAMETER_ID>
+                        <PARAMETER_TYPE>Support_Data</PARAMETER_TYPE>
+                        <CATDESC>Interval centred time tag</CATDESC>
+                        <UNITS>s</UNITS>
+                        <SI_CONVERSION>1>s</SI_CONVERSION>
+                        <SIZES>1</SIZES>
+                        <VALUE_TYPE>ISO_TIME</VALUE_TYPE>
+                        <SIGNIFICANT_DIGITS>27</SIGNIFICANT_DIGITS>
+                        <FILLVAL>9999-12-31T23:59:59Z</FILLVAL>
+                        <FIELDNAM>Universal Time</FIELDNAM>
+                        <LABLAXIS>UT</LABLAXIS>
+                        <DELTA_PLUS>0</DELTA_PLUS>
+                        <DELTA_MINUS>0</DELTA_MINUS>
+                    </PARAMETER>
+                    <PARAMETER>
+                        <PARAMETER_ID>Tag__CM_CP_DWP_UT_PIOR</PARAMETER_ID>
+                        <PARAMETER_TYPE>Data</PARAMETER_TYPE>
+                        <ENTITY>Instrument</ENTITY>
+                        <PROPERTY>Status</PROPERTY>
+                        <CATDESC>Tag</CATDESC>
+                        <VALUE_TYPE>CHAR</VALUE_TYPE>
+                        <SIGNIFICANT_DIGITS>3</SIGNIFICANT_DIGITS>
+                        <FILLVAL>***</FILLVAL>
+                        <QUALITY>0</QUALITY>
+                        <UNITS>unitless</UNITS>
+                        <SI_CONVERSION>1>unitless</SI_CONVERSION>
+                        <FIELDNAM>Tag</FIELDNAM>
+                        <LABLAXIS>Tag</LABLAXIS>
+                        <DEPEND_0>Time__CM_CP_DWP_UT_PIOR</DEPEND_0>
+                    </PARAMETER>
+                    <PARAMETER>
+                        <PARAMETER_ID>Mask__CM_CP_DWP_UT_PIOR</PARAMETER_ID>
+                        <PARAMETER_TYPE>Data</PARAMETER_TYPE>
+                        <ENTITY>Instrument</ENTITY>
+                        <PROPERTY>Status</PROPERTY>
+                        <CATDESC>Spacecraft Mask</CATDESC>
+                        <VALUE_TYPE>CHAR</VALUE_TYPE>
+                        <SIGNIFICANT_DIGITS>4</SIGNIFICANT_DIGITS>
+                        <FILLVAL>****</FILLVAL>
+                        <QUALITY>0</QUALITY>
+                        <UNITS>unitless</UNITS>
+                        <SI_CONVERSION>1>unitless</SI_CONVERSION>
+                        <FIELDNAM>Spacecraft Mask</FIELDNAM>
+                        <LABLAXIS>Mask</LABLAXIS>
+                        <DEPEND_0>Time__CM_CP_DWP_UT_PIOR</DEPEND_0>
+                    </PARAMETER>
+                    <PARAMETER>
+                        <PARAMETER_ID>Label__CM_CP_DWP_UT_PIOR</PARAMETER_ID>
+                        <PARAMETER_TYPE>Data</PARAMETER_TYPE>
+                        <ENTITY>Instrument</ENTITY>
+                        <PROPERTY>Status</PROPERTY>
+                        <CATDESC>Label</CATDESC>
+                        <VALUE_TYPE>CHAR</VALUE_TYPE>
+                        <SIGNIFICANT_DIGITS>12</SIGNIFICANT_DIGITS>
+                        <FILLVAL>****</FILLVAL>
+                        <QUALITY>0</QUALITY>
+                        <UNITS>unitless</UNITS>
+                        <SI_CONVERSION>1>unitless</SI_CONVERSION>
+                        <FIELDNAM>Label</FIELDNAM>
+                        <LABLAXIS>Label</LABLAXIS>
+                        <DEPEND_0>Time__CM_CP_DWP_UT_PIOR</DEPEND_0>
+                    </PARAMETER>
+                    <PARAMETER>
+                        <PARAMETER_ID>Content__CM_CP_DWP_UT_PIOR</PARAMETER_ID>
+                        <PARAMETER_TYPE>Data</PARAMETER_TYPE>
+                        <ENTITY>Instrument</ENTITY>
+                        <PROPERTY>Status</PROPERTY>
+                        <CATDESC>Content</CATDESC>
+                        <VALUE_TYPE>CHAR</VALUE_TYPE>
+                        <SIGNIFICANT_DIGITS>256</SIGNIFICANT_DIGITS>
+                        <FILLVAL>****</FILLVAL>
+                        <QUALITY>0</QUALITY>
+                        <UNITS>unitless</UNITS>
+                        <SI_CONVERSION>1>unitless</SI_CONVERSION>
+                        <FIELDNAM>Content</FIELDNAM>
+                        <LABLAXIS>Content</LABLAXIS>
+                        <DEPEND_0>Time__CM_CP_DWP_UT_PIOR</DEPEND_0>
+                    </PARAMETER>
+                </PARAMETERS>
+                <FILE>
+                    <FILE_TYPE>cef</FILE_TYPE>
+                    <METADATA_TYPE>CAA</METADATA_TYPE>
+                    <METADATA_VERSION>2.0</METADATA_VERSION>
+                    <LOGICAL_FILE_ID>CM_CP_DWP_UT_PIOR__20080202_000000_20080203_000000_V100803</LOGICAL_FILE_ID>
+                    <VERSION_NUMBER>100803</VERSION_NUMBER>
+                    <DATASET_VERSION>
+                    Merged file, the dataset version for each segment follows:-
+                    2008-02-02T00:00:00Z/2008-02-03T00:00:00Z , CM_CP_DWP_UT_PIOR__20080127_V01
+                      1
+                    </DATASET_VERSION>
+                    <FILE_CAVEATS>
+                    CAA Merged File - $Id: cefmerge.c,v 1.27 2009/04/09 09:40:06 cperry Exp cperry $
+                    The file caveats for each segment follows:-
+                    2008-02-02T00:00:00Z/2008-02-03T00:00:00Z , CM_CP_DWP_UT_PIOR__20080127_V01
+                      CEF written by PROCESS_PIOR V1.2 (based on PIORDEV V1.0 KHY, process_pior V1.1 IB)
+                      Source file wec_402_02_05.txt
+                      PET file: 402_05.pet
+                      WEC PIOR: wec_402_02_05.pior
+                      PEACE PIOR: pea_402_02_04.pior
+                    </FILE_CAVEATS>
+                    <FILE_TIME_SPAN>2008-02-02T00:00:00.0Z/2008-02-03T00:00:00.999999999Z</FILE_TIME_SPAN>
+                    <GENERATION_DATE>2015-10-24T12:39:15.0Z</GENERATION_DATE>
+                </FILE>
+            </DATASET_METADATA>
+        </DATASETS>
+    </MISSION_METADATA>
+</CAA_METADATA>

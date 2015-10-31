@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated from:
+/c/services/header_includes//CL_CH_MISSION.ceh
+/c/services/header_includes/edi//CL_CH_EDI_EXP.ceh
+/c/services/header_includes//C3_CH_OBS.ceh
+/c/services/header_includes/edi//C3_CH_EDI3_INST.ceh
+/c/services/header_includes/edi//C3_CH_EDI_EGD_DATASET.ceh
+/c/catalog22/products/edi/2011//C3_CP_EDI_EGD__20111009_V01.cef.gz
+by CEF2XML            CAAtools: 1.3.5-Multi support
+Cluster Metadata Dictionary(s): 2.0 2.2-pre 2.3  -->
+<CAA_METADATA>
+    <MISSION_METADATA>
+        <MISSION>
+        <MISSION_TIME_SPAN>
+        <MISSION_AGENCY>
+        <MISSION_DESCRIPTION>
+        <MISSION_KEY_PERSONNEL>
+        <MISSION_REFERENCES>
+        <MISSION_REGION>[]...
+        <MISSION_CAVEATS>
+        <OBSERVATORIES>
+            <OBSERVATORY_METADATA>
+                <OBSERVATORY>
+                <OBSERVATORY_CAVEATS>
+                <OBSERVATORY_DESCRIPTION>
+                <OBSERVATORY_TIME_SPAN>
+                <OBSERVATORY_REGION>[]...
+            </OBSERVATORY_METADATA>
+        </OBSERVATORIES>
+        <EXPERIMENTS>
+            <EXPERIMENT_METADATA>
+                <EXPERIMENT>
+                <EXPERIMENT_DESCRIPTION>
+                <INVESTIGATOR_COORDINATES>[]...
+                <EXPERIMENT_REFERENCES>[]...
+                <EXPERIMENT_KEY_PERSONNEL>[]...
+                <EXPERIMENT_CAVEATS>
+                <INSTRUMENTS>
+                    <INSTRUMENT_METADATA>
+                        <INSTRUMENT_NAME>
+                        <INSTRUMENT_DESCRIPTION>
+                        <INSTRUMENT_TYPE>
+                        <MEASUREMENT_TYPE>[]...
+                        <INSTRUMENT_CAVEATS>
+                    </INSTRUMENT_METADATA>
+                </INSTRUMENTS>
+            </EXPERIMENT_METADATA>
+        </EXPERIMENTS>
+        <DATASETS>
+            <DATASET_METADATA>
+                <DATASET_ID>
+                <DATA_TYPE>
+                <DATASET_TITLE>
+                <DATASET_DESCRIPTION>
+                <CONTACT_COORDINATES>
+                <PROCESSING_LEVEL>
+                <TIME_RESOLUTION>
+                <MIN_TIME_RESOLUTION>
+                <MAX_TIME_RESOLUTION>
+                <DATASET_CAVEATS>
+                <ACKNOWLEDGEMENT>
+                <PARAMETERS>[]...
+                    <PARAMETER>
+                        <PARAMETER_ID>
+                        <PARAMETER_TYPE>
+                        <CATDESC>
+                        <UNITS>
+                        <SI_CONVERSION>
+                        <SIZES>
+                        <VALUE_TYPE>
+                        <SIGNIFICANT_DIGITS>
+                        <FILLVAL>
+                        <FIELDNAM>
+                        <LABLAXIS>
+                        <DELTA_PLUS>
+                        <DELTA_MINUS>
+                         ~~??~~
+                        <ENTITY>
+                        <PROPERTY>
+                        <QUALITY>
+                        <DEPEND_0>
+                    </PARAMETER>
+                </PARAMETERS>
+                <FILE>
+                    <LOGICAL_FILE_ID>
+                    <VERSION_NUMBER>
+                    <FILE_TIME_SPAN>
+                    <GENERATION_DATE>
+                    <FILE_CAVEATS>
+                    <METADATA_TYPE>
+                    <METADATA_VERSION>
+                    <FILE_TYPE>
+                    <DATASET_VERSION>
+                </FILE>
+            </DATASET_METADATA>
+        </DATASETS>
+    </MISSION_METADATA>
+</CAA_METADATA>
