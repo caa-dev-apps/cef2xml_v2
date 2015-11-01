@@ -102,6 +102,72 @@ func test_write_xml_01() {
 }        
         
 
+
+
+//x type File struct {
+//x     XMLName                 xml.Name `xml:"FILE"`
+//x     
+//x     Logical_File_Id         string   `xml:"LOGICAL_FILE_ID"`
+//x     VERSION_NUMBER          string   `xml:"VERSION_NUMBER"`
+//x     FILE_TIME_SPAN          string   `xml:"FILE_TIME_SPAN"`
+//x     GENERATION_DATE         string   `xml:"GENERATION_DATE"`
+//x     FILE_CAVEATS            string   `xml:"FILE_CAVEATS"`
+//x     METADATA_TYPE           string   `xml:"METADATA_TYPE"`
+//x     METADATA_VERSION        string   `xml:"METADATA_VERSION"`
+//x     FILE_TYPE               string   `xml:"FILE_TYPE"`
+//x     DATASET_VERSION         string   `xml:"DATASET_VERSION"`
+//x }
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+
+type File struct {
+    XMLName                 xml.Name `xml:"FILE"`
+    
+    LOGICAL_FILE_ID         string   // `xml:"LOGICAL_FILE_ID"`
+    VERSION_NUMBER          string   
+    FILE_TIME_SPAN          string   
+    GENERATION_DATE         string   
+    FILE_CAVEATS            string   
+    METADATA_TYPE           string   
+    METADATA_VERSION        string   
+    FILE_TYPE               string   
+    DATASET_VERSION         string   
+}
+
+
+func test_write_xml_02() {
+    
+//x 	v := &Person{Id: 13, FirstName: "John", LastName: "Doe", Age: 42}
+//x 	v.Comment = " Need more details. "
+//x 	v.Address = Address{"Hanga Roa", "Easter Island"}
+//x 
+    
+    v := &File{
+        LOGICAL_FILE_ID:    "file_id22",
+        VERSION_NUMBER:     "0.1",
+        FILE_TIME_SPAN:     "2010-2015",
+        GENERATION_DATE:    "2010-01-02",
+        FILE_CAVEATS:       "Caveat emptor",
+        METADATA_TYPE:      "this is a type",
+        METADATA_VERSION:   "1.234",
+        FILE_TYPE:          "v01",
+        DATASET_VERSION:    "3.2",
+    }
+    
+	output, err := xml.MarshalIndent(v, "  ", "    ")
+	if err != nil {
+		fmt.Printf("error: %v\n", err)
+	}
+
+	os.Stdout.Write(output)
+        
+} 
+
+///////////////////////////////////////////////////////////////////////////////
+//
+
 //x <CAA_METADATA>
 //x     <MISSION_METADATA>
 //x         <MISSION>
@@ -152,69 +218,155 @@ func test_write_xml_01() {
 //x </CAA_METADATA>
 
 
-//x type File struct {
-//x     XMLName                 xml.Name `xml:"FILE"`
-//x     
-//x     Logical_File_Id         string   `xml:"LOGICAL_FILE_ID"`
-//x     VERSION_NUMBER          string   `xml:"VERSION_NUMBER"`
-//x     FILE_TIME_SPAN          string   `xml:"FILE_TIME_SPAN"`
-//x     GENERATION_DATE         string   `xml:"GENERATION_DATE"`
-//x     FILE_CAVEATS            string   `xml:"FILE_CAVEATS"`
-//x     METADATA_TYPE           string   `xml:"METADATA_TYPE"`
-//x     METADATA_VERSION        string   `xml:"METADATA_VERSION"`
-//x     FILE_TYPE               string   `xml:"FILE_TYPE"`
-//x     DATASET_VERSION         string   `xml:"DATASET_VERSION"`
-//x }
+//x         <OBSERVATORIES>
+//x             <OBSERVATORY_METADATA>
+//x                 <OBSERVATORY>MULTIPLE</OBSERVATORY>
+//x                 <OBSERVATORY>Cluster-1</OBSERVATORY>
+//x                 <OBSERVATORY>Cluster-2</OBSERVATORY>
+//x                 <OBSERVATORY>Cluster-3</OBSERVATORY>
+//x                 <OBSERVATORY>Cluster-4</OBSERVATORY>
+//x                 <OBSERVATORY_DESCRIPTION>All Cluster spacecraft</OBSERVATORY_DESCRIPTION>
+//x                 <OBSERVATORY_TIME_SPAN>2000-01-01T00:00:00.0Z/2030-12-31T23:59:59.0Z</OBSERVATORY_TIME_SPAN>
+//x                 <OBSERVATORY_REGION>Solar_Wind</OBSERVATORY_REGION>
+//x                 <OBSERVATORY_REGION>Bow_Shock</OBSERVATORY_REGION>
+//x                 <OBSERVATORY_REGION>Magnetosheath</OBSERVATORY_REGION>
+//x                 <OBSERVATORY_REGION>Magnetopause</OBSERVATORY_REGION>
+//x                 <OBSERVATORY_REGION>Magnetosphere</OBSERVATORY_REGION>
+//x                 <OBSERVATORY_REGION>Magnetotail</OBSERVATORY_REGION>
+//x                 <OBSERVATORY_REGION>Polar_Cap</OBSERVATORY_REGION>
+//x                 <OBSERVATORY_REGION>Auroral_Region</OBSERVATORY_REGION>
+//x                 <OBSERVATORY_REGION>Cusp</OBSERVATORY_REGION>
+//x                 <OBSERVATORY_REGION>Radiation_Belt</OBSERVATORY_REGION>
+//x                 <OBSERVATORY_REGION>Plasmasphere</OBSERVATORY_REGION>
+//x             </OBSERVATORY_METADATA>
+//x         </OBSERVATORIES>
+//x         <EXPERIMENTS>
 
-type File struct {
-    XMLName                 xml.Name `xml:"FILE"`
-    
-    Logical_File_Id         string   
-    VERSION_NUMBER          string   
-    FILE_TIME_SPAN          string   
-    GENERATION_DATE         string   
-    FILE_CAVEATS            string   
-    METADATA_TYPE           string   
-    METADATA_VERSION        string   
-    FILE_TYPE               string   
-    DATASET_VERSION         string   
+
+type Observatories struct {
+    OBSERVATORY                 []string            `xml:"Observatories>OBSERVATORY_METADATA>OBSERVATORY"`
+    OBSERVATORY_DESCRIPTION     string              `xml:"Observatories>OBSERVATORY_METADATA>OBSERVATORY_DESCRIPTION"`
+    OBSERVATORY_TIME_SPAN       string              `xml:"Observatories>OBSERVATORY_METADATA>OBSERVATORY_TIME_SPAN"`
+    OBSERVATORY_REGION          []string            `xml:"Observatories>OBSERVATORY_METADATA>OBSERVATORY_REGION"`
 }
 
+type Datasets struct {
+//x     XMLName                     xml.Name `xml:"DATASETS"`
+}
 
+type Experiments struct {
+//x     XMLName                     xml.Name `xml:"EXPERIMENTS"`
+}
 
-func test_write_xml_02() {
+type CAA_MetaData struct {
+    XMLName                 xml.Name `xml:"CAA_METADATA"`
     
-//x 	v := &Person{Id: 13, FirstName: "John", LastName: "Doe", Age: 42}
-//x 	v.Comment = " Need more details. "
-//x 	v.Address = Address{"Hanga Roa", "Easter Island"}
-//x 
+    MISSION                     string              `xml:"MISSION_METADATA>MISSION"`
+    MISSION_TIME_SPAN           string              `xml:"MISSION_METADATA>MISSION_TIME_SPAN"`
+    MISSION_AGENCY              string              `xml:"MISSION_METADATA>MISSION_AGENCY"`
+    MISSION_DESCRIPTION         string              `xml:"MISSION_METADATA>MISSION_DESCRIPTION"`
+    MISSION_KEY_PERSONNEL       string              `xml:"MISSION_METADATA>MISSION_KEY_PERSONNEL"`
+    MISSION_REFERENCES          string              `xml:"MISSION_METADATA>MISSION_REFERENCES"`
+    MISSION_REGION              []string            `xml:"MISSION_METADATA>MISSION_REGION"`
+    MISSION_CAVEATS             string              `xml:"MISSION_METADATA>MISSION_CAVEATS"`
+    Observatories               
+    Experiments                 
+    Datasets                    
+}
+
+//x <CAA_METADATA>
+//x     <MISSION_METADATA>
+//x         <MISSION>
+//x         <MISSION_TIME_SPAN>
+//x         <MISSION_AGENCY>
+//x         <MISSION_DESCRIPTION>
+//x         <MISSION_KEY_PERSONNEL>
+//x         <MISSION_REFERENCES>
+//x         <MISSION_REGION>[]...
+//x         <MISSION_CAVEATS>
+//x         <OBSERVATORIES>
+//x             <OBSERVATORY_METADATA>
+//x             </OBSERVATORY_METADATA>
+//x         </OBSERVATORIES>
+//x         <EXPERIMENTS>
+//x             <EXPERIMENT_METADATA>
+//x             </EXPERIMENT_METADATA>
+//x         </EXPERIMENTS>
+//x         <DATASETS>
+//x             <DATASET_METADATA>
+
+func test_write_xml_03() {
     
-    v := &File{
-        Logical_File_Id:    "file_id",
-        VERSION_NUMBER:     "0.1",
-        FILE_TIME_SPAN:     "2010-2015",
-        GENERATION_DATE:    "2010-01-02",
-        FILE_CAVEATS:       "Caveat emptor",
-        METADATA_TYPE:      "this is a type",
-        METADATA_VERSION:   "1.234",
-        FILE_TYPE:          "v01",
-        DATASET_VERSION:    "3.2",
+    m := &CAA_MetaData {
+        MISSION:                "string",
+        MISSION_TIME_SPAN:      "string",
+        MISSION_AGENCY:         "string",
+        MISSION_DESCRIPTION:    "string",
+        MISSION_KEY_PERSONNEL:  "string",
+        MISSION_REFERENCES:     "string",
+        MISSION_REGION:         []string{"r1", "r2", "r3"},
+        MISSION_CAVEATS:        "string",
+//x     Observatories
+//x     Experiments                 
+//x     Datasets                    
     }
-    
-	output, err := xml.MarshalIndent(v, "  ", "    ")
+        
+	output, err := xml.MarshalIndent(m, "", "  ")
 	if err != nil {
 		fmt.Printf("error: %v\n", err)
 	}
 
 	os.Stdout.Write(output)
-        
 } 
 
-     
-        
-        
+
+//x type Observatories struct {
+//x     OBSERVATORY                 []string            `xml:"OBSERVATORY_METADATA>OBSERVATORY"`
+//x     OBSERVATORY_DESCRIPTION     string              `xml:"OBSERVATORY_METADATA>OBSERVATORY_DESCRIPTION"`
+//x     OBSERVATORY_TIME_SPAN       string              `xml:"OBSERVATORY_METADATA>OBSERVATORY_TIME_SPAN"`
+//x     OBSERVATORY_REGION          []string            `xml:"OBSERVATORY_METADATA>OBSERVATORY_REGION"`
+//x }
+
+
+
+func test_write_xml_04() {
+    
+    m := &CAA_MetaData {}
+    
+    m.MISSION_REGION = append(m.MISSION_REGION, "MISSION_REGION #1")    
+    m.MISSION_REGION = append(m.MISSION_REGION, "MISSION_REGION #2")    
+    m.MISSION_REGION = append(m.MISSION_REGION, "MISSION_REGION #3")    
+    
+    m.MISSION_CAVEATS           = "MISSION_CAVEATSMISSION_CAVEATS"
+
+    m.Observatories.OBSERVATORY = append(m.Observatories.OBSERVATORY, "OBSERVATORIES #1")    
+    m.Observatories.OBSERVATORY = append(m.Observatories.OBSERVATORY, "OBSERVATORIES #2")    
+    m.Observatories.OBSERVATORY = append(m.Observatories.OBSERVATORY, "OBSERVATORIES #3")    
+    
+    m.Observatories.OBSERVATORY_DESCRIPTION = "observatory_description"
+    m.Observatories.OBSERVATORY_TIME_SPAN  = "observatory_time_span"
+    
+    m.Observatories.OBSERVATORY_REGION     = append(m.Observatories.OBSERVATORY_REGION, "observatory_region #1")    
+    m.Observatories.OBSERVATORY_REGION     = append(m.Observatories.OBSERVATORY_REGION, "observatory_region #2")    
+    m.Observatories.OBSERVATORY_REGION     = append(m.Observatories.OBSERVATORY_REGION, "observatory_region #3")    
+    
+    
+	output, err := xml.MarshalIndent(m, "", "  ")
+	if err != nil {
+		fmt.Printf("error: %v\n", err)
+	}
+
+	os.Stdout.Write(output)
+} 
+
         
 func main() {
     //x test_write_xml_01() 
-    test_write_xml_02() 
+    //x test_write_xml_02() 
+    
+    fmt.Println("\n\n")
+    test_write_xml_03() 
+    
+    fmt.Println("\n\n")
+    test_write_xml_04() 
 }

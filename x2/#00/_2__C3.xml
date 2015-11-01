@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated from:
+/c/services/header_includes//CL_CH_MISSION.ceh
+/c/services/header_includes/edi//CL_CH_EDI_EXP.ceh
+/c/services/header_includes//C3_CH_OBS.ceh
+/c/services/header_includes/edi//C3_CH_EDI3_INST.ceh
+/c/services/header_includes/edi//C3_CH_EDI_EGD_DATASET.ceh
+/c/catalog22/products/edi/2011//C3_CP_EDI_EGD__20111009_V01.cef.gz
+by CEF2XML            CAAtools: 1.3.5-Multi support
+Cluster Metadata Dictionary(s): 2.0 2.2-pre 2.3  -->
+
+
+func test_write_xml_05() {
+    
+    m := &CAA_MetaData {}
+    
+    mr := &m.MISSION_REGION
+    *mr = append(*mr, "MISSION_REGION #1")    
+    *mr = append(*mr, "MISSION_REGION #2")    
+    *mr = append(*mr, "MISSION_REGION #3")    
+
+    
+    m.MISSION_CAVEATS           = "MISSION_CAVEATSMISSION_CAVEATS"
+
+    o := &m.Observatories
+    
+    o1 := &o.OBSERVATORY
+    *o1 = append(*o1, "OBSERVATORIES #1")    
+    *o1 = append(*o1, "OBSERVATORIES #2")    
+    *o1 = append(*o1, "OBSERVATORIES #3")    
+    
+    o.OBSERVATORY_DESCRIPTION   = "observatory_description"
+    o.OBSERVATORY_TIME_SPAN     = "observatory_time_span"
+        
+    o2 := &o.OBSERVATORY_REGION
+    *o2 = append(*o2 , "observatory_region #1")    
+    *o2 = append(*o2 , "observatory_region #2")    
+    *o2 = append(*o2 , "observatory_region #3")    
+    
+	output, err := xml.MarshalIndent(m, "", "  ")
+	if err != nil {
+		fmt.Printf("error: %v\n", err)
+	}
+
+	os.Stdout.Write(output)
+} 
+
+
+
+
+
+<CAA_METADATA>
+    <MISSION_METADATA>
+        <MISSION>
+        <MISSION_TIME_SPAN>
+        <MISSION_AGENCY>
+        <MISSION_DESCRIPTION>
+        <MISSION_KEY_PERSONNEL>
+        <MISSION_REFERENCES>
+        <MISSION_REGION>[]...
+        <MISSION_CAVEATS>
+        <OBSERVATORIES>
+            <OBSERVATORY_METADATA>
+            </OBSERVATORY_METADATA>
+        </OBSERVATORIES>
+        <EXPERIMENTS>
+            <EXPERIMENT_METADATA>
+            </EXPERIMENT_METADATA>
+        </EXPERIMENTS>
+        <DATASETS>
+            <DATASET_METADATA>
+                <DATASET_ID>
+                <DATA_TYPE>
+                <DATASET_TITLE>
+                <DATASET_DESCRIPTION>
+                <CONTACT_COORDINATES>
+                <PROCESSING_LEVEL>
+                <TIME_RESOLUTION>
+                <MIN_TIME_RESOLUTION>
+                <MAX_TIME_RESOLUTION>
+                <DATASET_CAVEATS>
+                <ACKNOWLEDGEMENT>
+                <PARAMETERS>[]...
+                </PARAMETERS>
+                <FILE>
+                    <LOGICAL_FILE_ID>
+                    <VERSION_NUMBER>
+                    <FILE_TIME_SPAN>
+                    <GENERATION_DATE>
+                    <FILE_CAVEATS>
+                    <METADATA_TYPE>
+                    <METADATA_VERSION>
+                    <FILE_TYPE>
+                    <DATASET_VERSION>
+                </FILE>
+            </DATASET_METADATA>
+        </DATASETS>
+    </MISSION_METADATA>
+</CAA_METADATA>
+
+
+
+
+
+
+
+//x         <OBSERVATORIES>
+//x             <OBSERVATORY_METADATA>
+//x                 <OBSERVATORY>MULTIPLE</OBSERVATORY>
+//x                 <OBSERVATORY>Cluster-1</OBSERVATORY>
+//x                 <OBSERVATORY>Cluster-2</OBSERVATORY>
+//x                 <OBSERVATORY>Cluster-3</OBSERVATORY>
+//x                 <OBSERVATORY>Cluster-4</OBSERVATORY>
+//x                 <OBSERVATORY_DESCRIPTION>All Cluster spacecraft</OBSERVATORY_DESCRIPTION>
+//x                 <OBSERVATORY_TIME_SPAN>2000-01-01T00:00:00.0Z/2030-12-31T23:59:59.0Z</OBSERVATORY_TIME_SPAN>
+//x                 <OBSERVATORY_REGION>Solar_Wind</OBSERVATORY_REGION>
+//x                 <OBSERVATORY_REGION>Bow_Shock</OBSERVATORY_REGION>
+//x                 <OBSERVATORY_REGION>Magnetosheath</OBSERVATORY_REGION>
+//x                 <OBSERVATORY_REGION>Magnetopause</OBSERVATORY_REGION>
+//x                 <OBSERVATORY_REGION>Magnetosphere</OBSERVATORY_REGION>
+//x                 <OBSERVATORY_REGION>Magnetotail</OBSERVATORY_REGION>
+//x                 <OBSERVATORY_REGION>Polar_Cap</OBSERVATORY_REGION>
+//x                 <OBSERVATORY_REGION>Auroral_Region</OBSERVATORY_REGION>
+//x                 <OBSERVATORY_REGION>Cusp</OBSERVATORY_REGION>
+//x                 <OBSERVATORY_REGION>Radiation_Belt</OBSERVATORY_REGION>
+//x                 <OBSERVATORY_REGION>Plasmasphere</OBSERVATORY_REGION>
+//x             </OBSERVATORY_METADATA>
+//x         </OBSERVATORIES>
+//x         <EXPERIMENTS>
+
