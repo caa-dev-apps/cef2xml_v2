@@ -5,7 +5,8 @@ rem set TEST_FILE_2=C:/_CEF_CEH_EXAMPLES_2013_VALIDATOR_/CEF/EDI/C3_CP_EDI_EGD__
 rem set TEST_FILE_3=C:/_CEF_CEH_EXAMPLES_2013_VALIDATOR_/CEF/EDI/C3_CP_EDI_QZC__20111021_V01.cef
 set TEST_FILE_4=C:/_CEF_CEH_EXAMPLES_2013_VALIDATOR_/CEF/EDI/C3_CP_EDI_QZC__20111021_V01.cef.gz
 
-set APP=..\..\..\..\..\bin\cef2xml_v2.exe
+rem set APP=..\..\..\..\..\bin\cef2xml_v2.exe
+set APP=..\..\..\..\..\bin\app.exe
 
 @echo on
 

@@ -51,8 +51,9 @@ const (
  )
 
 type CefHeaderData struct {
-    debug string
     m_state State
+    
+    m_data CAA_MetaData
 }
  
 func (hds *CefHeaderData) start_meta(v *string)  error {
@@ -71,6 +72,9 @@ func (hds *CefHeaderData) start_var(v *string)  error {
     return err
 } 
  
+///////////////////////////////////////////////////////////////////////////////
+//
+
 func (hds *CefHeaderData) end_meta(v *string)  error {
     err := error(nil)
     
@@ -87,6 +91,9 @@ func (hds *CefHeaderData) end_var(v *string)  error {
     return err
 } 
 
+///////////////////////////////////////////////////////////////////////////////
+//
+
 func (hds *CefHeaderData) kv_meta(k, v *string)  error {
     err := error(nil)
 
@@ -102,11 +109,16 @@ func (hds *CefHeaderData) kv_var(k, v *string)  error {
 } 
 
 func (hds *CefHeaderData) kv_attr(k, v *string)  error {
-    err := error(nil)
-
+    
+    err := hds.m_data.kv_attr(k, v)
+    
     hds.m_state = ATTR
     return err
 } 
+
+///////////////////////////////////////////////////////////////////////////////
+//
+
  
 func (hds *CefHeaderData) set_error(message string)  error {
 
@@ -115,57 +127,65 @@ func (hds *CefHeaderData) set_error(message string)  error {
 } 
  
 
+///////////////////////////////////////////////////////////////////////////////
+//
+
 func (hds *CefHeaderData) add_kv(k, v *string)  error {
     err := error(nil)
     
     fmt.Println("--", *k, *v)
 
-    switch hds.m_state {
-        case ATTR:
-            switch {
-                case strings.EqualFold("START_META", *k) == true :
+    //x ATTR, META, VAR, ERROR
+    switch {
+        case strings.EqualFold("START_META", *k) == true :
+        
+            switch hds.m_state {
+                case ATTR:
                     err = hds.start_meta(v)
-                case strings.EqualFold("START_VARIABLE", *k) == true :
+                default:
+                    err = hds.set_error("START_META: invalid State")
+            }
+            
+        case strings.EqualFold("START_VARIABLE", *k) == true :
+        
+            switch hds.m_state {
+                case ATTR:
                     err = hds.start_var(v)
-                case strings.EqualFold("END_META", *k) == true :
-                    err = hds.set_error("ATTR:END_META")
-                case strings.EqualFold("END_VARIABLE", *k) == true :
-                    err = hds.set_error("ATTR:END_VARIABLE")
-                default :
-                    err = hds.kv_attr(k,v)
-            }   
-        case META:
-            switch {
-                case strings.EqualFold("START_META", *k) == true :
-                    err = hds.set_error("META:START_META")
-                case strings.EqualFold("START_VARIABLE", *k) == true :
-                    err = hds.set_error("META:START_VARIABLE")
-                case strings.EqualFold("END_META", *k) == true :
+                default:
+                    err = hds.set_error("START_VARIABLE: invalid State")
+            }
+        
+        case strings.EqualFold("END_META", *k) == true :
+
+            switch hds.m_state {
+                case META:
                     err = hds.end_meta(v)
-                case strings.EqualFold("END_VARIABLE", *k) == true :
-                    err = hds.set_error("META:END_VARIABLE")
-                default :
-                    err = hds.kv_meta(k,v)
-            }   
-        case VAR:
-            switch {
-                case strings.EqualFold("START_META", *k) == true :
-                    err = hds.set_error("VAR:START_META")
-                case strings.EqualFold("START_VARIABLE", *k) == true :
-                    err = hds.set_error("VAR:START_VARIABLE")
-                case strings.EqualFold("END_META", *k) == true :
-                    err = hds.set_error("VAR:END_META")
-                case strings.EqualFold("END_VARIABLE", *k) == true :
+                default:
+                    err = hds.set_error("END_META: invalid State")
+            }
+
+        case strings.EqualFold("END_VARIABLE", *k) == true :
+                    
+            switch hds.m_state {
+                case VAR:
                     err = hds.end_var(v)
-                default :
+                default:
+                    err = hds.set_error("END_VARIABLE: invalid State")
+            }
+                    
+        default :
+
+            switch hds.m_state {
+                case ATTR:
+                    err = hds.kv_attr(k,v)
+                case META:
+                    err = hds.kv_meta(k,v)
+                case VAR:
                     err = hds.kv_var(k,v)
-            }   
-        case ERROR:
-            // ?
-        default:
-            hds.m_state = ERROR
-    }
+                default:
+                    err = hds.set_error("DEFAULT K,V: invalid State")
+            }
+    }   
     
     return err
 }
-

@@ -2,8 +2,8 @@ package main
 
 import (
 	"encoding/xml"
-//x 	"fmt"
-//x 	"os"
+	"fmt"
+ 	"os"
 )
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -119,6 +119,23 @@ type File struct {
     GENERATION_DATE             string              `xml:"GENERATION_DATE"`
 }
 
+
+
+func (m *CAA_MetaData) dump()  error {
+
+    fmt.Println("+ = = = == ==  + ")
+
+	output, err := xml.MarshalIndent(m, "", "  ")
+	if err != nil {
+		fmt.Printf("error: %v\n", err)
+	}
+
+	os.Stdout.Write(output)
+    
+    return err
+} 
+
+
 /*
 func test_01() {
     
@@ -199,3 +216,36 @@ func main() {
     test_01() 
 }
 */
+
+
+func (m *CAA_MetaData) kv_attr(k, v *string)  error {
+    err := error(nil)
+
+    switch {
+//x         case strings.EqualFold("FILE_NAME", *k) == true :
+        case "FILE_NAME" ==  *k :
+            m.DATASETS.FILE.LOGICAL_FILE_ID = *v                                // just for testing!!!!
+            
+        case "FILE_FORMAT_VERSION" ==  *k :
+            m.DATASETS.FILE.VERSION_NUMBER = *v
+            
+        default:
+            fmt.Println("kv_attr::", *k, *v)
+            
+    }
+    
+    return err
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+

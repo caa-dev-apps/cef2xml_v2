@@ -27,7 +27,7 @@ func check_data(line string) {
 
 func ReadHeader(args *CefArgs) (CefHeaderData, error) {
     
-    l_header := CefHeaderData{ debug: "This is a test 2"}
+    l_header := CefHeaderData{ m_state: ATTR, m_data: CAA_MetaData{} }
     
     l_path := *args.m_cefpath
 
@@ -57,7 +57,7 @@ func ReadHeader(args *CefArgs) (CefHeaderData, error) {
 	for {
 		line, err := r.ReadString('\n')
 		if err != nil {
-			fmt.Println("Done reading file")
+			fmt.Println("Done reading file!!!")
             break;
 		}
 		ix++
@@ -90,7 +90,14 @@ func ReadHeader(args *CefArgs) (CefHeaderData, error) {
         }
 	}
     
+//x     fmt.Printf("Lines read -> %d\n", ix)
+//x     fmt.Println("----------XXXX------------")
     fmt.Printf("Lines read -> %d\n", ix)
+//x     fmt.Println("----------XXXX------------")
+    
+    l_header.m_data.dump()
+    
+    fmt.Println("----------XXXX------------")
     
     return l_header, nil
     
