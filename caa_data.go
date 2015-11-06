@@ -78,6 +78,9 @@ type Datasets struct {
     PARAMETERS                  Parameters          `xml:"DATASET_METADATA>PARAMETERS"`
     FILE                        File                `xml:"DATASET_METADATA>FILE"`
     
+    
+    UNEXPECTED                  Unexpected          `xml:"UNEXPECTED"`
+    
 }                                          
 
 type Parameters struct {                    
@@ -118,6 +121,31 @@ type File struct {
     FILE_TIME_SPAN              string              `xml:"FILE_TIME_SPAN"`
     GENERATION_DATE             string              `xml:"GENERATION_DATE"`
 }
+
+
+type Unexpected struct {                         
+
+    ATTR                        []TypeKeyValue      `xml:"ATTR"`
+    META                        []TypeKeyValue      `xml:"META"`
+    VAR                         []TypeKeyValue      `xml:"VAR"`
+    ERROR                       []TypeKeyValue      `xml:"ERROR"`
+}
+
+
+//x type TypeKeyValue struct {                         
+//x 
+//x     t                           string              `xml:"it>t,attr"`
+//x     k                           string              `xml:"it>k,attr"`
+//x     v                           string              `xml:"it>v,attr"`
+//x }
+
+type TypeKeyValue struct {                         
+
+    t                           string              `xml:"dog>t"`
+    k                           string              `xml:"dog>k"`
+    v                           string              `xml:"dog>v"`
+}
+
 
 
 
@@ -201,6 +229,10 @@ func test_01() {
     m.DATASETS.FILE.GENERATION_DATE                     = "-"
 
     
+    m.DATASETS.UNEXPECTED.ATTR                          = append(m.DATASETS.UNEXPECTED.ATTR, &TypeKeyValue{t:"1", k:"2", v:"3" })    
+    
+    
+    
 	output, err := xml.MarshalIndent(m, "", "  ")
 	if err != nil {
 		fmt.Printf("error: %v\n", err)
@@ -231,6 +263,15 @@ func (m *CAA_MetaData) kv_attr(k, v *string)  error {
             
         default:
             fmt.Println("kv_attr::", *k, *v)
+            
+            ts := TypeKeyValue{t:"1", k:"2", v:"3" }
+            fmt.Println(ts)
+            
+//x             m.DATASETS.UNEXPECTED.ATTR                          = append(m.DATASETS.UNEXPECTED.ATTR, TypeKeyValue{t:"1", k:"2", v:"3" })    
+            m.DATASETS.UNEXPECTED.ATTR                          = append(m.DATASETS.UNEXPECTED.ATTR, ts)    
+            m.DATASETS.UNEXPECTED.ATTR                          = append(m.DATASETS.UNEXPECTED.ATTR, ts)    
+
+            //x m.
             
     }
     
