@@ -17,3 +17,12 @@ func error_check(err error, i_s string) {
 }
 
 
+func fileExists(name string) (bool, error) {
+    
+  _, err := os.Stat(name)
+  
+  if os.IsNotExist(err) {
+    return false, nil
+  }
+  return err != nil, err
+}

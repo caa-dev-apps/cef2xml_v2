@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+//x 	"fmt"
 )
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -13,12 +13,13 @@ func main() {
     error_check(err, "Invalid Command Line Args")
     args.dump()
     
-    header, err := ReadHeader(&args)
+//x     header, err := ReadHeader(&args)
+    _, err = ReadHeader(&args)
     error_check(err, "Error parsing header")
     
     
-    fmt.Println("___________________")
-    fmt.Println(header)
-    fmt.Println("___________________")
+//x     fmt.Println("___________________")
+//x     fmt.Println(header)
+//x     fmt.Println("___________________")
     
 }

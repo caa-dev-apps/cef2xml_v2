@@ -74,6 +74,15 @@ func Test_write_xml_04(t *testing.T) {
     m.DATASETS.FILE.FILE_TIME_SPAN                      = "-"
     m.DATASETS.FILE.GENERATION_DATE                     = "-"
 
+    t1 := &TypeKeyValue{Key:"1", Val:"2" }
+    t2 := &TypeKeyValue{Key:"a", Val:"b" }
+    
+    m.DATASETS.UNEXPECTED.ATTR                          = append(m.DATASETS.UNEXPECTED.ATTR, *t1)    
+    m.DATASETS.UNEXPECTED.ATTR                          = append(m.DATASETS.UNEXPECTED.ATTR, *t2)    
+
+    m.DATASETS.UNEXPECTED.META                          = append(m.DATASETS.UNEXPECTED.META, *t1)    
+    m.DATASETS.UNEXPECTED.META                          = append(m.DATASETS.UNEXPECTED.META, *t2)    
+
     
 	output, err := xml.MarshalIndent(m, "", "  ")
 	if err != nil {

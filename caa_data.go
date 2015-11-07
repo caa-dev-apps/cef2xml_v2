@@ -79,7 +79,7 @@ type Datasets struct {
     FILE                        File                `xml:"DATASET_METADATA>FILE"`
     
     
-    UNEXPECTED                  Unexpected          `xml:"UNEXPECTED"`
+    UNEXPECTED                  Unexpected           `xml:"UNEXPECTED"`
     
 }                                          
 
@@ -125,28 +125,18 @@ type File struct {
 
 type Unexpected struct {                         
 
-    ATTR                        []TypeKeyValue      `xml:"ATTR"`
-    META                        []TypeKeyValue      `xml:"META"`
-    VAR                         []TypeKeyValue      `xml:"VAR"`
-    ERROR                       []TypeKeyValue      `xml:"ERROR"`
+    ATTR                        []TypeKeyValue      `xml:"ATTR>A"`
+    META                        []TypeKeyValue      `xml:"META>M"`
+    VAR                         []TypeKeyValue      `xml:"VAR>V"`
+    ERROR                       []TypeKeyValue      `xml:"ERROR>E"`
 }
 
-
-//x type TypeKeyValue struct {                         
-//x 
-//x     t                           string              `xml:"it>t,attr"`
-//x     k                           string              `xml:"it>k,attr"`
-//x     v                           string              `xml:"it>v,attr"`
-//x }
 
 type TypeKeyValue struct {                         
 
-    t                           string              `xml:"dog>t"`
-    k                           string              `xml:"dog>k"`
-    v                           string              `xml:"dog>v"`
+    Key                         string              `xml:"key,attr"`
+    Val                         string              `xml:"val,attr"`
 }
-
-
 
 
 func (m *CAA_MetaData) dump()  error {
@@ -162,131 +152,58 @@ func (m *CAA_MetaData) dump()  error {
     
     return err
 } 
+    
 
-
-/*
-func test_01() {
+///////////////////////////////////////////////////////////////////////////////
+//
     
-    m := &CAA_MetaData {}
-    
-    m.MISSION                                            = "-"
-    m.MISSION_TIME_SPAN                                  = "-"
-    m.MISSION_AGENCY                                     = "-"
-    m.MISSION_DESCRIPTION                                = "-"
-    m.MISSION_KEY_PERSONNEL                              = "-"
-    m.MISSION_REFERENCES                                 = "-"
-    m.MISSION_REGION                                     = append(m.MISSION_REGION, "[]")    
-    m.MISSION_CAVEATS                                    = "-"
-                                            
-    m.OBSERVATORIES.OBSERVATORY                          = append(m.OBSERVATORIES.OBSERVATORY, "[]")    
-    m.OBSERVATORIES.OBSERVATORY_CAVEATS                  = append(m.OBSERVATORIES.OBSERVATORY_CAVEATS, "[]")    
-    m.OBSERVATORIES.OBSERVATORY_DESCRIPTION              = "-"
-    m.OBSERVATORIES.OBSERVATORY_TIME_SPAN                = "-"
-    m.OBSERVATORIES.OBSERVATORY_REGION                   = append(m.OBSERVATORIES.OBSERVATORY_REGION, "[]")    
-                                            
-    m.EXPERIMENTS.EXPERIMENT                            = "-"
-    m.EXPERIMENTS.EXPERIMENT_DESCRIPTION                = "-"
-    m.EXPERIMENTS.INVESTIGATOR_COORDINATES              = append(m.EXPERIMENTS.INVESTIGATOR_COORDINATES, "[]")    
-    m.EXPERIMENTS.EXPERIMENT_REFERENCES                 = append(m.EXPERIMENTS.EXPERIMENT_REFERENCES, "[]")    
-    m.EXPERIMENTS.EXPERIMENT_KEY_PERSONNEL              = append(m.EXPERIMENTS.EXPERIMENT_KEY_PERSONNEL, "[]")    
-    m.EXPERIMENTS.EXPERIMENT_CAVEATS                    = append(m.EXPERIMENTS.EXPERIMENT_CAVEATS, "[]")    
-    
-    m.EXPERIMENTS.INSTRUMENTS.INSTRUMENT_NAME           = append(m.EXPERIMENTS.INSTRUMENTS.INSTRUMENT_NAME, "[]")    
-    m.EXPERIMENTS.INSTRUMENTS.INSTRUMENT_DESCRIPTION    = append(m.EXPERIMENTS.INSTRUMENTS.INSTRUMENT_DESCRIPTION, "[]")    
-    m.EXPERIMENTS.INSTRUMENTS.INSTRUMENT_TYPE           = append(m.EXPERIMENTS.INSTRUMENTS.INSTRUMENT_TYPE, "[]")    
-    m.EXPERIMENTS.INSTRUMENTS.MEASUREMENT_TYPE          = append(m.EXPERIMENTS.INSTRUMENTS.MEASUREMENT_TYPE, "[]")    
-    m.EXPERIMENTS.INSTRUMENTS.INSTRUMENT_CAVEATS        = append(m.EXPERIMENTS.INSTRUMENTS.INSTRUMENT_CAVEATS, "[]")    
-
-    
-    m.DATASETS.DATASET_ID                               = "-"
-    m.DATASETS.DATA_TYPE                                = "-"
-    m.DATASETS.DATASET_TITLE                            = "-"
-    m.DATASETS.DATASET_DESCRIPTION                      = "-"
-                                           
-    m.DATASETS.CONTACT_COORDINATES                      = append(m.DATASETS.CONTACT_COORDINATES, "[]")    
-                                           
-    m.DATASETS.PROCESSING_LEVEL                         = "-"
-    m.DATASETS.TIME_RESOLUTION                          = "-"
-    m.DATASETS.MIN_TIME_RESOLUTION                      = "-"
-    m.DATASETS.MAX_TIME_RESOLUTION                      = "-"
-    m.DATASETS.DATASET_CAVEATS                          = "-"
-    m.DATASETS.ACKNOWLEDGEMENT                          = "-"
-    
-    p1 := &Parameter { PARAMETER_ID: "-1",  PARAMETER_TYPE : "-", CATDESC : "-",   UNITS : "-" }
-    p2 := &Parameter { PARAMETER_ID: "-2",  PARAMETER_TYPE : "-", CATDESC : "-",   UNITS : "-" }
-    
-    m.DATASETS.PARAMETERS.PARAMETER                     = append(m.DATASETS.PARAMETERS.PARAMETER, *p1)    
-    m.DATASETS.PARAMETERS.PARAMETER                     = append(m.DATASETS.PARAMETERS.PARAMETER, *p2)    
-    
-    m.DATASETS.FILE.FILE_TYPE                           = "-"
-    m.DATASETS.FILE.METADATA_TYPE                       = "-"
-    m.DATASETS.FILE.METADATA_VERSION                    = "-"
-    m.DATASETS.FILE.LOGICAL_FILE_ID                     = "-"
-    m.DATASETS.FILE.VERSION_NUMBER                      = "-"
-    m.DATASETS.FILE.DATASET_VERSION                     = "-"
-    m.DATASETS.FILE.FILE_CAVEATS                        = "-"
-    m.DATASETS.FILE.FILE_TIME_SPAN                      = "-"
-    m.DATASETS.FILE.GENERATION_DATE                     = "-"
-
-    
-    m.DATASETS.UNEXPECTED.ATTR                          = append(m.DATASETS.UNEXPECTED.ATTR, &TypeKeyValue{t:"1", k:"2", v:"3" })    
-    
-    
-    
-	output, err := xml.MarshalIndent(m, "", "  ")
-	if err != nil {
-		fmt.Printf("error: %v\n", err)
-	}
-
-	os.Stdout.Write(output)
-} 
-
-
-        
-func main() {
-    fmt.Println("\n\n")
-    test_01() 
-}
-*/
-
-
-func (m *CAA_MetaData) kv_attr(k, v *string)  error {
+func (m *CAA_MetaData) start_meta(v *string)  error {
     err := error(nil)
 
     switch {
-//x         case strings.EqualFold("FILE_NAME", *k) == true :
-        case "FILE_NAME" ==  *k :
-            m.DATASETS.FILE.LOGICAL_FILE_ID = *v                                // just for testing!!!!
-            
-        case "FILE_FORMAT_VERSION" ==  *k :
-            m.DATASETS.FILE.VERSION_NUMBER = *v
             
         default:
-            fmt.Println("kv_attr::", *k, *v)
-            
-            ts := TypeKeyValue{t:"1", k:"2", v:"3" }
-            fmt.Println(ts)
-            
-//x             m.DATASETS.UNEXPECTED.ATTR                          = append(m.DATASETS.UNEXPECTED.ATTR, TypeKeyValue{t:"1", k:"2", v:"3" })    
-            m.DATASETS.UNEXPECTED.ATTR                          = append(m.DATASETS.UNEXPECTED.ATTR, ts)    
-            m.DATASETS.UNEXPECTED.ATTR                          = append(m.DATASETS.UNEXPECTED.ATTR, ts)    
+            fmt.Println("start_meta::", *v)
 
-            //x m.
-            
+            m.DATASETS.UNEXPECTED.META                          = append(m.DATASETS.UNEXPECTED.META, TypeKeyValue{Key: "START_META", Val: *v })    
     }
     
     return err
 } 
 
+func (m *CAA_MetaData) start_var(v *string)  error {
+    err := error(nil)
 
+    switch {
+            
+        default:
+            fmt.Println("start_var::", *v)
 
+            m.DATASETS.UNEXPECTED.VAR                          = append(m.DATASETS.UNEXPECTED.VAR, TypeKeyValue{Key: "START_VAR", Val: *v })    
+    }
+    
+    return err
+}     
+    
 
+func (m *CAA_MetaData) kv_attr(k, v *string)  error {
+    err := error(nil)
 
+    switch {
+        case "LOGICAL_FILE_ID" ==  *k :
+            m.DATASETS.FILE.LOGICAL_FILE_ID = *v                                // just for testing!!!!
+            
+        case "VERSION_NUMBER" ==  *k :
+            m.DATASETS.FILE.VERSION_NUMBER = *v
+            
+        default:
+            fmt.Println("kv_attr::", *k, *v)
 
-
-
-
-
-
+            m.DATASETS.UNEXPECTED.ATTR                          = append(m.DATASETS.UNEXPECTED.ATTR, TypeKeyValue{Key: *k, Val: *v })    
+            
+    }
+    
+    return err
+} 
 
 

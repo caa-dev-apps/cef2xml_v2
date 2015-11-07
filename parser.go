@@ -57,16 +57,16 @@ type CefHeaderData struct {
 }
  
 func (hds *CefHeaderData) start_meta(v *string)  error {
-    err := error(nil)
     
-    fmt.Println("-x Start Meta", *v)
-    
+    err := hds.m_data.start_meta(v)
+
     hds.m_state = META
     return err
 } 
  
 func (hds *CefHeaderData) start_var(v *string)  error {
-    err := error(nil)
+    //x err := error(nil)
+    err := hds.m_data.start_var(v)
     
     hds.m_state = VAR
     return err
@@ -78,7 +78,7 @@ func (hds *CefHeaderData) start_var(v *string)  error {
 func (hds *CefHeaderData) end_meta(v *string)  error {
     err := error(nil)
     
-    fmt.Println("-x End Meta", *v)
+//x     fmt.Println("-x End Meta", *v)
     
     hds.m_state = ATTR
     return err
@@ -95,6 +95,7 @@ func (hds *CefHeaderData) end_var(v *string)  error {
 //
 
 func (hds *CefHeaderData) kv_meta(k, v *string)  error {
+//x     err := hds.m_data.kv_meta(k, v)
     err := error(nil)
 
     hds.m_state = META
@@ -102,6 +103,7 @@ func (hds *CefHeaderData) kv_meta(k, v *string)  error {
 } 
 
 func (hds *CefHeaderData) kv_var(k, v *string)  error {
+//x     err := hds.m_data.kv_var(k, v)
     err := error(nil)
 
     hds.m_state = VAR
