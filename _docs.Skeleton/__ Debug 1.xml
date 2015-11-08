@@ -1,0 +1,117 @@
+<CAA_METADATA>
+  <MISSION_METADATA>
+    <MISSION></MISSION>
+    <MISSION_TIME_SPAN></MISSION_TIME_SPAN>
+    <MISSION_AGENCY></MISSION_AGENCY>
+    <MISSION_DESCRIPTION></MISSION_DESCRIPTION>
+    <MISSION_KEY_PERSONNEL></MISSION_KEY_PERSONNEL>
+    <MISSION_REFERENCES></MISSION_REFERENCES>
+    <MISSION_CAVEATS></MISSION_CAVEATS>
+    <OBSERVATORIES>
+      <OBSERVATORY_METADATA>
+        <OBSERVATORY_DESCRIPTION></OBSERVATORY_DESCRIPTION>
+        <OBSERVATORY_TIME_SPAN></OBSERVATORY_TIME_SPAN>
+      </OBSERVATORY_METADATA>
+    </OBSERVATORIES>
+    <EXPERIMENTS>
+      <EXPERIMENT_METADATA>
+        <EXPERIMENT></EXPERIMENT>
+        <EXPERIMENT_DESCRIPTION></EXPERIMENT_DESCRIPTION>
+        <INSTRUMENTS>
+          <INSTRUMENT_METADATA></INSTRUMENT_METADATA>
+        </INSTRUMENTS>
+      </EXPERIMENT_METADATA>
+    </EXPERIMENTS>
+    <DATASETS>
+      <DATASET_METADATA>
+        <DATASET_ID></DATASET_ID>
+        <DATA_TYPE></DATA_TYPE>
+        <DATASET_TITLE></DATASET_TITLE>
+        <DATASET_DESCRIPTION></DATASET_DESCRIPTION>
+        <PROCESSING_LEVEL></PROCESSING_LEVEL>
+        <TIME_RESOLUTION></TIME_RESOLUTION>
+        <MIN_TIME_RESOLUTION></MIN_TIME_RESOLUTION>
+        <MAX_TIME_RESOLUTION></MAX_TIME_RESOLUTION>
+        <DATASET_CAVEATS></DATASET_CAVEATS>
+        <ACKNOWLEDGEMENT></ACKNOWLEDGEMENT>
+        <PARAMETERS></PARAMETERS>
+        <FILE>
+          <FILE_TYPE></FILE_TYPE>
+          <METADATA_TYPE></METADATA_TYPE>
+          <METADATA_VERSION></METADATA_VERSION>
+          <LOGICAL_FILE_ID></LOGICAL_FILE_ID>
+          <VERSION_NUMBER></VERSION_NUMBER>
+          <DATASET_VERSION></DATASET_VERSION>
+          <FILE_CAVEATS></FILE_CAVEATS>
+          <FILE_TIME_SPAN></FILE_TIME_SPAN>
+          <GENERATION_DATE></GENERATION_DATE>
+        </FILE>
+      </DATASET_METADATA>
+      <UNEXPECTED>
+        <ATTR>
+          <A key="FILE_NAME" val="C3_CP_EDI_QZC__20111021_V01.cef"></A>
+          <A key="FILE_FORMAT_VERSION" val="CEF-2.0"></A>
+          <A key="DATA_UNTIL" val="EOF"></A>
+        </ATTR>
+        <META>
+          <M key="START_META" val="LOGICAL_FILE_ID"></M>
+          <M key="START_META" val="VERSION_NUMBER"></M>
+          <M key="START_META" val="FILE_TIME_SPAN"></M>
+          <M key="START_META" val="GENERATION_DATE"></M>
+          <M key="START_META" val="FILE_CAVEATS"></M>
+          <M key="START_META" val="MISSION"></M>
+          <M key="START_META" val="MISSION_TIME_SPAN"></M>
+          <M key="START_META" val="MISSION_AGENCY"></M>
+          <M key="START_META" val="MISSION_DESCRIPTION"></M>
+          <M key="START_META" val="MISSION_KEY_PERSONNEL"></M>
+          <M key="START_META" val="MISSION_REFERENCES"></M>
+          <M key="START_META" val="MISSION_REGION"></M>
+          <M key="START_META" val="MISSION_CAVEATS"></M>
+          <M key="START_META" val="EXPERIMENT"></M>
+          <M key="START_META" val="EXPERIMENT_DESCRIPTION"></M>
+          <M key="START_META" val="INVESTIGATOR_COORDINATES"></M>
+          <M key="START_META" val="EXPERIMENT_REFERENCES"></M>
+          <M key="START_META" val="EXPERIMENT_KEY_PERSONNEL"></M>
+          <M key="START_META" val="EXPERIMENT_CAVEATS"></M>
+          <M key="START_META" val="OBSERVATORY"></M>
+          <M key="START_META" val="OBSERVATORY_CAVEATS"></M>
+          <M key="START_META" val="OBSERVATORY_DESCRIPTION"></M>
+          <M key="START_META" val="OBSERVATORY_TIME_SPAN"></M>
+          <M key="START_META" val="OBSERVATORY_REGION"></M>
+          <M key="START_META" val="INSTRUMENT_NAME"></M>
+          <M key="START_META" val="INSTRUMENT_DESCRIPTION"></M>
+          <M key="START_META" val="INSTRUMENT_TYPE"></M>
+          <M key="START_META" val="MEASUREMENT_TYPE"></M>
+          <M key="START_META" val="INSTRUMENT_CAVEATS"></M>
+          <M key="START_META" val="DATASET_ID"></M>
+          <M key="START_META" val="DATA_TYPE"></M>
+          <M key="START_META" val="DATASET_TITLE"></M>
+          <M key="START_META" val="DATASET_DESCRIPTION"></M>
+          <M key="START_META" val="CONTACT_COORDINATES"></M>
+          <M key="START_META" val="TIME_RESOLUTION"></M>
+          <M key="START_META" val="MIN_TIME_RESOLUTION"></M>
+          <M key="START_META" val="MAX_TIME_RESOLUTION"></M>
+          <M key="START_META" val="PROCESSING_LEVEL"></M>
+          <M key="START_META" val="ACKNOWLEDGEMENT"></M>
+          <M key="START_META" val="DATASET_CAVEATS"></M>
+          <M key="START_META" val="DATASET_VERSION"></M>
+          <M key="START_META" val="FILE_TYPE"></M>
+          <M key="START_META" val="METADATA_TYPE"></M>
+          <M key="START_META" val="METADATA_VERSION"></M>
+        </META>
+        <VAR>
+          <V key="START_VAR" val="time_tags__C3_CP_EDI_QZC"></V>
+          <V key="START_VAR" val="Status__C3_CP_EDI_QZC"></V>
+          <V key="START_VAR" val="counts_GDU1_PA_90__C3_CP_EDI_QZC"></V>
+          <V key="START_VAR" val="D1_rlp_gse__C3_CP_EDI_QZC"></V>
+          <V key="START_VAR" val="D1_phi_index__C3_CP_EDI_QZC"></V>
+          <V key="START_VAR" val="D1_theta_index__C3_CP_EDI_QZC"></V>
+          <V key="START_VAR" val="counts_GDU2_PA_90__C3_CP_EDI_QZC"></V>
+          <V key="START_VAR" val="D2_rlp_gse__C3_CP_EDI_QZC"></V>
+          <V key="START_VAR" val="D2_phi_index__C3_CP_EDI_QZC"></V>
+          <V key="START_VAR" val="D2_theta_index__C3_CP_EDI_QZC"></V>
+        </VAR>
+        <ERROR></ERROR>
+      </UNEXPECTED>
+    </DATASETS>
+  </MISSION_METADATA>
