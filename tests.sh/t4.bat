@@ -9,7 +9,7 @@ rem set TEST_FILE_5=C:/_CEF_CEH_EXAMPLES_2013_VALIDATOR_/CEF/RESOLVED/EDI/C3_CP_
 
 set INC_4_1=C:/_CEF_CEH_EXAMPLES_2013_VALIDATOR_/HEADERS/EDI
 
-set APP=..\..\..\..\bin\cef2xml_v2.exe
+set APP=cef2xml_v2.exe
 
 @echo on
 

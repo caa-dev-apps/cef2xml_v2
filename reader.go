@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"os"
 	"regexp"
+    "errors"
 )
 
 func check_data(line string) {
@@ -15,52 +16,63 @@ func check_data(line string) {
 ///////////////////////////////////////////////////////////////////////////////
 //
 
-func ReadHeader(args *CefArgs) (CefHeaderData, error) {
+func ReadHeader(args *CefArgs) (r_header CefHeaderData, r_err error) {
     
-//x     included := []string{}
-    included := map[string]bool{}
+//x included := []string{}
+    includedMap := map[string]bool{}
     ix := 0
     nestedLevel := 0
 	re1 := regexp.MustCompile(`^\s*!.*$`)
 	re2 := regexp.MustCompile(`^\s*(\S+)\s*=\s*(.+)\s*$`)
-    
-    l_header := CefHeaderData{ m_state: ATTR, m_data: CAA_MetaData{} }
-    
+    r_header = CefHeaderData{ m_state: ATTR, m_data: CAA_MetaData{} }
     l_path := *args.m_cefpath
 
     // forward decl
-    var doProcess func(i_path string)
-    
+    //x var doProcess func(i_path string)
+    var doProcess func(i_path string) (err error) 
+        
+    ///////////////////////////////////////////////////////////////////////////////
+    //
+        
     doHeader := func(i_filename string) (err error) {
-        //x err := error(nil)        
+        done := false
+
+        if(nestedLevel >= 8) {
+            return errors.New("Include nested files limit reached (8 deep)")
+        }
         
-        fmt.Println("<---------------------------------------------------------------------- Include ->", i_filename)
+        for i := 0; i < len(args.m_includes) && done == false; i++ {
         
-        for _, l_folder := range args.m_includes {
-            l_path := l_folder + `/` + i_filename
+            l_path := args.m_includes[i] + `/` + i_filename
             
-            _, duplicate := included[l_path]
-            if duplicate == true {
-                fmt.Println("Error: include duplicate X X X X X X X X X X X X X X X X X X X X X X X X X X X ")
-            } else if l_exists, _ := fileExists(l_path); l_exists == true {
-                included[l_path] = true
+            _, included := includedMap[l_path]
+            if included == true {
+                return errors.New("Attempt to include duplcate ceh")
+            } 
                 
+            fmt.Println("PATH: ", i, l_path)
+               
+            if exists, _ := fileExists(l_path); exists == true {
+                includedMap[l_path] = true
                 nestedLevel++
-                if(nestedLevel < 8 ) {
-                    doProcess(l_path)
-                    nestedLevel--
-                } else {
-                    fmt.Println("Error: max nested levels X X X X X X X X X X X X X X X X X X X X X X X X X X X ")
+                
+                if err = doProcess(l_path); err != nil {
+                    return err
                 }
+                nestedLevel--
+                done = true
             }
         }
-
-        fmt.Println("----------------------------------------------------------------------- Include ->", i_filename)
+        
+        if(done == false) {
+            return errors.New("Include file not found: " + i_filename)
+        }
         
         return err
     }    
     
-    doProcess = func(i_path string) {
+    
+    doProcess = func(i_path string) (err error) {
     
         var fz *gzip.Reader    
         var r *bufio.Reader
@@ -102,22 +114,22 @@ func ReadHeader(args *CefArgs) (CefHeaderData, error) {
                     if len(it) == 3  {
                         k := strings.Trim(it[1], ` "'`)
                         v := strings.Trim(it[2], ` "'`)
+                        v = strings.Trim(v, ` "'`)
                         
-//x                         if strings.EqualFold("include", it[1]) == true {
                         if strings.EqualFold("include", k) == true {
                           //x l_headerXml.add_kv("include-start", val)
                           //x include_ceh(val) 
+                          
+                            println("####", v)
                             err = doHeader(v)
+                            if err != nil {
+                                return err
+                            }
+                            
                           //x l_headerXml.add_kv("include-end", val)
                         } else {
-    //x                         l_data_until = strings.EqualFold("DATA_UNTIL", it[1])
-    //x                         l_header.add_kv(&it[1], &it[2])
-//x                             k := strings.Trim(it[1], ` "'`)
-//x                             v := strings.Trim(it[2], ` "'`)
-                            
-    //x                         l_data_until = strings.EqualFold("DATA_UNTIL", it[1])
                             l_data_until = strings.EqualFold("DATA_UNTIL", k)
-                            l_header.add_kv(&k, &v)
+                            r_header.add_kv(&k, &v)
                         }
                     }
                     // else either empty ine
@@ -125,21 +137,24 @@ func ReadHeader(args *CefArgs) (CefHeaderData, error) {
                 }
             }
         }
+        
+        return
     }
     
-    
-    doProcess(l_path)
-    
+    r_err = doProcess(l_path)
+    if r_err  != nil {
+        return 
+    }
         
 //x     fmt.Printf("Lines read -> %d\n", ix)
 //x     fmt.Println("----------XXXX------------")
     fmt.Printf("Lines read -> %d\n", ix)
 //x     fmt.Println("----------XXXX------------")
     
-    l_header.m_data.dump()
+    r_header.m_data.dump()
     
     fmt.Println("----------XXXX------------")
     
-    return l_header, nil
+    return 
     
 }

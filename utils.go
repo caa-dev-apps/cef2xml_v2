@@ -16,13 +16,25 @@ func error_check(err error, i_s string) {
 	}
 }
 
+//x func fileExists(name string) (bool, error) {
+//x     
+//x     info, err := os.Stat(name)
+//x   
+//x     if(err != nil) {
+//x         return false, err
+//x     }
+//x   
+//x     return info.Mode().IsRegular(), err
+//x }
+//x 
 
-func fileExists(name string) (bool, error) {
+func fileExists(name string) (isReq bool, err error) {
     
-  _, err := os.Stat(name)
+    info, err := os.Stat(name)
   
-  if os.IsNotExist(err) {
-    return false, nil
-  }
-  return err != nil, err
+    if(err == nil) {
+        isReq = info.Mode().IsRegular()
+    }
+  
+    return
 }
