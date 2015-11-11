@@ -99,6 +99,15 @@ func (hds *CefHeaderData) add_kv(k, v *string)  (err error) {
                 case ATTR:
                     hds.m_name = *v
                     hds.m_state = META
+                    
+                    m, err := getMeta(*v) //(m eMeta, err error) 
+                    if(err != nil) {
+                        return err
+                    }
+                    
+                    fmt.Println("-x-x-x-x-x-x-x--x-x-x-x--x-x-x-x- ", m, *v)
+                    
+                    
                 default:
                     return errors.New("START_META: invalid State")
             }
