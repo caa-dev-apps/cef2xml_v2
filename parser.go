@@ -10,7 +10,7 @@ import (
 //x 	"regexp"
 )
 
-///////////////////////////////////////////////////////////////////////////////  ///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////  
 //
 
 //          Current State	                Key In	            Val In	            Checks	                            Output function	            Next State
@@ -37,9 +37,8 @@ import (
 //                                          VAR_END	            V	                Name Matches start		                                        A
 //                                          VAR_END	            V	                Name mismatch		                                            Error
 
-///////////////////////////////////////////////////////////////////////////////  ///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////  
 //
-
 
 type State int
 
@@ -54,65 +53,39 @@ type CefHeaderData struct {
     m_state State
     m_name string 
     m_data CAA_MetaData
+    m_meta eMeta
 }
  
 ///////////////////////////////////////////////////////////////////////////////
 //
 
-func (hds *CefHeaderData) kv_meta(k, v *string)  error {
-//x     err := hds.m_data.kv_meta(k, v)
-    err := error(nil)
-
-    hds.m_state = META
-    return err
-} 
-
-func (hds *CefHeaderData) kv_var(k, v *string)  error {
-//x     err := hds.m_data.kv_var(k, v)
-    err := error(nil)
-
-    hds.m_state = VAR
-    return err
-} 
-
-func (hds *CefHeaderData) kv_attr(k, v *string)  error {
-    
-    err := hds.m_data.kv_attr(k, v)
-    
-    hds.m_state = ATTR
-    return err
-} 
-
-///////////////////////////////////////////////////////////////////////////////
-//
-
 func (hds *CefHeaderData) add_kv(k, v *string)  (err error) {
-//x     err := error(nil)
     
-    fmt.Println("--", *k, *v)
+//x     fmt.Println("--", *k, *v)
 
     //x ATTR, META, VAR, ERROR
     switch {
         case strings.EqualFold("START_META", *k) == true :
-        
+            fmt.Println("START_META", *v)
+    
             switch hds.m_state {
                 case ATTR:
                     hds.m_name = *v
                     hds.m_state = META
                     
-                    m, err := getMeta(*v) //(m eMeta, err error) 
+                    hds.m_meta, err = getMeta(*v) //(m eMeta, err error) 
                     if(err != nil) {
                         return err
                     }
                     
-                    fmt.Println("-x-x-x-x-x-x-x--x-x-x-x--x-x-x-x- ", m, *v)
-                    
+                    //x fmt.Println("################################## ", hds.m_meta, *v)
                     
                 default:
                     return errors.New("START_META: invalid State")
             }
             
         case strings.EqualFold("START_VARIABLE", *k) == true :
+            fmt.Println("START_VARIABLE", *v)
         
             switch hds.m_state {
                 case ATTR:
@@ -123,6 +96,7 @@ func (hds *CefHeaderData) add_kv(k, v *string)  (err error) {
             }
         
         case strings.EqualFold("END_META", *k) == true :
+            fmt.Println("END_META", *v)
 
             switch hds.m_state {
                 case META:
@@ -135,6 +109,7 @@ func (hds *CefHeaderData) add_kv(k, v *string)  (err error) {
             }
 
         case strings.EqualFold("END_VARIABLE", *k) == true :
+            fmt.Println("END_VARIABLE", *v)
                     
             switch hds.m_state {
                 case VAR:
@@ -147,6 +122,7 @@ func (hds *CefHeaderData) add_kv(k, v *string)  (err error) {
             }
                     
         default :
+            fmt.Println("  ", *k, *v)
 
             switch hds.m_state {
                 case ATTR:

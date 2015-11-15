@@ -16,10 +16,10 @@ type CAA_MetaData struct {
     MISSION_TIME_SPAN           string              `xml:"MISSION_METADATA>MISSION_TIME_SPAN"`
     MISSION_AGENCY              string              `xml:"MISSION_METADATA>MISSION_AGENCY"`
     MISSION_DESCRIPTION         string              `xml:"MISSION_METADATA>MISSION_DESCRIPTION"`
-    MISSION_KEY_PERSONNEL       string              `xml:"MISSION_METADATA>MISSION_KEY_PERSONNEL"`
+    MISSION_KEY_PERSONNEL       []string            `xml:"MISSION_METADATA>MISSION_KEY_PERSONNEL"`
     MISSION_REFERENCES          string              `xml:"MISSION_METADATA>MISSION_REFERENCES"`
     MISSION_REGION              []string            `xml:"MISSION_METADATA>MISSION_REGION"`
-    MISSION_CAVEATS             string              `xml:"MISSION_METADATA>MISSION_CAVEATS"`
+    MISSION_CAVEATS             []string              `xml:"MISSION_METADATA>MISSION_CAVEATS"`
                                               
     OBSERVATORIES               Observatories       `xml:"MISSION_METADATA>OBSERVATORIES"`
     EXPERIMENTS                 Experiments         `xml:"MISSION_METADATA>EXPERIMENTS"`
@@ -141,8 +141,8 @@ type TypeKeyValue struct {
 
 func (m *CAA_MetaData) dump()  error {
 
-    fmt.Println("+ = = = == ==  + ")
-
+//x     fmt.Println("+ = = = == ==  + ")
+//x 
 	output, err := xml.MarshalIndent(m, "", "  ")
 	if err != nil {
 		fmt.Printf("error: %v\n", err)
@@ -153,57 +153,3 @@ func (m *CAA_MetaData) dump()  error {
     return err
 } 
     
-
-///////////////////////////////////////////////////////////////////////////////
-//
-    
-func (m *CAA_MetaData) start_meta(v *string)  error {
-    err := error(nil)
-
-    switch {
-            
-        default:
-            fmt.Println("start_meta::", *v)
-
-            m.DATASETS.UNEXPECTED.META                          = append(m.DATASETS.UNEXPECTED.META, TypeKeyValue{Key: "START_META", Val: *v })    
-    }
-    
-    return err
-} 
-
-func (m *CAA_MetaData) start_var(v *string)  error {
-    err := error(nil)
-
-    switch {
-            
-        default:
-            fmt.Println("start_var::", *v)
-
-            m.DATASETS.UNEXPECTED.VAR                          = append(m.DATASETS.UNEXPECTED.VAR, TypeKeyValue{Key: "START_VAR", Val: *v })    
-    }
-    
-    return err
-}     
-    
-
-func (m *CAA_MetaData) kv_attr(k, v *string)  error {
-    err := error(nil)
-
-    switch {
-        case "LOGICAL_FILE_ID" ==  *k :
-            m.DATASETS.FILE.LOGICAL_FILE_ID = *v                                // just for testing!!!!
-            
-        case "VERSION_NUMBER" ==  *k :
-            m.DATASETS.FILE.VERSION_NUMBER = *v
-            
-        default:
-            fmt.Println("kv_attr::", *k, *v)
-
-            m.DATASETS.UNEXPECTED.ATTR                          = append(m.DATASETS.UNEXPECTED.ATTR, TypeKeyValue{Key: *k, Val: *v })    
-            
-    }
-    
-    return err
-} 
-
-

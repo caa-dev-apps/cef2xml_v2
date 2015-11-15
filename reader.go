@@ -126,7 +126,7 @@ func ReadCef(args *CefArgs) (r_header CefHeaderData, r_err error) {
 					// else either empty ine
 					// or malformed
 				} else {
-					fmt.Println("This is a comment", line)
+					//x fmt.Println("This is a comment", line)
 				}
 			}
 		}
