@@ -19,7 +19,7 @@ type CAA_MetaData struct {
     MISSION_KEY_PERSONNEL       []string            `xml:"MISSION_METADATA>MISSION_KEY_PERSONNEL"`
     MISSION_REFERENCES          string              `xml:"MISSION_METADATA>MISSION_REFERENCES"`
     MISSION_REGION              []string            `xml:"MISSION_METADATA>MISSION_REGION"`
-    MISSION_CAVEATS             []string              `xml:"MISSION_METADATA>MISSION_CAVEATS"`
+    MISSION_CAVEATS             []string            `xml:"MISSION_METADATA>MISSION_CAVEATS"`
                                               
     OBSERVATORIES               Observatories       `xml:"MISSION_METADATA>OBSERVATORIES"`
     EXPERIMENTS                 Experiments         `xml:"MISSION_METADATA>EXPERIMENTS"`
@@ -44,7 +44,8 @@ type Experiments struct {
     INVESTIGATOR_COORDINATES    []string            `xml:"EXPERIMENT_METADATA>INVESTIGATOR_COORDINATES"`
     EXPERIMENT_REFERENCES       []string            `xml:"EXPERIMENT_METADATA>EXPERIMENT_REFERENCES"`
     EXPERIMENT_KEY_PERSONNEL    []string            `xml:"EXPERIMENT_METADATA>EXPERIMENT_KEY_PERSONNEL"`
-    EXPERIMENT_CAVEATS          []string            `xml:"EXPERIMENT_METADATA>EXPERIMENT_CAVEATS"`
+//x EXPERIMENT_CAVEATS          []string            `xml:"EXPERIMENT_METADATA>EXPERIMENT_CAVEATS"`
+    EXPERIMENT_CAVEATS          string              `xml:"EXPERIMENT_METADATA>EXPERIMENT_CAVEATS"`
                                               
     INSTRUMENTS                 Instruments         `xml:"EXPERIMENT_METADATA>INSTRUMENTS"`
 }                                             
