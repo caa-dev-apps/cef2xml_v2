@@ -54,6 +54,7 @@ type CefHeaderData struct {
     m_name string 
     m_data CAA_MetaData
     m_meta eMeta
+    m_var Parameter
 }
  
 ///////////////////////////////////////////////////////////////////////////////
@@ -78,8 +79,6 @@ func (hds *CefHeaderData) add_kv(k, v *string)  (err error) {
                         return err
                     }
                     
-                    //x fmt.Println("################################## ", hds.m_meta, *v)
-                    
                 default:
                     return errors.New("START_META: invalid State")
             }
@@ -91,6 +90,8 @@ func (hds *CefHeaderData) add_kv(k, v *string)  (err error) {
                 case ATTR:
                     hds.m_name = *v
                     hds.m_state = VAR
+                    
+                    err = hds.new_var()
                 default:
                     return errors.New("START_VARIABLE: invalid State")
             }
