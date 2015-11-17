@@ -112,11 +112,7 @@ func (hds *CefHeaderData) kv_meta_entry(v *string)  (err error){
     //x fmt.Println("##  #  #  #  #  #  #  #  #  #  #   # # # ##", hds.m_meta, *k, *v)
 
     switch hds.m_meta {
-        case LOGICAL_FILE_ID :
-        case VERSION_NUMBER:
-        case FILE_TIME_SPAN:
-        case GENERATION_DATE:
-        case FILE_CAVEATS:                      
+        
         case MISSION:                           err = hds.v_set(&hds.m_data.MISSION, v)
         case MISSION_TIME_SPAN:                 err = hds.v_set(&hds.m_data.MISSION_TIME_SPAN, v)
         case MISSION_AGENCY:                    err = hds.v_set(&hds.m_data.MISSION_AGENCY, v)
@@ -133,32 +129,46 @@ func (hds *CefHeaderData) kv_meta_entry(v *string)  (err error){
         case EXPERIMENT_KEY_PERSONNEL:          err = hds.v_append(&hds.m_data.EXPERIMENTS.EXPERIMENT_KEY_PERSONNEL, v)
         case EXPERIMENT_CAVEATS:                err = hds.v_add(&hds.m_data.EXPERIMENTS.EXPERIMENT_CAVEATS, v)
         
-        case OBSERVATORY:
-        case OBSERVATORY_CAVEATS:
-        case OBSERVATORY_DESCRIPTION:
-        case OBSERVATORY_TIME_SPAN:
-        case OBSERVATORY_REGION:
+        case OBSERVATORY:                       err = hds.v_append(&hds.m_data.OBSERVATORIES.OBSERVATORY, v)
+        case OBSERVATORY_CAVEATS:               err = hds.v_append(&hds.m_data.OBSERVATORIES.OBSERVATORY_CAVEATS, v)
+        case OBSERVATORY_DESCRIPTION:           err = hds.v_add(&hds.m_data.OBSERVATORIES.OBSERVATORY_DESCRIPTION, v)
+        case OBSERVATORY_TIME_SPAN:             err = hds.v_set(&hds.m_data.OBSERVATORIES.OBSERVATORY_TIME_SPAN, v)
+        case OBSERVATORY_REGION:                err = hds.v_append(&hds.m_data.OBSERVATORIES.OBSERVATORY_REGION, v)
         
-        case INSTRUMENT_NAME:
-        case INSTRUMENT_DESCRIPTION:
-        case INSTRUMENT_TYPE:
-        case MEASUREMENT_TYPE:
-        case INSTRUMENT_CAVEATS:
-        case DATASET_ID:
-        case DATA_TYPE:
-        case DATASET_TITLE:
-        case DATASET_DESCRIPTION:
-        case CONTACT_COORDINATES:
-        case TIME_RESOLUTION:
-        case MIN_TIME_RESOLUTION:
-        case MAX_TIME_RESOLUTION:
-        case PROCESSING_LEVEL:
-        case ACKNOWLEDGEMENT:
-        case DATASET_CAVEATS:
-        case DATASET_VERSION:
-        case FILE_TYPE:
-        case METADATA_TYPE:
-        case METADATA_VERSION:
+        case INSTRUMENT_NAME:                   err = hds.v_append(&hds.m_data.EXPERIMENTS.INSTRUMENTS.INSTRUMENT_NAME, v)
+        case INSTRUMENT_DESCRIPTION:            err = hds.v_add(&hds.m_data.EXPERIMENTS.INSTRUMENTS.INSTRUMENT_DESCRIPTION, v)
+        case INSTRUMENT_TYPE:                   err = hds.v_append(&hds.m_data.EXPERIMENTS.INSTRUMENTS.INSTRUMENT_TYPE, v)
+        case MEASUREMENT_TYPE:                  err = hds.v_append(&hds.m_data.EXPERIMENTS.INSTRUMENTS.MEASUREMENT_TYPE, v)
+        case INSTRUMENT_CAVEATS:                err = hds.v_append(&hds.m_data.EXPERIMENTS.INSTRUMENTS.INSTRUMENT_CAVEATS, v)
+        
+        case DATASET_ID:                        err = hds.v_set(&hds.m_data.DATASETS.DATASET_ID, v)
+        case DATA_TYPE:                         err = hds.v_set(&hds.m_data.DATASETS.DATA_TYPE, v)
+        case DATASET_TITLE:                     err = hds.v_set(&hds.m_data.DATASETS.DATASET_TITLE, v)
+        case DATASET_DESCRIPTION:               err = hds.v_add(&hds.m_data.DATASETS.DATASET_DESCRIPTION, v)
+        
+        case CONTACT_COORDINATES:               err = hds.v_append(&hds.m_data.DATASETS.CONTACT_COORDINATES, v)
+        
+        case PROCESSING_LEVEL:                  err = hds.v_set(&hds.m_data.DATASETS.PROCESSING_LEVEL, v)
+        case TIME_RESOLUTION:                   err = hds.v_set(&hds.m_data.DATASETS.TIME_RESOLUTION, v)
+        case MIN_TIME_RESOLUTION:               err = hds.v_set(&hds.m_data.DATASETS.MIN_TIME_RESOLUTION, v)
+        case MAX_TIME_RESOLUTION:               err = hds.v_set(&hds.m_data.DATASETS.MAX_TIME_RESOLUTION, v)
+        case DATASET_CAVEATS:                   err = hds.v_add(&hds.m_data.DATASETS.DATASET_CAVEATS, v)
+        case ACKNOWLEDGEMENT:                   err = hds.v_set(&hds.m_data.DATASETS.ACKNOWLEDGEMENT, v)
+
+
+        case DATASET_VERSION:                   err = hds.v_set(&hds.m_data.DATASETS.FILE.DATASET_VERSION, v)
+        case FILE_TYPE:                         err = hds.v_set(&hds.m_data.DATASETS.FILE.FILE_TYPE, v)
+        case METADATA_TYPE:                     err = hds.v_set(&hds.m_data.DATASETS.FILE.METADATA_TYPE, v)
+        case METADATA_VERSION:                  err = hds.v_set(&hds.m_data.DATASETS.FILE.METADATA_VERSION, v)
+
+        case LOGICAL_FILE_ID :                  err = hds.v_set(&hds.m_data.DATASETS.FILE.LOGICAL_FILE_ID, v)
+        case VERSION_NUMBER:                    err = hds.v_set(&hds.m_data.DATASETS.FILE.VERSION_NUMBER, v)
+        case FILE_TIME_SPAN:                    err = hds.v_set(&hds.m_data.DATASETS.FILE.FILE_TIME_SPAN, v)
+        case GENERATION_DATE:                   err = hds.v_set(&hds.m_data.DATASETS.FILE.GENERATION_DATE, v)
+        case FILE_CAVEATS:                      err = hds.v_set(&hds.m_data.DATASETS.FILE.FILE_CAVEATS, v)
+
+
+        
         default:
     }
     

@@ -44,7 +44,6 @@ type Experiments struct {
     INVESTIGATOR_COORDINATES    []string            `xml:"EXPERIMENT_METADATA>INVESTIGATOR_COORDINATES"`
     EXPERIMENT_REFERENCES       []string            `xml:"EXPERIMENT_METADATA>EXPERIMENT_REFERENCES"`
     EXPERIMENT_KEY_PERSONNEL    []string            `xml:"EXPERIMENT_METADATA>EXPERIMENT_KEY_PERSONNEL"`
-//x EXPERIMENT_CAVEATS          []string            `xml:"EXPERIMENT_METADATA>EXPERIMENT_CAVEATS"`
     EXPERIMENT_CAVEATS          string              `xml:"EXPERIMENT_METADATA>EXPERIMENT_CAVEATS"`
                                               
     INSTRUMENTS                 Instruments         `xml:"EXPERIMENT_METADATA>INSTRUMENTS"`
@@ -53,7 +52,8 @@ type Experiments struct {
 type Instruments struct {                     
                                               
     INSTRUMENT_NAME             []string            `xml:"INSTRUMENT_METADATA>INSTRUMENT_NAME"`
-    INSTRUMENT_DESCRIPTION      []string            `xml:"INSTRUMENT_METADATA>INSTRUMENT_DESCRIPTION"`
+//x INSTRUMENT_DESCRIPTION      []string            `xml:"INSTRUMENT_METADATA>INSTRUMENT_DESCRIPTION"`
+    INSTRUMENT_DESCRIPTION      string              `xml:"INSTRUMENT_METADATA>INSTRUMENT_DESCRIPTION"`
     INSTRUMENT_TYPE             []string            `xml:"INSTRUMENT_METADATA>INSTRUMENT_TYPE"`
     MEASUREMENT_TYPE            []string            `xml:"INSTRUMENT_METADATA>MEASUREMENT_TYPE"`
     INSTRUMENT_CAVEATS          []string            `xml:"INSTRUMENT_METADATA>INSTRUMENT_CAVEATS"`
