@@ -91,7 +91,7 @@ func (hds *CefHeaderData) add_kv(k, v *string)  (err error) {
                     hds.m_name = *v
                     hds.m_state = VAR
                     
-                    err = hds.new_var()
+                    err = hds.stx_var(v)
                 default:
                     return errors.New("START_VARIABLE: invalid State")
             }
@@ -118,6 +118,7 @@ func (hds *CefHeaderData) add_kv(k, v *string)  (err error) {
                         return errors.New("END_VARIABLE: invalid Name")
                     }
                     hds.m_state = ATTR
+                    err = hds.etx_var()
                 default:
                     return errors.New("END_VARIABLE: invalid State")
             }

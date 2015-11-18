@@ -4,6 +4,9 @@ import (
 	"encoding/xml"
 	"fmt"
  	"os"
+//x     "time"
+    "math/rand"
+//x     "os/exec"
 )
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -108,6 +111,14 @@ type Parameter struct {
     PROPERTY                    string              `xml:"PROPERTY,omitempty"`
     QUALITY                     string              `xml:"QUALITY,omitempty"`
     DEPEND_0                    string              `xml:"DEPEND_0,omitempty"`
+    
+    FRAME                       string              `xml:"FRAME,omitempty"`
+    TENSOR_ORDER                string              `xml:"TENSOR_ORDER,omitempty"`
+    COORDINATE_SYSTEM           string              `xml:"COORDINATE_SYSTEM,omitempty"`
+    FRAME_VELOCITY              string              `xml:"FRAME_VELOCITY,omitempty"`
+    REPRESENTATION_1            string              `xml:"REPRESENTATION_1,omitempty"`
+    LABEL_1                     string              `xml:"LABEL_1,omitempty"`
+
 }   
                                          
 type File struct {                         
@@ -140,10 +151,40 @@ type TypeKeyValue struct {
 }
 
 
+//x     for ix, p := range m.DATASETS.PARAMETERS.PARAMETER {
+//x         
+//x         fmt.Println("")
+//x         fmt.Println(ix, "PARAMETER_ID             ", p.PARAMETER_ID)
+//x         fmt.Println(ix, "PARAMETER_TYPE           ", p.PARAMETER_TYPE)
+//x         fmt.Println(ix, "CATDESC                  ", p.CATDESC)
+//x         fmt.Println(ix, "UNITS                    ", p.UNITS)
+//x         fmt.Println(ix, "SI_CONVERSION            ", p.SI_CONVERSION)
+//x         fmt.Println(ix, "SIZES                    ", p.SIZES)
+//x         fmt.Println(ix, "VALUE_TYPE               ", p.VALUE_TYPE)
+//x         fmt.Println(ix, "SIGNIFICANT_DIGITS       ", p.SIGNIFICANT_DIGITS)
+//x         fmt.Println(ix, "FILLVAL                  ", p.FILLVAL)
+//x         fmt.Println(ix, "FIELDNAM                 ", p.FIELDNAM)
+//x         fmt.Println(ix, "LABLAXIS                 ", p.LABLAXIS)
+//x         fmt.Println(ix, "DELTA_PLUS               ", p.DELTA_PLUS)
+//x         fmt.Println(ix, "DELTA_MINUS              ", p.DELTA_MINUS)
+//x 
+//x         fmt.Println(ix, "ENTITY                   ", p.ENTITY)
+//x         fmt.Println(ix, "PROPERTY                 ", p.PROPERTY)
+//x         fmt.Println(ix, "QUALITY                  ", p.QUALITY)
+//x         fmt.Println(ix, "DEPEND_0                 ", p.DEPEND_0)
+//x 
+//x         fmt.Println(ix, "FRAME                    ", p.FRAME)
+//x         fmt.Println(ix, "TENSOR_ORDER             ", p.TENSOR_ORDER)
+//x         fmt.Println(ix, "COORDINATE_SYSTEM        ", p.COORDINATE_SYSTEM)
+//x         fmt.Println(ix, "FRAME_VELOCITY           ", p.FRAME_VELOCITY)
+//x         fmt.Println(ix, "REPRESENTATION_1         ", p.REPRESENTATION_1)
+//x         fmt.Println(ix, "LABEL_1                  ", p.LABEL_1)
+//x     }
+//x         
+
+
 func (m *CAA_MetaData) dump()  error {
 
-//x     fmt.Println("+ = = = == ==  + ")
-//x 
 	output, err := xml.MarshalIndent(m, "", "  ")
 	if err != nil {
 		fmt.Printf("error: %v\n", err)
@@ -151,6 +192,40 @@ func (m *CAA_MetaData) dump()  error {
 
 	os.Stdout.Write(output)
     
+//x     l_now_s := string(time.Now())
+    
+//x     t := time.Now()
+    //x t.Format(time.RFC3339)
+    
+    l_rand := rand.Intn(100000)
+//x     l_filepath := "C:\\Dump\\" + string(l_now.Nanosecond()) + ".xml"
+    l_filepath := "C:/Dump/" + fmt.Sprintf("%d", l_rand) + "/1234.xml"
+    
+    fmt.Println("+++++++++++++++++++++++++++++++++", l_filepath);
+    
+    
+    f, err := os.Create(l_filepath)
+    if err != nil {
+        panic("file create error\n")
+    }
+    defer f.Close()
+    
+    f.Write(output)
+    
+//x     err = exec.Command("open","C:/dump/Got.html").Start()
+//x     err = exec.Command("open","l_filepath").Start()
+
+
+
+    
+        
+        
+        
+        
+        
+        
+        
+        
     return err
 } 
     

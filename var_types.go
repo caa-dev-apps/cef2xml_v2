@@ -27,7 +27,14 @@ const (
     ENTITY                 
     PROPERTY               
     QUALITY                
-    DEPEND_0               
+    DEPEND_0     
+    
+    FRAME                       
+    TENSOR_ORDER                    
+    COORDINATE_SYSTEM               
+    FRAME_VELOCITY                  
+    REPRESENTATION_1                
+    LABEL_1                         
 )
 
 var VarName = []string{
@@ -48,6 +55,13 @@ var VarName = []string{
     PROPERTY:                  "PROPERTY",
     QUALITY:                   "QUALITY",
     DEPEND_0:                  "DEPEND_0",
+    
+    FRAME:                     "FRAME", 
+    TENSOR_ORDER:              "TENSOR_ORDER",     
+    COORDINATE_SYSTEM:         "COORDINATE_SYSTEM",     
+    FRAME_VELOCITY:            "FRAME_VELOCITY",     
+    REPRESENTATION_1:          "REPRESENTATION_1",     
+    LABEL_1:                   "LABEL_1",     
 }
 
 var VarNameMap2 = map[string]eVar {}
@@ -59,11 +73,11 @@ func init() {
     }
 }
    
-func getVar(s string) (m eVar, err error) {
+func getVar(s *string) (m eVar, err error) {
 
-    m, ok  := VarNameMap2[s]
+    m, ok  := VarNameMap2[*s]
     if(ok != true) {
-        return m, errors.New("No Var/Parma Match: " + s)
+        return m, errors.New("No Var/Parma Match: " + *s)
     }
 
     return 
