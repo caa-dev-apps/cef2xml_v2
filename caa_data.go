@@ -4,9 +4,10 @@ import (
 	"encoding/xml"
 	"fmt"
  	"os"
-//x     "time"
-    "math/rand"
-//x     "os/exec"
+    "time"
+//x     "math/rand"
+    "os/exec"
+    "strings"
 )
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -182,6 +183,24 @@ type TypeKeyValue struct {
 //x     }
 //x         
 
+func debug_show_results(output []byte) (err error){
+    
+    s1 := time.Now().Format(time.RFC3339)
+    s1 = strings.Replace(s1, ":", "-", -1)
+    
+    l_filepath := "C:/Dump/" +  s1 + "-Test.xml"
+    
+    f, err := os.Create(l_filepath)
+    if err != nil {
+        panic("file create error\n")
+    }
+    defer f.Close()
+    
+    f.Write(output)
+    err = exec.Command("open", l_filepath).Start()
+    
+    return
+}
 
 func (m *CAA_MetaData) dump()  error {
 
@@ -192,40 +211,8 @@ func (m *CAA_MetaData) dump()  error {
 
 	os.Stdout.Write(output)
     
-//x     l_now_s := string(time.Now())
+    debug_show_results(output)
     
-//x     t := time.Now()
-    //x t.Format(time.RFC3339)
-    
-    l_rand := rand.Intn(100000)
-//x     l_filepath := "C:\\Dump\\" + string(l_now.Nanosecond()) + ".xml"
-    l_filepath := "C:/Dump/" + fmt.Sprintf("%d", l_rand) + "/1234.xml"
-    
-    fmt.Println("+++++++++++++++++++++++++++++++++", l_filepath);
-    
-    
-    f, err := os.Create(l_filepath)
-    if err != nil {
-        panic("file create error\n")
-    }
-    defer f.Close()
-    
-    f.Write(output)
-    
-//x     err = exec.Command("open","C:/dump/Got.html").Start()
-//x     err = exec.Command("open","l_filepath").Start()
-
-
-
-    
-        
-        
-        
-        
-        
-        
-        
-        
     return err
 } 
     
