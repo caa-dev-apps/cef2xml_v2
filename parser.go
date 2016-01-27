@@ -4,7 +4,7 @@ import (
 //x 	"bufio"
 //x 	"compress/gzip"
  	"strings"
-	"fmt"
+//x 	"fmt"
     "errors"
 //x 	"os"
 //x 	"regexp"
@@ -67,7 +67,7 @@ func (hds *CefHeaderData) add_kv(k, v *string)  (err error) {
     //x ATTR, META, VAR, ERROR
     switch {
         case strings.EqualFold("START_META", *k) == true :
-            fmt.Println("START_META", *v)
+            mooi_log("START_META", *v)
     
             switch hds.m_state {
                 case ATTR:
@@ -84,7 +84,7 @@ func (hds *CefHeaderData) add_kv(k, v *string)  (err error) {
             }
             
         case strings.EqualFold("START_VARIABLE", *k) == true :
-            fmt.Println("START_VARIABLE", *v)
+            mooi_log("START_VARIABLE", *v)
         
             switch hds.m_state {
                 case ATTR:
@@ -97,7 +97,7 @@ func (hds *CefHeaderData) add_kv(k, v *string)  (err error) {
             }
         
         case strings.EqualFold("END_META", *k) == true :
-            fmt.Println("END_META", *v)
+            mooi_log("END_META", *v)
 
             switch hds.m_state {
                 case META:
@@ -110,7 +110,7 @@ func (hds *CefHeaderData) add_kv(k, v *string)  (err error) {
             }
 
         case strings.EqualFold("END_VARIABLE", *k) == true :
-            fmt.Println("END_VARIABLE", *v)
+            mooi_log("END_VARIABLE", *v)
                     
             switch hds.m_state {
                 case VAR:
@@ -124,7 +124,7 @@ func (hds *CefHeaderData) add_kv(k, v *string)  (err error) {
             }
                     
         default :
-            fmt.Println("  ", *k, *v)
+            mooi_log("  ", *k, *v)
 
             switch hds.m_state {
                 case ATTR:

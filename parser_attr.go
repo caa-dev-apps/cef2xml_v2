@@ -2,7 +2,7 @@ package main
 
 import (
 //x  	"strings"
-	"fmt"
+//x 	"fmt"
 //x     "errors"
 )
 
@@ -26,7 +26,7 @@ func (hds *CefHeaderData) kv_attr(k, v *string)  (err error) {
             hds.m_data.DATASETS.FILE.VERSION_NUMBER = *v
             
         default:
-            fmt.Println("kv_attr::", *k, *v)
+            mooi_log("kv_attr::", *k, *v)
 
             hds.m_data.DATASETS.UNEXPECTED.ATTR                          = append(hds.m_data.DATASETS.UNEXPECTED.ATTR, TypeKeyValue{Key: *k, Val: *v })    
     }

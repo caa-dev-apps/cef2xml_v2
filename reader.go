@@ -4,14 +4,14 @@ import (
 	"bufio"
 	"compress/gzip"
 	"errors"
-	"fmt"
+//x 	"fmt"
 	"os"
 	"regexp"
 	"strings"
 )
 
-func check_data(line string) {
-}
+//x func check_data(line string) {
+//x }
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -21,8 +21,14 @@ func ReadCef(args *CefArgs) (r_header CefHeaderData, r_err error) {
 	includedMap := map[string]bool{}
 	ix := 0
 	nestedLevel := 0
-	re1 := regexp.MustCompile(`^\s*!.*$`)
-	re2 := regexp.MustCompile(`^\s*(\S+)\s*=\s*(.+)\s*$`)
+//x 	re1 := regexp.MustCompile(`^\s*!.*$`)
+//x 	re2 := regexp.MustCompile(`^\s*(\S+)\s*=\s*(.+)\s*$`)
+    
+	re1 := regexp.MustCompile(`^!.*$`)
+    // need to ignore '!' if inside quotes (of value part) otherwise it's an end of line comment.
+	re2a := regexp.MustCompile(`^(\S+)\s*=\s*(".+")\s*!*.*$`)
+	re2b := regexp.MustCompile(`^(\S+)\s*=\s*(.+)\s*!*.*$`)
+    
 	r_header = CefHeaderData{m_state: ATTR, m_data: CAA_MetaData{}}
 	l_path := *args.m_cefpath
 
@@ -48,7 +54,7 @@ func ReadCef(args *CefArgs) (r_header CefHeaderData, r_err error) {
 				return r_path, errors.New("Attempt to include duplcate ceh")
 			}
 
-			fmt.Println("PATH: ", i, r_path)
+			mooi_log("PATH: ", i, r_path)
 
 			done, _ = fileExists(r_path)
 		}
@@ -87,48 +93,56 @@ func ReadCef(args *CefArgs) (r_header CefHeaderData, r_err error) {
 
 		for scanner.Scan() {
 			line := scanner.Text()
-			ix++
+            line = strings.Trim(line, ` \t`)
 
-			// check if scanning data
+			// check if now scanning data
 			if l_data_until == true {
-				check_data(line)
-			} else if len(line) > 0 {
+                break
+            }
+            
+            if len(line) == 0 {
+                continue
+            }
+            
+            // check is line commented out
+            it := re1.FindStringSubmatch(line)
+            if len(it) == 1 {
+                continue
+            }
+            
+            // checking (key)(=)("value") ! comment pattern
+            it = re2a.FindStringSubmatch(line)
+            if len(it) != 3 {
+                // checking (key)(=)(value) ! comment pattern
+                it = re2b.FindStringSubmatch(line)
+                if len(it) != 3 {
+                    err = errors.New("reader: Malformerd Line -> " + line)
+                    break
+                } 
+            } 
 
-				it := re1.FindStringSubmatch(line)
-				// check is not a comment
-				if len(it) != 1 {
-					// check if key value pair (it[0]=full-match, it[1]=key, it[2]=value .. length = 3)
-					it := re2.FindStringSubmatch(line)
-					if len(it) == 3 {
-						k := strings.Trim(it[1], ` "'`)
-						v := strings.Trim(it[2], ` "'`)
-
-						if strings.EqualFold("include", k) == true {
-							ceh_path, err := getIncludePath(v)
-							if err != nil {
-								return err
-							}
-
-							includedMap[ceh_path] = true
-							nestedLevel++
-
-							if err = doProcess(ceh_path); err != nil {
-								return err
-							}
-							nestedLevel--
-						} else {
-							l_data_until = strings.EqualFold("DATA_UNTIL", k)
-							r_header.add_kv(&k, &v)
-						}
-					} else {
-						fmt.Println("Error: Malformed Line Pattern mismatch!!!!!!!!!!!!!!!!", "[", line, "]", len(line))
-					}
-					// else either empty ine
-					// or malformed
-				} else {
-					//x fmt.Println("This is a comment", line)
-				}
-			}
+            k := strings.Trim(it[1], ` "'`)
+            v := strings.Trim(it[2], ` "'`)
+                
+            if strings.EqualFold("include", k) == true {    
+            	ceh_path, err := getIncludePath(v)    
+            	if err != nil {    
+            		return err    
+            	}    
+                
+            	includedMap[ceh_path] = true    
+            	nestedLevel++    
+                
+            	if err = doProcess(ceh_path); err != nil {    
+            		return err    
+            	}    
+            	nestedLevel--    
+            } else {    
+            	l_data_until = strings.EqualFold("DATA_UNTIL", k)    
+            	r_header.add_kv(&k, &v)    
+            }    
+                
+			ix++
 		}
 
 		return
@@ -139,7 +153,7 @@ func ReadCef(args *CefArgs) (r_header CefHeaderData, r_err error) {
 		return
 	}
 
-	fmt.Printf("Lines read -> %d\n", ix)
+	mooi_log("Lines read -> %d\n", ix)
 
 	r_header.m_data.dump()
 

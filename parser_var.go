@@ -19,7 +19,7 @@ import (
  
 func (hds *CefHeaderData) kv_var(k, v *string)  (err error) {
 
-    println("x x x x x x x x x x  x x x x x x x x x x x ", *k)
+    //x println("x x x x x x x x x x  x x x x x x x x x x x ", *k)
 
     evar, err := getVar(k) 
     if(err != nil) {

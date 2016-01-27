@@ -46,8 +46,8 @@ func (a1s *CefArgs) init() error {
 }
 
 func (a1s *CefArgs) dump() {
-    fmt.Printf("cef path: %s\n", *a1s.m_cefpath)
-    fmt.Println("include folders", a1s.m_includes)
+    mooi_log("cef path: ", *a1s.m_cefpath)
+    mooi_log("include folders", a1s.m_includes)
 }
 
 func NewCefArgs() (args CefArgs, err error) {
