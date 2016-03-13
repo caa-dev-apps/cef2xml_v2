@@ -1,7 +1,7 @@
 package main
 
 import (
-//	"fmt"
+	"fmt"
 //x     "io"
 )
 
@@ -9,8 +9,8 @@ import (
 //
 
 func mooi_log(a ...interface{}) (n int, err error) {
-//x 	return fmt.Println(a)
-	return 
+ 	return fmt.Println(a)
+//x 	return 
 }
 
 
