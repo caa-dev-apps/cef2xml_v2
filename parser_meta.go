@@ -149,13 +149,17 @@ import (
 
 func (hds *CefHeaderData) v_set(io_data *string, kv *KeyVal)  (err error){
     // check value_type here
-    *io_data = kv.val[0]
+//x     *io_data = kv.val[0]
+    
+    *io_data = val_string(kv)
     return
 }
 
 func (hds *CefHeaderData) v_add(io_data *string, kv *KeyVal)  (err error){
     // check value_type here
-    *io_data += (` ` + kv.val[0])
+//x     *io_data += (` ` + kv.val[0])
+    *io_data += (` ` + val_string(kv))
+    
     return
 }
 
@@ -163,7 +167,8 @@ func (hds *CefHeaderData) v_add(io_data *string, kv *KeyVal)  (err error){
 func (hds *CefHeaderData) v_append(io_data *[]string, kv *KeyVal)  (err error){
     // check value_type here
 //x     *io_data  = append(*io_data, *v)    
-    *io_data  = append(*io_data, kv.val...)    
+//x     *io_data  = append(*io_data, kv.val...)    
+    *io_data  = append(*io_data, val_string(kv))    
     return
 }
 

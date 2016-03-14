@@ -211,7 +211,7 @@ func (m *CAA_MetaData) dump()  error {
 
 	os.Stdout.Write(output)
     
-    //x debug_show_results(output)
+    debug_show_results(output)
     
     return err
 } 

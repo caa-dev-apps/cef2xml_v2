@@ -28,7 +28,7 @@ func ReadCef(args *CefArgs) (r_header CefHeaderData, r_err error) {
 	l_path := *args.m_cefpath
 
 	// forward decl
-	var doProcess func(i_path string) (err error)
+	var doProcess func(i_path string) (data_until bool, err error)
 
 	///////////////////////////////////////////////////////////////////////////////
 	//
@@ -143,8 +143,8 @@ func ReadCef(args *CefArgs) (r_header CefHeaderData, r_err error) {
 	//old_regex  		return
 	//old_regex  	}
 
-	doProcess = func(i_filepath string) (err error) {
-		l_data_until := false
+	doProcess = func(i_filepath string) (data_until bool, err error) {
+		//x l_data_until := false
 		l_lines := EachLine(i_filepath)
 
 		for kv := range eachKeyVal(l_lines) {
@@ -154,21 +154,24 @@ func ReadCef(args *CefArgs) (r_header CefHeaderData, r_err error) {
 			//x         if strings.EqualFold("include", k) == true {
 			if strings.EqualFold("include", kv.key) == true {
 				//x             ceh_path, err := getIncludePath(v)
-				ceh_path, err := getIncludePath(kv.val[0])
+                v := strings.Trim(kv.val[0], `" `);
+                
+//x 				ceh_path, err := getIncludePath(kv.val[0])
+				ceh_path, err := getIncludePath(v)
 				if err != nil {
-					return err
+					return data_until, err
 				}
 
 				includedMap[ceh_path] = true
 				nestedLevel++
 
-				if err = doProcess(ceh_path); err != nil {
-					return err
+				if _, err = doProcess(ceh_path); err != nil {
+					return data_until, err
 				}
 				nestedLevel--
 			} else {
 				//x             l_data_until = strings.EqualFold("DATA_UNTIL", k)
-				l_data_until = strings.EqualFold("DATA_UNTIL", kv.key)
+				data_until = strings.EqualFold("DATA_UNTIL", kv.key)
 				//x             	r_header.add_kv(&k, &v)
 				r_header.add_kv(&kv)
 			}
@@ -176,20 +179,21 @@ func ReadCef(args *CefArgs) (r_header CefHeaderData, r_err error) {
 			ix++
 		}
         
-        if l_data_until == false {
-            return errors.New("DATA_UNTIL not found")
-        }
-
 		return
 	}
 
 	//old_regex r_err = doProcess_regex
-	r_err = doProcess(l_path)
+	data_until, r_err := doProcess(l_path)
 	if r_err != nil {
 		return
 	}
-
-	mooi_log("Lines read -> %d\n", ix)
+    
+    if data_until == false {
+        r_err = errors.New("Error: data_until = false")
+        return
+    }
+    
+	mooi_log("Lines read -> ", ix)
 
 	r_header.m_data.dump()
 

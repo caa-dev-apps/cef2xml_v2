@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+//x     "fmt"
+//x     "strings"
+)
 
 //x  	"strings"
 //x 	"fmt"
@@ -82,39 +85,48 @@ func (hds *CefHeaderData) kv_var(kv *KeyVal) (err error) {
 		//x         return err
 	}
 
-	if len(kv.val) > 1 {
-		fmt.Println("------------------ TODO -> kv_var Array len > 1 ------------------ ", kv)
-	}
+//x 	if len(kv.val) > 1 {
+//x 		fmt.Println("------------------ TODO -> kv_var Array len > 1 ------------------ ", kv)
+//x 	}
 
+//x     val_str := ""
+//x     if len(kv.val) == 1 {
+//x         val_str = strings.Trim(kv.val[0], `" `)
+//x     } else {
+//x         val_str = strings.Join(kv.val, ", ")
+//x     }
+    
+    val_str := val_string(kv)
+    
 	switch evar {
 	//x  case PARAMETER_ID:        see below
-	case PARAMETER_TYPE:           hds.m_var.PARAMETER_TYPE = kv.val[0]
-	case CATDESC:                  hds.m_var.CATDESC = kv.val[0]
-	case UNITS:                    hds.m_var.UNITS = kv.val[0]
-	case SI_CONVERSION:            hds.m_var.SI_CONVERSION = kv.val[0]
-	case SIZES:                    hds.m_var.SIZES = kv.val[0]
-	case VALUE_TYPE:               hds.m_var.VALUE_TYPE = kv.val[0]
-	case SIGNIFICANT_DIGITS:       hds.m_var.SIGNIFICANT_DIGITS = kv.val[0]
-	case FILLVAL:                  hds.m_var.FILLVAL = kv.val[0]
-	case FIELDNAM:                 hds.m_var.FIELDNAM = kv.val[0]
-	case LABLAXIS:                 hds.m_var.LABLAXIS = kv.val[0]
-	case DELTA_PLUS:               hds.m_var.DELTA_PLUS = kv.val[0]
-	case DELTA_MINUS:              hds.m_var.DELTA_MINUS = kv.val[0]
-	case ENTITY:                   hds.m_var.ENTITY = kv.val[0]
-	case PROPERTY:                 hds.m_var.PROPERTY = kv.val[0]
-	case QUALITY:                  hds.m_var.QUALITY = kv.val[0]
-	case DEPEND_0:                 hds.m_var.DEPEND_0 = kv.val[0]
+	case PARAMETER_TYPE:           hds.m_var.PARAMETER_TYPE = val_str
+	case CATDESC:                  hds.m_var.CATDESC = val_str
+	case UNITS:                    hds.m_var.UNITS = val_str
+	case SI_CONVERSION:            hds.m_var.SI_CONVERSION = val_str
+	case SIZES:                    hds.m_var.SIZES = val_str
+	case VALUE_TYPE:               hds.m_var.VALUE_TYPE = val_str
+	case SIGNIFICANT_DIGITS:       hds.m_var.SIGNIFICANT_DIGITS = val_str
+	case FILLVAL:                  hds.m_var.FILLVAL = val_str
+	case FIELDNAM:                 hds.m_var.FIELDNAM = val_str
+	case LABLAXIS:                 hds.m_var.LABLAXIS = val_str
+	case DELTA_PLUS:               hds.m_var.DELTA_PLUS = val_str
+	case DELTA_MINUS:              hds.m_var.DELTA_MINUS = val_str
+	case ENTITY:                   hds.m_var.ENTITY = val_str
+	case PROPERTY:                 hds.m_var.PROPERTY = val_str
+	case QUALITY:                  hds.m_var.QUALITY = val_str
+	case DEPEND_0:                 hds.m_var.DEPEND_0 = val_str
 
-	case FRAME:                    hds.m_var.FRAME = kv.val[0]
-	case TENSOR_ORDER:             hds.m_var.TENSOR_ORDER = kv.val[0]
-	case COORDINATE_SYSTEM:        hds.m_var.COORDINATE_SYSTEM = kv.val[0]
-	case FRAME_VELOCITY:           hds.m_var.FRAME_VELOCITY = kv.val[0]
-	case REPRESENTATION_1:         hds.m_var.REPRESENTATION_1 = kv.val[0]
-	case LABEL_1:                  hds.m_var.LABEL_1 = kv.val[0]
+	case FRAME:                    hds.m_var.FRAME = val_str
+	case TENSOR_ORDER:             hds.m_var.TENSOR_ORDER = val_str
+	case COORDINATE_SYSTEM:        hds.m_var.COORDINATE_SYSTEM = val_str
+	case FRAME_VELOCITY:           hds.m_var.FRAME_VELOCITY = val_str
+	case REPRESENTATION_1:         hds.m_var.REPRESENTATION_1 = val_str
+	case LABEL_1:                  hds.m_var.LABEL_1 = val_str
 
 	default:
 		// nothing will get here since getVar filters
-		println("====================================================================== TODO", kv.key[0])
+		println("====================================================================== TODO", val_str)
 	}
 
 	return

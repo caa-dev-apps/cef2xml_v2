@@ -143,6 +143,22 @@ type CefHeaderData struct {
 //old   }
 
 
+func val_string(kv *KeyVal) (s string) {
+
+    if len(kv.val) == 1 {
+        s = strings.Trim(kv.val[0], `" `)
+    } else if len(kv.val) > 1 {
+        s = strings.Join(kv.val, ", ")
+    }
+
+    return
+}
+
+
+//x strings.Trim(kv.val[0], `" `)
+
+
+
 func (hds *CefHeaderData) add_kv(kv *KeyVal)  (err error) {
     
 //x     fmt.Println("--", *k, *v)
