@@ -7,9 +7,6 @@ import (
 	"testing"
 )
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-
 var test_cef_lines_txt_01 = `
 !
     FILE_NAME           =   "C1_CP_PEA_PITCH_3DXLARH_DPFlux__20111031_V01.cef"
@@ -86,9 +83,6 @@ func eachLineText(i_text string) chan string {
 	return output
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-
 func read_cef_chan(i_test_about string, 
                    t *testing.T, 
                    i_lines chan string) {
@@ -124,9 +118,6 @@ func read_cef_file(i_test_name string,
                   t,
                   EachLine(i_filename))
 }
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
 
 func TestRead_01_cef(t *testing.T) {
     read_cef_file("TestRead_01_cef", 

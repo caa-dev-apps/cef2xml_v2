@@ -6,9 +6,6 @@ import (
  	"flag"
 )
 
-///////////////////////////////////////////////////////////////////////////////
-// required to handle cmd args - list of strings e.g. include folders
-
 type strslice []string
  
 func (ss *strslice) String() string {
@@ -20,9 +17,6 @@ func (ss *strslice) Set(s string) error {
     *ss = append(*ss, s)
     return nil
 }
-
-///////////////////////////////////////////////////////////////////////////////
-//
 
 type CefArgs struct
 {

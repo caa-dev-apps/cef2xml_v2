@@ -1,7 +1,6 @@
 package main
 
 import (
-//x  	"fmt"
     "errors"
 )
 
@@ -135,60 +134,5 @@ func getMetaString(m eMeta) (s string, err error) {
     
     return 
 }
-
-///////////////////////////////////////////////////////////////////////////////
-//
-
-//test  func test_enums(s string) (ok bool, err error) {
-//test      fmt.Println("")
-//test      fmt.Println("TEST 1: " + s)
-//test      
-//test      v, ok  := MetaNameMap2[s]
-//test      if(ok != true) {
-//test          return ok, errors.New("No Match")
-//test      }
-//test  
-//test      fmt.Println(s, v)
-//test      
-//test      return 
-//test  }
-//test  
-//test  
-//test  func test_emeta(s string) (m eMeta, err error) {
-//test      fmt.Println("")
-//test      fmt.Println("TEST 2: " + s)
-//test      
-//test      return getMeta(s)
-//test  }
-//test  
-//test  
-//test  func test_emeta_string(m eMeta) (s string, err error) {
-//test      fmt.Println("")
-//test      fmt.Println("TEST 3: " + string(m))
-//test      
-//test      return getMetaString(m)
-//test  }
-//test  
-//test  
-//test  
-//test  func main() {
-//test      fmt.Println(test_enums("MISSION_CAVEATS"))
-//test      fmt.Println(test_enums("INSTRUMENT_DESCRIPTION"))
-//test      fmt.Println(test_enums("DATASET_CAVEATS"))
-//test      fmt.Println(test_enums("XXXXXXXX_XXXXTS"))
-//test  
-//test  
-//test      fmt.Println(test_emeta("MISSION_CAVEATS"))
-//test      fmt.Println(test_emeta("INSTRUMENT_DESCRIPTION"))
-//test      fmt.Println(test_emeta("DATASET_CAVEATS"))
-//test      fmt.Println(test_emeta("XXXXXXXX_XXXXTS"))
-//test  
-//test      
-//test      fmt.Println(test_emeta_string(MISSION_CAVEATS))
-//test      fmt.Println(test_emeta_string(INSTRUMENT_DESCRIPTION))
-//test      fmt.Println(test_emeta_string(DATASET_CAVEATS))
-//test      fmt.Println(test_emeta_string(eMeta(100)))
-//test      
-//test  }
 
 

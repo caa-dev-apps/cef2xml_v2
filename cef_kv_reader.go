@@ -11,9 +11,6 @@ import (
 	"unicode"
 )
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-
 type KVState int
 
 const (
@@ -73,9 +70,6 @@ func state_diag(ch rune, s1, s2 KVState) {
 	fmt.Println(string(ch), state_str(s1), state_str(s2))
 }
 
-///////////////////////////////////////////////////////////////////////////////
-//
-
 func EachLine(i_path string) chan string {
 	output := make(chan string)
 
@@ -113,18 +107,11 @@ func EachLine(i_path string) chan string {
 	return output
 }
 
-///////////////////////////////////////////////////////////////////////////////
-//
-
 type KeyVal struct {
 	key string
 	val []string
 }
 
-///////////////////////////////////////////////////////////////////////////////
-//
-
-//x func parse_next(scanner* bufio.Scanner) (key string, val []string, err error) {
 func eachKeyVal(lines chan string) chan KeyVal {
 	output := make(chan KeyVal)
 
@@ -289,7 +276,7 @@ func eachKeyVal(lines chan string) chan KeyVal {
 		initVars()
 
 		for l_line := range lines {
-            //debug fmt.Println("__________________________________________________", l_line)
+            //debug fmt.Println("< ", l_line)
             
 			err := parse_line(l_line)
 			if err != nil {
@@ -298,7 +285,7 @@ func eachKeyVal(lines chan string) chan KeyVal {
 			}
 
 			if state != B4_NEXT {
-                //debug fmt.Println("==================================================", KeyVal{key, val})
+                //debug fmt.Println("< ", KeyVal{key, val})
                 
                 if len(key) > 0 {
                     output <- KeyVal{key, val}

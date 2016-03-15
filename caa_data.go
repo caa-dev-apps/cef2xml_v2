@@ -5,13 +5,10 @@ import (
 	"fmt"
  	"os"
     "time"
-//x     "math/rand"
     "os/exec"
     "strings"
 )
 
-///////////////////////////////////////////////////////////////////////////////
-//
 
 type CAA_MetaData struct {
     XMLName                     xml.Name            `xml:"CAA_METADATA"`
@@ -56,7 +53,6 @@ type Experiments struct {
 type Instruments struct {                     
                                               
     INSTRUMENT_NAME             []string            `xml:"INSTRUMENT_METADATA>INSTRUMENT_NAME"`
-//x INSTRUMENT_DESCRIPTION      []string            `xml:"INSTRUMENT_METADATA>INSTRUMENT_DESCRIPTION"`
     INSTRUMENT_DESCRIPTION      string              `xml:"INSTRUMENT_METADATA>INSTRUMENT_DESCRIPTION"`
     INSTRUMENT_TYPE             []string            `xml:"INSTRUMENT_METADATA>INSTRUMENT_TYPE"`
     MEASUREMENT_TYPE            []string            `xml:"INSTRUMENT_METADATA>MEASUREMENT_TYPE"`
@@ -150,38 +146,6 @@ type TypeKeyValue struct {
     Key                         string              `xml:"key,attr"`
     Val                         string              `xml:"val,attr"`
 }
-
-
-//x     for ix, p := range m.DATASETS.PARAMETERS.PARAMETER {
-//x         
-//x         fmt.Println("")
-//x         fmt.Println(ix, "PARAMETER_ID             ", p.PARAMETER_ID)
-//x         fmt.Println(ix, "PARAMETER_TYPE           ", p.PARAMETER_TYPE)
-//x         fmt.Println(ix, "CATDESC                  ", p.CATDESC)
-//x         fmt.Println(ix, "UNITS                    ", p.UNITS)
-//x         fmt.Println(ix, "SI_CONVERSION            ", p.SI_CONVERSION)
-//x         fmt.Println(ix, "SIZES                    ", p.SIZES)
-//x         fmt.Println(ix, "VALUE_TYPE               ", p.VALUE_TYPE)
-//x         fmt.Println(ix, "SIGNIFICANT_DIGITS       ", p.SIGNIFICANT_DIGITS)
-//x         fmt.Println(ix, "FILLVAL                  ", p.FILLVAL)
-//x         fmt.Println(ix, "FIELDNAM                 ", p.FIELDNAM)
-//x         fmt.Println(ix, "LABLAXIS                 ", p.LABLAXIS)
-//x         fmt.Println(ix, "DELTA_PLUS               ", p.DELTA_PLUS)
-//x         fmt.Println(ix, "DELTA_MINUS              ", p.DELTA_MINUS)
-//x 
-//x         fmt.Println(ix, "ENTITY                   ", p.ENTITY)
-//x         fmt.Println(ix, "PROPERTY                 ", p.PROPERTY)
-//x         fmt.Println(ix, "QUALITY                  ", p.QUALITY)
-//x         fmt.Println(ix, "DEPEND_0                 ", p.DEPEND_0)
-//x 
-//x         fmt.Println(ix, "FRAME                    ", p.FRAME)
-//x         fmt.Println(ix, "TENSOR_ORDER             ", p.TENSOR_ORDER)
-//x         fmt.Println(ix, "COORDINATE_SYSTEM        ", p.COORDINATE_SYSTEM)
-//x         fmt.Println(ix, "FRAME_VELOCITY           ", p.FRAME_VELOCITY)
-//x         fmt.Println(ix, "REPRESENTATION_1         ", p.REPRESENTATION_1)
-//x         fmt.Println(ix, "LABEL_1                  ", p.LABEL_1)
-//x     }
-//x         
 
 func debug_show_results(output []byte) (err error){
     
