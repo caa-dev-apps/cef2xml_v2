@@ -41,10 +41,12 @@ func (hds *CefHeaderData) kv_var(kv *KeyVal) (err error) {
 	case REPRESENTATION_1:         hds.m_var.REPRESENTATION_1 = val_str
 	case REPRESENTATION_2:         hds.m_var.REPRESENTATION_2 = val_str
 	case REPRESENTATION_3:         hds.m_var.REPRESENTATION_3 = val_str
+	case REPRESENTATION_4:         hds.m_var.REPRESENTATION_4 = val_str
 	case LABEL_0:                  hds.m_var.LABEL_0 = val_str
 	case LABEL_1:                  hds.m_var.LABEL_1 = val_str
 	case LABEL_2:                  hds.m_var.LABEL_2 = val_str
 	case LABEL_3:                  hds.m_var.LABEL_3 = val_str
+	case LABEL_4:                  hds.m_var.LABEL_4 = val_str
 
     case SCALEMIN:                 hds.m_var.SCALEMIN = val_str                    
     case SCALEMAX:                 hds.m_var.SCALEMAX = val_str                    
@@ -52,6 +54,10 @@ func (hds *CefHeaderData) kv_var(kv *KeyVal) (err error) {
     case DISPLAYTYPE:              hds.m_var.DISPLAYTYPE = val_str                 
     case DATA:                     hds.m_var.DATA = val_str                        
     
+    case PARAMETER_CAVEATS:        hds.m_var.PARAMETER_CAVEATS = val_str          
+    case FLUCTUATIONS:             hds.m_var.FLUCTUATIONS = val_str                    
+    case TENSOR_FRAME:             hds.m_var.TENSOR_FRAME = val_str                    
+ 
 	default:
 		println("TODO: ", kv.key, val_str)
         hds.m_data.DATASETS.UNEXPECTED.VAR = append(hds.m_data.DATASETS.UNEXPECTED.VAR, TypeKeyValue{Key: kv.key, Val: val_str })         

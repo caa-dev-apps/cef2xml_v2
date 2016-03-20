@@ -275,8 +275,6 @@ func eachKeyVal(lines chan string) chan KeyVal {
 		initVars()
 
 		for l_line := range lines {
-            //debug fmt.Println("< ", l_line)
-            
 			err := parse_line(l_line)
 			if err != nil {
 				println(err)
@@ -284,8 +282,6 @@ func eachKeyVal(lines chan string) chan KeyVal {
 			}
 
 			if state != B4_NEXT {
-                //debug fmt.Println("< ", KeyVal{key, val})
-                
                 if len(key) > 0 {
                     output <- KeyVal{key, val}
                 }

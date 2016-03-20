@@ -120,13 +120,14 @@ type Parameter struct {
     REPRESENTATION_1            string              `xml:"REPRESENTATION_1,omitempty"`
     REPRESENTATION_2            string              `xml:"REPRESENTATION_2,omitempty"`
     REPRESENTATION_3            string              `xml:"REPRESENTATION_3,omitempty"`
+    REPRESENTATION_4            string              `xml:"REPRESENTATION_4,omitempty"`
     
     LABEL_0                     string              `xml:"LABEL_0,omitempty"`
     LABEL_1                     string              `xml:"LABEL_1,omitempty"`
     LABEL_2                     string              `xml:"LABEL_2,omitempty"`
     LABEL_3                     string              `xml:"LABEL_3,omitempty"`
+    LABEL_4                     string              `xml:"LABEL_4,omitempty"`
 
-    
        
     // Guessed that they belong here
     SCALEMIN                    string              `xml:"SCALEMIN,omitempty"`
@@ -135,8 +136,11 @@ type Parameter struct {
 
     DISPLAYTYPE                 string              `xml:"DISPLAYTYPE,omitempty"`
     DATA                        string              `xml:"DATA,omitempty"`
-    
-    
+    //
+    PARAMETER_CAVEATS           string              `xml:"PARAMETER_CAVEATS,omitempty"`
+    FLUCTUATIONS                string              `xml:"FLUCTUATIONS,omitempty"`
+    TENSOR_FRAME                string              `xml:"TENSOR_FRAME,omitempty"`
+
 }   
                                          
 type File struct {                         
@@ -207,7 +211,7 @@ func (m *CAA_MetaData) dump()  error {
 
 	os.Stdout.Write(output)
     
-    debug_show_results(output)
+    //x debug_show_results(output)
     
     return err
 } 

@@ -1,13 +1,21 @@
 package main
 
 import (
-	"fmt"
+//x 	"fmt"
 )
 
 
 func mooi_log(a ...interface{}) (n int, err error) {
- 	return fmt.Println(a)
+  	//x fmt.Println(a)
+    
+    return 
+//x     return println(a)
 }
+
+//x func mooi_log(a ...interface{}) {
+//x //x  	return fmt.Println(a)
+//x     println(a)
+//x }
 
 func main() {
 
@@ -15,6 +23,8 @@ func main() {
 	error_check(err, "Invalid Command Line Args")
 	args.dump()
 
+    println("Hello, World!")
+    
 	_, err = ReadCef(&args)
 	error_check(err, "Error parsing header")
 

@@ -13,4 +13,4 @@ go install
 
 
 
-set GOOS=linux &&set GOARCH=amd64&& go build -v .
+set GOOS=linux&&set GOARCH=amd64&& go build -v .

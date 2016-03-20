@@ -36,16 +36,22 @@ const (
     REPRESENTATION_1                
     REPRESENTATION_2                
     REPRESENTATION_3                
+    REPRESENTATION_4
     LABEL_0                         
     LABEL_1                         
     LABEL_2                         
     LABEL_3    
+    LABEL_4
 
     SCALEMIN                    
     SCALEMAX                    
     SCALETYP                    
     DISPLAYTYPE                 
-    DATA                        
+    DATA    
+
+    PARAMETER_CAVEATS 
+    FLUCTUATIONS      
+    TENSOR_FRAME      
 )
 
 var VarName = []string{
@@ -77,16 +83,22 @@ var VarName = []string{
     REPRESENTATION_1:          "REPRESENTATION_1",     
     REPRESENTATION_2:          "REPRESENTATION_2",     
     REPRESENTATION_3:          "REPRESENTATION_3",     
+    REPRESENTATION_4:          "REPRESENTATION_4",     
     LABEL_0:                   "LABEL_0",     
     LABEL_1:                   "LABEL_1",     
     LABEL_2:                   "LABEL_2",     
     LABEL_3:                   "LABEL_3",    
+    LABEL_4:                   "LABEL_4",    
 
     SCALEMIN:                  "SCALEMIN",                
     SCALEMAX:                  "SCALEMAX",                    
     SCALETYP:                  "SCALETYP",                    
     DISPLAYTYPE:               "DISPLAYTYPE",                 
-    DATA:                      "DATA",                        
+    DATA:                      "DATA",   
+
+    PARAMETER_CAVEATS:         "PARAMETER_CAVEATS",
+    FLUCTUATIONS:              "FLUCTUATIONS",      
+    TENSOR_FRAME:              "TENSOR_FRAME",      
 }
 
 var VarNameMap2 = map[string]eVar {}
