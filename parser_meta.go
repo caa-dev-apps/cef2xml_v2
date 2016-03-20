@@ -80,6 +80,10 @@ func (hds *CefHeaderData) kv_meta_entry(kv *KeyVal)  (err error){
         case GENERATION_DATE:                   err = hds.v_set(&hds.m_data.DATASETS.FILE.GENERATION_DATE, kv)
         case FILE_CAVEATS:                      err = hds.v_set(&hds.m_data.DATASETS.FILE.FILE_CAVEATS, kv)
         
+        case PARENT_DATASET:                    err = hds.v_set(&hds.m_data.DATASETS.FILE.PARENT_DATASET, kv)
+        case INGESTION_DATE:                    err = hds.v_set(&hds.m_data.DATASETS.FILE.INGESTION_DATE, kv)
+        case FILE_SIZE:                         err = hds.v_set(&hds.m_data.DATASETS.FILE.FILE_SIZE, kv)
+        
         default:
     }
     

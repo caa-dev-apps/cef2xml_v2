@@ -54,6 +54,10 @@ const (
     FILE_TYPE
     METADATA_TYPE
     METADATA_VERSION
+    
+    PARENT_DATASET
+    INGESTION_DATE
+    FILE_SIZE
 )
 
 var MetaName = []string{
@@ -101,6 +105,11 @@ var MetaName = []string{
     FILE_TYPE:                  "FILE_TYPE",
     METADATA_TYPE:              "METADATA_TYPE",
     METADATA_VERSION:           "METADATA_VERSION",
+    
+    PARENT_DATASET:             "PARENT_DATASET",                  
+    INGESTION_DATE:             "INGESTION_DATE",                  
+    FILE_SIZE:                  "FILE_SIZE",                       
+    
 }
      
 var MetaNameMap2 = map[string]eMeta {}

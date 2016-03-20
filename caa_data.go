@@ -108,27 +108,59 @@ type Parameter struct {
     PROPERTY                    string              `xml:"PROPERTY,omitempty"`
     QUALITY                     string              `xml:"QUALITY,omitempty"`
     DEPEND_0                    string              `xml:"DEPEND_0,omitempty"`
+    DEPEND_1                    string              `xml:"DEPEND_1,omitempty"`
+    DEPEND_2                    string              `xml:"DEPEND_2,omitempty"`
+    DEPEND_3                    string              `xml:"DEPEND_3,omitempty"`
     
     FRAME                       string              `xml:"FRAME,omitempty"`
     TENSOR_ORDER                string              `xml:"TENSOR_ORDER,omitempty"`
     COORDINATE_SYSTEM           string              `xml:"COORDINATE_SYSTEM,omitempty"`
     FRAME_VELOCITY              string              `xml:"FRAME_VELOCITY,omitempty"`
+    REPRESENTATION_0            string              `xml:"REPRESENTATION_0,omitempty"`
     REPRESENTATION_1            string              `xml:"REPRESENTATION_1,omitempty"`
+    REPRESENTATION_2            string              `xml:"REPRESENTATION_2,omitempty"`
+    REPRESENTATION_3            string              `xml:"REPRESENTATION_3,omitempty"`
+    
+    LABEL_0                     string              `xml:"LABEL_0,omitempty"`
     LABEL_1                     string              `xml:"LABEL_1,omitempty"`
+    LABEL_2                     string              `xml:"LABEL_2,omitempty"`
+    LABEL_3                     string              `xml:"LABEL_3,omitempty"`
 
+    
+       
+    // Guessed that they belong here
+    SCALEMIN                    string              `xml:"SCALEMIN,omitempty"`
+    SCALEMAX                    string              `xml:"SCALEMAX,omitempty"`
+    SCALETYP                    string              `xml:"SCALETYP,omitempty"`
+
+    DISPLAYTYPE                 string              `xml:"DISPLAYTYPE,omitempty"`
+    DATA                        string              `xml:"DATA,omitempty"`
+    
+    
 }   
                                          
 type File struct {                         
 
-    FILE_TYPE                   string              `xml:"FILE_TYPE"`
-    METADATA_TYPE               string              `xml:"METADATA_TYPE"`
-    METADATA_VERSION            string              `xml:"METADATA_VERSION"`
-    LOGICAL_FILE_ID             string              `xml:"LOGICAL_FILE_ID"`
-    VERSION_NUMBER              string              `xml:"VERSION_NUMBER"`
-    DATASET_VERSION             string              `xml:"DATASET_VERSION"`
-    FILE_CAVEATS                string              `xml:"FILE_CAVEATS"`
-    FILE_TIME_SPAN              string              `xml:"FILE_TIME_SPAN"`
-    GENERATION_DATE             string              `xml:"GENERATION_DATE"`
+    FILE_TYPE                   string              `xml:"FILE_TYPE,omitempty"`
+    METADATA_TYPE               string              `xml:"METADATA_TYPE,omitempty"`
+    METADATA_VERSION            string              `xml:"METADATA_VERSION,omitempty"`
+    LOGICAL_FILE_ID             string              `xml:"LOGICAL_FILE_ID,omitempty"`
+    VERSION_NUMBER              string              `xml:"VERSION_NUMBER,omitempty"`
+    DATASET_VERSION             string              `xml:"DATASET_VERSION,omitempty"`
+    FILE_CAVEATS                string              `xml:"FILE_CAVEATS,omitempty"`
+    FILE_TIME_SPAN              string              `xml:"FILE_TIME_SPAN,omitempty"`
+    GENERATION_DATE             string              `xml:"GENERATION_DATE,omitempty"`
+    
+
+    // guessed the following go here!
+    PARENT_DATASET              string              `xml:"PARENT_DATASET,omitempty"`
+    INGESTION_DATE              string              `xml:"INGESTION_DATE,omitempty"`
+    FILE_SIZE                   string              `xml:"FILE_SIZE,omitempty"`
+
+    FILE_NAME                   string              `xml:"FILE_NAME,omitempty"`
+    FILE_FORMAT_VERSION         string              `xml:"FILE_FORMAT_VERSION,omitempty"`
+    END_OF_RECORD_MARKER        string              `xml:"END_OF_RECORD_MARKER,omitempty"`
+    DATA_UNTIL                  string              `xml:"DATA_UNTIL,omitempty"`
 }
 
 
