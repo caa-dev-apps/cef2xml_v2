@@ -9,7 +9,6 @@ import (
 type strslice []string
  
 func (ss *strslice) String() string {
-    //x return *s
     return fmt.Sprintf("%s", *ss)
 }
  

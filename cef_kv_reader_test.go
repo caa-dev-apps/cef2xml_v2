@@ -88,8 +88,8 @@ func read_cef_chan(i_test_about string,
                    i_lines chan string) {
     cx := 0
 	for _ = range eachKeyVal(i_lines) {
-	//x for kv := range eachKeyVal(i_lines) {
-		//x fmt.Println(cx, kv)
+	//TODO: for kv := range eachKeyVal(i_lines) {
+		//TODO:  fmt.Println(cx, kv)
 		cx++
 	}
 

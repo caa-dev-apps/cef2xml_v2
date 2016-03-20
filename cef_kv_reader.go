@@ -142,7 +142,6 @@ func eachKeyVal(lines chan string) chan KeyVal {
 			case B4_KEY:
 				switch {
 				case ch == '!':
-					//x state = COMMENT
 					break skip_comment
 				case unicode.IsSpace(ch):
 					// No Change
