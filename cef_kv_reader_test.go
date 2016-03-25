@@ -29,7 +29,6 @@ var test_cef_lines_txt_01 = `
     REPRESENTATION_3    =   "x","y","z"
 `
 
-
 var test_cef_lines_txt_02 = `
     FILE_NAME="C3_CP_EDI_EGD__20111009_V01.cef"
     FILE_FORMAT_VERSION="CEF-2.0"
@@ -83,77 +82,74 @@ func eachLineText(i_text string) chan string {
 	return output
 }
 
-func read_cef_chan(i_test_about string, 
-                   t *testing.T, 
-                   i_lines chan string) {
-    cx := 0
+func read_cef_chan(i_test_about string,
+	t *testing.T,
+	i_lines chan string) {
+	cx := 0
 	for _ = range eachKeyVal(i_lines) {
-	//TODO: for kv := range eachKeyVal(i_lines) {
+		//TODO: for kv := range eachKeyVal(i_lines) {
 		//TODO:  fmt.Println(cx, kv)
 		cx++
 	}
 
 	if cx > 0 {
 		t.Log(i_test_about, "cx = ", cx)
-        fmt.Println(i_test_about, "cx = ", cx)
+		fmt.Println(i_test_about, "cx = ", cx)
 	} else {
 		t.Error(i_test_about, "cx = ", cx)
 	}
 }
 
-func read_cef_text(i_test_name string, 
-                   t *testing.T, 
-                   i_text string) {
-                       
-    read_cef_chan(i_test_name + " : Text",
-                  t,
-                  eachLineText(i_text))
+func read_cef_text(i_test_name string,
+	t *testing.T,
+	i_text string) {
+
+	read_cef_chan(i_test_name+" : Text",
+		t,
+		eachLineText(i_text))
 }
 
-func read_cef_file(i_test_name string, 
-                   t *testing.T, 
-                   i_filename string) {
-                       
-    read_cef_chan(i_test_name + " : " + i_filename,
-                  t,
-                  EachLine(i_filename))
+func read_cef_file(i_test_name string,
+	t *testing.T,
+	i_filename string) {
+
+	read_cef_chan(i_test_name+" : "+i_filename,
+		t,
+		EachLine(i_filename))
 }
 
 func TestRead_01_cef(t *testing.T) {
-    read_cef_file("TestRead_01_cef", 
-                  t, 
-                  `C:/_CEF_CEH_EXAMPLES_2013_VALIDATOR_/CEF/EDI/C3_CP_EDI_EGD__20111009_V01.cef`)
+	read_cef_file("TestRead_01_cef",
+		t,
+		`C:/_CEF_CEH_EXAMPLES_2013_VALIDATOR_/CEF/EDI/C3_CP_EDI_EGD__20111009_V01.cef`)
 }
 
 func TestRead_02_cef(t *testing.T) {
-    read_cef_file("TestRead_02_cef", 
-                  t, 
-                  `C:/_CEF_CEH_EXAMPLES_2013_VALIDATOR_/CEF/PEACE/C1_CP_PEA_PITCH_3DXH_DEFlux__20040421_V02.cef`)
+	read_cef_file("TestRead_02_cef",
+		t,
+		`C:/_CEF_CEH_EXAMPLES_2013_VALIDATOR_/CEF/PEACE/C1_CP_PEA_PITCH_3DXH_DEFlux__20040421_V02.cef`)
 }
 
 func TestRead_03_cef_gz(t *testing.T) {
-    read_cef_file("TestRead_03_cef_gz", 
-                  t, 
-                  `C:/_CEF_CEH_EXAMPLES_2013_VALIDATOR_/CEF/EDI/C3_CP_EDI_EGD__20111009_V01.cef.gz`)
+	read_cef_file("TestRead_03_cef_gz",
+		t,
+		`C:/_CEF_CEH_EXAMPLES_2013_VALIDATOR_/CEF/EDI/C3_CP_EDI_EGD__20111009_V01.cef.gz`)
 }
 
 func TestRead_04_cef_gz(t *testing.T) {
-    read_cef_file("TestRead_04_cef_gz", 
-                  t, 
-                  `C:/_CEF_CEH_EXAMPLES_2013_VALIDATOR_/CEF/PEACE/C1_CP_PEA_PITCH_3DXH_DEFlux__20040421_V02.cef.gz`)
+	read_cef_file("TestRead_04_cef_gz",
+		t,
+		`C:/_CEF_CEH_EXAMPLES_2013_VALIDATOR_/CEF/PEACE/C1_CP_PEA_PITCH_3DXH_DEFlux__20040421_V02.cef.gz`)
 }
 
-
 func TestRead_10_cef_text(t *testing.T) {
-    read_cef_text("TestRead_10_cef_text", 
-                  t, 
-                  test_cef_lines_txt_01) 
+	read_cef_text("TestRead_10_cef_text",
+		t,
+		test_cef_lines_txt_01)
 }
 
 func TestRead_11_cef_text(t *testing.T) {
-    read_cef_text("TestRead_11_cef_text", 
-                  t, 
-                  test_cef_lines_txt_02) 
+	read_cef_text("TestRead_11_cef_text",
+		t,
+		test_cef_lines_txt_02)
 }
-
-

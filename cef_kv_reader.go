@@ -26,7 +26,7 @@ const (
 	EOL_COMMENT
 	CONTINUE_NEXT_LINE
 	COMMENT
-    EOL
+	EOL
 )
 
 func state_str(s KVState) (str string) {
@@ -56,7 +56,7 @@ func state_str(s KVState) (str string) {
 		return "CONTINUE_NEXT_LINE  "
 	case COMMENT:
 		return "COMMENT             "
-    case EOL: 
+	case EOL:
 		return "EOL                 "
 	default:
 		return "????????            "
@@ -71,7 +71,7 @@ func state_diag(ch rune, s1, s2 KVState) {
 }
 
 func EachLine(i_path string) chan string {
-	output := make(chan string)
+	output := make(chan string, 16)
 
 	go func() {
 		defer close(output)
@@ -113,7 +113,7 @@ type KeyVal struct {
 }
 
 func eachKeyVal(lines chan string) chan KeyVal {
-	output := make(chan KeyVal)
+	output := make(chan KeyVal, 16)
 
 	state := B4_KEY
 	key := ""
@@ -136,8 +136,8 @@ func eachKeyVal(lines chan string) chan KeyVal {
 
 	skip_comment:
 		for _, ch := range i_line {
-            //debug state_0 := state
-        
+			//debug state_0 := state
+
 			switch state {
 			case B4_KEY:
 				switch {
@@ -257,15 +257,15 @@ func eachKeyVal(lines chan string) chan KeyVal {
 					return
 				}
 			}
-            
-            //debug state_diag(ch , state_0, state)
+
+			//debug state_diag(ch , state_0, state)
 		}
 
-        if(state == VAL) {
-            val = append(val, l_val)
-            state = EOL
-        }
-        
+		if state == VAL {
+			val = append(val, l_val)
+			state = EOL
+		}
+
 		return
 	}
 
@@ -282,10 +282,10 @@ func eachKeyVal(lines chan string) chan KeyVal {
 			}
 
 			if state != B4_NEXT {
-                if len(key) > 0 {
-                    output <- KeyVal{key, val}
-                }
-                
+				if len(key) > 0 {
+					output <- KeyVal{key, val}
+				}
+
 				initVars()
 			}
 		}
@@ -293,4 +293,3 @@ func eachKeyVal(lines chan string) chan KeyVal {
 
 	return output
 }
-

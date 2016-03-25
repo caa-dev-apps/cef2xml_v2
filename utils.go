@@ -14,12 +14,12 @@ func error_check(err error, i_s string) {
 }
 
 func fileExists(name string) (isReq bool, err error) {
-    
-    info, err := os.Stat(name)
-  
-    if(err == nil) {
-        isReq = info.Mode().IsRegular()
-    }
-  
-    return
+
+	info, err := os.Stat(name)
+
+	if err == nil {
+		isReq = info.Mode().IsRegular()
+	}
+
+	return
 }
