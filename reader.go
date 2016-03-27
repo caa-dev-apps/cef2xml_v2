@@ -2,6 +2,7 @@ package main
 
 import (
 	"errors"
+//x  	"fmt"
 	"strings"
 )
 
@@ -49,6 +50,7 @@ func ReadCef(args *CefArgs) (r_header CefHeaderData, r_err error) {
 		l_lines := EachLine(i_filepath)
 
 		for kv := range eachKeyVal(l_lines) {
+			//x fmt.Println(kv)
 
 			if strings.EqualFold("include", kv.key) == true {
 				v := strings.Trim(kv.val[0], `" `)
@@ -66,8 +68,8 @@ func ReadCef(args *CefArgs) (r_header CefHeaderData, r_err error) {
 				}
 				nestedLevel--
 			} else {
-				data_until = strings.EqualFold("DATA_UNTIL", kv.key)
 				r_header.add_kv(&kv)
+				data_until = strings.EqualFold("DATA_UNTIL", kv.key)
 			}
 
 			ix++

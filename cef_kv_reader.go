@@ -183,7 +183,7 @@ func eachKeyVal(lines chan string) chan KeyVal {
 				case ch == '"':
 					l_val = string(ch)
 					state = VAL_Q
-				case unicode.IsLetter(ch) || unicode.IsDigit(ch) || ch == '_' || ch == '.' || ch == '-' || ch == '+':
+				case unicode.IsLetter(ch) || unicode.IsDigit(ch) || ch == '_' || ch == '.' || ch == '-' || ch == '+' || ch == '$':
 					l_val = string(ch)
 					state = VAL
 				default:
@@ -273,19 +273,27 @@ func eachKeyVal(lines chan string) chan KeyVal {
 		defer close(output)
 
 		initVars()
-
+        
 		for l_line := range lines {
 			err := parse_line(l_line)
 			if err != nil {
-				println(err)
+                println("Line->", l_line)
+				println("Error: ", err)
 				break
 			}
 
 			if state != B4_NEXT {
+                
 				if len(key) > 0 {
+                    
 					output <- KeyVal{key, val}
 				}
 
+                if strings.EqualFold("DATA_UNTIL", key) == true {
+                    break
+                }
+                
+                
 				initVars()
 			}
 		}

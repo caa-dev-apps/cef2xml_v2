@@ -97,7 +97,12 @@ func (hds *CefHeaderData) kv_var(kv *KeyVal) (err error) {
 		hds.m_var.FLUCTUATIONS = val_str
 	case TENSOR_FRAME:
 		hds.m_var.TENSOR_FRAME = val_str
-
+    
+	case ERROR_PLUS:
+		hds.m_var.ERROR_PLUS = val_str
+	case ERROR_MINUS:
+		hds.m_var.ERROR_MINUS = val_str
+        
 	default:
 		println("TODO: ", kv.key, val_str)
 		hds.m_data.DATASETS.UNEXPECTED.VAR = append(hds.m_data.DATASETS.UNEXPECTED.VAR, TypeKeyValue{Key: kv.key, Val: val_str})

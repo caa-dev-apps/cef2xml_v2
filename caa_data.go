@@ -129,6 +129,10 @@ type Parameter struct {
 	PARAMETER_CAVEATS string `xml:"PARAMETER_CAVEATS,omitempty"`
 	FLUCTUATIONS      string `xml:"FLUCTUATIONS,omitempty"`
 	TENSOR_FRAME      string `xml:"TENSOR_FRAME,omitempty"`
+    
+    ERROR_PLUS          string `xml:"ERROR_PLUS,omitempty"`
+    ERROR_MINUS         string `xml:"ERROR_MINUS,omitempty"`
+    
 }
 
 type File struct {

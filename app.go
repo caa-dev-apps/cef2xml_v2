@@ -5,16 +5,8 @@ import (
 )
 
 func mooi_log(a ...interface{}) (n int, err error) {
-	//x fmt.Println(a)
-
 	return
-	//x     return println(a)
 }
-
-//x func mooi_log(a ...interface{}) {
-//x //x  	return fmt.Println(a)
-//x     println(a)
-//x }
 
 func main() {
 

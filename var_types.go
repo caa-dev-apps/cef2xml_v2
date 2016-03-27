@@ -52,6 +52,9 @@ const (
 	PARAMETER_CAVEATS
 	FLUCTUATIONS
 	TENSOR_FRAME
+    
+    ERROR_PLUS
+    ERROR_MINUS
 )
 
 var VarName = []string{
@@ -99,6 +102,10 @@ var VarName = []string{
 	PARAMETER_CAVEATS: "PARAMETER_CAVEATS",
 	FLUCTUATIONS:      "FLUCTUATIONS",
 	TENSOR_FRAME:      "TENSOR_FRAME",
+    
+    ERROR_PLUS:         "ERROR_PLUS",
+    ERROR_MINUS:            "ERROR_MINUS",
+
 }
 
 var VarNameMap2 = map[string]eVar{}
