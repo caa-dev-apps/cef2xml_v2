@@ -101,55 +101,55 @@ func read_cef_chan(i_test_about string,
 }
 
 func read_cef_text(i_test_name string,
-	t *testing.T,
-	i_text string) {
+                   t *testing.T,
+                   i_text string) {
 
 	read_cef_chan(i_test_name+" : Text",
-		t,
-		eachLineText(i_text))
+                  t,
+                  eachLineText(i_text))
 }
 
 func read_cef_file(i_test_name string,
-	t *testing.T,
-	i_filename string) {
+                   t *testing.T,
+                   i_filename string) {
 
 	read_cef_chan(i_test_name+" : "+i_filename,
-		t,
-		EachLine(i_filename))
+                  t,
+                  EachLine(i_filename))
 }
 
 func TestRead_01_cef(t *testing.T) {
 	read_cef_file("TestRead_01_cef",
-		t,
-		`C:/_CEF_CEH_EXAMPLES_2013_VALIDATOR_/CEF/EDI/C3_CP_EDI_EGD__20111009_V01.cef`)
+                  t,
+                  `C:/_CEF_CEH_EXAMPLES_2013_VALIDATOR_/CEF/EDI/C3_CP_EDI_EGD__20111009_V01.cef`)
 }
 
 func TestRead_02_cef(t *testing.T) {
 	read_cef_file("TestRead_02_cef",
-		t,
-		`C:/_CEF_CEH_EXAMPLES_2013_VALIDATOR_/CEF/PEACE/C1_CP_PEA_PITCH_3DXH_DEFlux__20040421_V02.cef`)
+                  t,
+                  `C:/_CEF_CEH_EXAMPLES_2013_VALIDATOR_/CEF/PEACE/C1_CP_PEA_PITCH_3DXH_DEFlux__20040421_V02.cef`)
 }
 
 func TestRead_03_cef_gz(t *testing.T) {
 	read_cef_file("TestRead_03_cef_gz",
-		t,
-		`C:/_CEF_CEH_EXAMPLES_2013_VALIDATOR_/CEF/EDI/C3_CP_EDI_EGD__20111009_V01.cef.gz`)
+                  t,
+                  `C:/_CEF_CEH_EXAMPLES_2013_VALIDATOR_/CEF/EDI/C3_CP_EDI_EGD__20111009_V01.cef.gz`)
 }
 
 func TestRead_04_cef_gz(t *testing.T) {
 	read_cef_file("TestRead_04_cef_gz",
-		t,
-		`C:/_CEF_CEH_EXAMPLES_2013_VALIDATOR_/CEF/PEACE/C1_CP_PEA_PITCH_3DXH_DEFlux__20040421_V02.cef.gz`)
+                  t,
+                  `C:/_CEF_CEH_EXAMPLES_2013_VALIDATOR_/CEF/PEACE/C1_CP_PEA_PITCH_3DXH_DEFlux__20040421_V02.cef.gz`)
 }
 
 func TestRead_10_cef_text(t *testing.T) {
 	read_cef_text("TestRead_10_cef_text",
-		t,
-		test_cef_lines_txt_01)
+                  t,
+                  test_cef_lines_txt_01)
 }
 
 func TestRead_11_cef_text(t *testing.T) {
 	read_cef_text("TestRead_11_cef_text",
-		t,
-		test_cef_lines_txt_02)
+                  t,
+                  test_cef_lines_txt_02)
 }

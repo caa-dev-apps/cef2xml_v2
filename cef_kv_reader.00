@@ -32,34 +32,20 @@ const (
 func state_str(s KVState) (str string) {
 
 	switch s {
-	case B4_KEY:
-		return "B4_KEY              "
-	case KEY:
-		return "KEY                 "
-	case B4_EQ:
-		return "B4_EQ               "
-	case B4_VAL:
-		return "B4_VAL              "
-	case VAL_Q:
-		return "VAL_Q               "
-	case VAL:
-		return "VAL                 "
-	case B4_NEXT:
-		return "B4_NEXT             "
-	case B4_NEXT_COMMENT:
-		return "B4_NEXT_COMMENT     "
-	case B4_EOL:
-		return "B4_EOL              "
-	case EOL_COMMENT:
-		return "EOL_COMMENT         "
-	case CONTINUE_NEXT_LINE:
-		return "CONTINUE_NEXT_LINE  "
-	case COMMENT:
-		return "COMMENT             "
-	case EOL:
-		return "EOL                 "
-	default:
-		return "????????            "
+	case B4_KEY:                return "B4_KEY              "
+	case KEY:                   return "KEY                 "
+	case B4_EQ:                 return "B4_EQ               "
+	case B4_VAL:                return "B4_VAL              "
+	case VAL_Q:                 return "VAL_Q               "
+	case VAL:                   return "VAL                 "
+	case B4_NEXT:               return "B4_NEXT             "
+	case B4_NEXT_COMMENT:       return "B4_NEXT_COMMENT     "
+	case B4_EOL:                return "B4_EOL              "
+	case EOL_COMMENT:           return "EOL_COMMENT         "
+	case CONTINUE_NEXT_LINE:    return "CONTINUE_NEXT_LINE  "
+	case COMMENT:               return "COMMENT             "
+	case EOL:                   return "EOL                 "
+	default:                    return "????????            "
 	}
 
 	return
@@ -285,7 +271,6 @@ func eachKeyVal(lines chan string) chan KeyVal {
 			if state != B4_NEXT {
                 
 				if len(key) > 0 {
-                    
 					output <- KeyVal{key, val}
 				}
 

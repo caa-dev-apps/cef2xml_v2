@@ -14,3 +14,13 @@ go install
 
 
 set GOOS=linux&&set GOARCH=amd64&& go build -v .
+
+
+
+
+
+go test -run regex
+
+e.g partial
+    go test -run TestRead_11
+
