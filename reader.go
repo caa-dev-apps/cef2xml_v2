@@ -2,9 +2,9 @@ package main
 
 import (
 	"errors"
-//x  	"fmt"
 	"strings"
 )
+
 
 func ReadCef(args *CefArgs) (r_header CefHeaderData, r_err error) {
 
@@ -46,15 +46,13 @@ func ReadCef(args *CefArgs) (r_header CefHeaderData, r_err error) {
 		return
 	}
 
+
 	doProcess = func(i_filepath string) (data_until bool, err error) {
 		l_lines := EachLine(i_filepath)
 
 		for kv := range eachKeyVal(l_lines) {
-			//x fmt.Println(kv)
-
 			if strings.EqualFold("include", kv.key) == true {
-				v := strings.Trim(kv.val[0], `" `)
-
+		                v := strings.Trim(kv.val[0], `" `);                
 				ceh_path, err := getIncludePath(v)
 				if err != nil {
 					return data_until, err
@@ -68,13 +66,13 @@ func ReadCef(args *CefArgs) (r_header CefHeaderData, r_err error) {
 				}
 				nestedLevel--
 			} else {
-				r_header.add_kv(&kv)
 				data_until = strings.EqualFold("DATA_UNTIL", kv.key)
+				r_header.add_kv(&kv)
 			}
 
 			ix++
 		}
-
+        
 		return
 	}
 
@@ -82,14 +80,13 @@ func ReadCef(args *CefArgs) (r_header CefHeaderData, r_err error) {
 	if r_err != nil {
 		return
 	}
-
-	if data_until == false {
-		r_err = errors.New("Error: data_until = false")
-		return
-	}
-
-	//x mooi_log("Lines read -> ", ix)
-	println("Lines read -> ", ix)
+    
+    if data_until == false {
+        r_err = errors.New("Error: data_until = false")
+        return
+    }
+    
+	mooi_log("Lines read -> ", ix)
 
 	r_header.m_data.dump()
 
